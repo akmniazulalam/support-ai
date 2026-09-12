@@ -14,6 +14,7 @@ const MAX_SLUG_GENERATION_ATTEMPTS = 5;
 
 export const publicAgentSelect = {
   id: true,
+  publicId: true,
   name: true,
   slug: true,
   greeting: true,
@@ -152,6 +153,7 @@ export class AgentsService {
   private toPublicAgent(agent: Agent): PublicAgent {
     return {
       id: agent.id,
+      publicId: agent.publicId,
       name: agent.name,
       slug: agent.slug,
       greeting: agent.greeting,
