@@ -11,3 +11,103 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum KnowledgeSourceType {
+  TEXT
+  FAQ
+  WEBSITE
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+}
+
+model User {
+  id               String      @id @default(cuid())
+  email            String      @unique
+  passwordHash     String
+  firstName        String
+  lastName         String
+  refreshTokenHash String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  workspaces       Workspace[] @relation("WorkspaceOwner")
+}
+
+model Workspace {
+  id               String            @id @default(cuid())
+  name             String
+  slug             String            @unique
+  ownerId          String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  owner            User              @relation("WorkspaceOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  agents           Agent[]
+  knowledgeSources KnowledgeSource[]
+
+  @@index([ownerId])
+}
+
+model Agent {
+  id               String            @id @default(cuid())
+  publicId         String            @unique @default(uuid())
+  workspaceId      String
+  name             String
+  slug             String
+  greeting         String?
+  instructions     String?
+  isActive         Boolean           @default(true)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  workspace        Workspace         @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  knowledgeSources KnowledgeSource[]
+  conversations    Conversation[]
+
+  @@unique([workspaceId, slug])
+  @@unique([id, workspaceId])
+  @@index([workspaceId])
+  @@index([workspaceId, isActive])
+}
+
+model KnowledgeSource {
+  id          String              @id @default(cuid())
+  workspaceId String
+  agentId     String
+  type        KnowledgeSourceType
+  title       String
+  content     String?
+  sourceUrl   String?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  workspace   Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  agent       Agent               @relation(fields: [agentId, workspaceId], references: [id, workspaceId], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([agentId])
+  @@index([workspaceId, agentId])
+}
+
+model Conversation {
+  id                       String    @id @default(cuid())
+  agentId                  String
+  customerSessionTokenHash String?   @unique
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+  agent                    Agent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  messages                 Message[]
+
+  @@index([agentId])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  role           MessageRole
+  content        String
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@index([createdAt])
+}
