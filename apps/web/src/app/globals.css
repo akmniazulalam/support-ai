@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --surface: #111218;
+  --surface-hover: #161822;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-subtle: rgba(255, 255, 255, 0.04);
 }
 
 @theme inline {
@@ -10,17 +14,78 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-jost: var(--font-jost);
+  --font-syne: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost);
+  height: 100%;
+}
+
+/* Custom sleek scrollbar for chat message lists */
+.chat-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Smooth message entrance */
+@keyframes messageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-message-entrance {
+  animation: messageEntrance 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Typing pulse animation */
+@keyframes typingPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.animate-typing-dot-1 {
+  animation: typingPulse 1.4s infinite ease-in-out;
+}
+
+.animate-typing-dot-2 {
+  animation: typingPulse 1.4s infinite ease-in-out 0.2s;
+}
+
+.animate-typing-dot-3 {
+  animation: typingPulse 1.4s infinite ease-in-out 0.4s;
+}
+
