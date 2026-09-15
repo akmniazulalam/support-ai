@@ -6,6 +6,7 @@ import {
   BookOpenIcon,
   BotIcon,
   BuildingIcon,
+  CreditCardIcon,
   LayoutDashboardIcon,
   LogOutIcon,
   MessagesSquareIcon,
@@ -37,6 +38,11 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Conversations',
     href: '/dashboard/conversations',
     icon: MessagesSquareIcon,
+  },
+  {
+    label: 'Billing',
+    href: '/dashboard/billing',
+    icon: CreditCardIcon,
   },
   {
     label: 'Knowledge Base',
