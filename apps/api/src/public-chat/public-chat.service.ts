@@ -5,6 +5,7 @@ import {
   AI_PROVIDER,
   type AiProvider,
 } from '../ai/providers/ai-provider.interface.js';
+import { UsageService } from '../billing/usage.service.js';
 import { ConversationHistoryBuilderService } from '../conversations/conversation-history-builder.service.js';
 import {
   ConversationsService,
@@ -33,6 +34,7 @@ export class PublicChatService {
     private readonly conversationsService: ConversationsService,
     private readonly knowledgeContextBuilder: KnowledgeContextBuilderService,
     private readonly conversationHistoryBuilder: ConversationHistoryBuilderService,
+    private readonly usageService: UsageService,
     @Inject(AI_PROVIDER) private readonly aiProvider: AiProvider,
   ) {}
 
@@ -117,25 +119,36 @@ export class PublicChatService {
       history.reverse(),
     );
 
-    await this.conversationsService.appendMessage(
-      conversation.id,
-      MessageRole.USER,
-      dto.message,
+    const usageReservation = await this.usageService.reserveAiMessage(
+      agent.workspaceId,
     );
 
-    const answer = await this.aiProvider.generateResponse(
-      agent.instructions ?? '',
-      knowledgeContext,
-      dto.message,
-      conversationHistory,
-    );
-    const assistantMessage = await this.conversationsService.appendMessage(
-      conversation.id,
-      MessageRole.ASSISTANT,
-      answer,
-    );
+    try {
+      await this.conversationsService.appendMessage(
+        conversation.id,
+        MessageRole.USER,
+        dto.message,
+      );
 
-    return { message: assistantMessage };
+      const answer = await this.aiProvider.generateResponse(
+        agent.instructions ?? '',
+        knowledgeContext,
+        dto.message,
+        conversationHistory,
+      );
+      const assistantMessage = await this.conversationsService.appendMessage(
+        conversation.id,
+        MessageRole.ASSISTANT,
+        answer,
+      );
+
+      return { message: assistantMessage };
+    } catch (error) {
+      await this.usageService
+        .releaseAiMessageReservation(usageReservation)
+        .catch(() => undefined);
+      throw error;
+    }
   }
 
   private async findAvailableAgentOrThrow(publicId: string): Promise<Agent> {
