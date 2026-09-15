@@ -3,6 +3,7 @@ import { PassportModule } from '@nestjs/passport';
 import { AgentChatModule } from '../agent-chat/agent-chat.module.js';
 import { AgentsModule } from '../agents/agents.module.js';
 import { AiModule } from '../ai/ai.module.js';
+import { UsageModule } from '../billing/usage.module.js';
 import { PrismaModule } from '../prisma/prisma.module.js';
 import { ConversationHistoryBuilderService } from './conversation-history-builder.service.js';
 import { ConversationMessagesService } from './conversation-messages.service.js';
@@ -12,6 +13,7 @@ import { ConversationsService } from './conversations.service.js';
 @Module({
   imports: [
     AiModule,
+    UsageModule,
     AgentChatModule,
     AgentsModule,
     PrismaModule,

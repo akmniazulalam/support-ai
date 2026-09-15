@@ -5,6 +5,7 @@ import { AppService } from './app.service.js';
 import { AgentChatModule } from './agent-chat/agent-chat.module.js';
 import { AgentsModule } from './agents/agents.module.js';
 import { AuthModule } from './auth/auth.module.js';
+import { BillingModule } from './billing/billing.module.js';
 import { ConversationsModule } from './conversations/conversations.module.js';
 import { HealthModule } from './health/health.module.js';
 import { KnowledgeModule } from './knowledge/knowledge.module.js';
@@ -19,6 +20,7 @@ import { WorkspacesModule } from './workspaces/workspaces.module.js';
     PrismaModule,
     HealthModule,
     AuthModule,
+    BillingModule,
     UsersModule,
     WorkspacesModule,
     AgentsModule,

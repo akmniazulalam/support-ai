@@ -4,6 +4,7 @@ import {
   AI_PROVIDER,
   type AiProvider,
 } from '../ai/providers/ai-provider.interface.js';
+import { UsageService } from '../billing/usage.service.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { TestChatDto } from './dto/test-chat.dto.js';
 import { KnowledgeContextBuilderService } from './knowledge-context-builder.service.js';
@@ -14,6 +15,7 @@ export class AgentChatService {
     private readonly agentsService: AgentsService,
     private readonly prisma: PrismaService,
     private readonly knowledgeContextBuilder: KnowledgeContextBuilderService,
+    private readonly usageService: UsageService,
     @Inject(AI_PROVIDER) private readonly aiProvider: AiProvider,
   ) {}
 
@@ -40,12 +42,23 @@ export class AgentChatService {
       },
     });
     const context = this.knowledgeContextBuilder.build(knowledgeSources);
-    const answer = await this.aiProvider.generateResponse(
-      agent.instructions ?? '',
-      context,
-      dto.message,
+    const usageReservation = await this.usageService.reserveAiMessage(
+      agent.workspaceId,
     );
 
-    return { answer };
+    try {
+      const answer = await this.aiProvider.generateResponse(
+        agent.instructions ?? '',
+        context,
+        dto.message,
+      );
+
+      return { answer };
+    } catch (error) {
+      await this.usageService
+        .releaseAiMessageReservation(usageReservation)
+        .catch(() => undefined);
+      throw error;
+    }
   }
 }
