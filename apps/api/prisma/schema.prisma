@@ -44,12 +44,18 @@ enum DevelopmentCheckoutStatus {
   CANCELED
 }
 
+enum UserRole {
+  USER
+  ADMIN
+}
+
 model User {
   id               String      @id @default(cuid())
   email            String      @unique
   passwordHash     String
   firstName        String
   lastName         String
+  role             UserRole    @default(USER)
   refreshTokenHash String?
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
