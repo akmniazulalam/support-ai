@@ -18,6 +18,7 @@ import {
   updateCurrentUser as updateCurrentUserApi,
   updateCurrentWorkspace as updateCurrentWorkspaceApi,
 } from '@/lib/api/auth';
+import { getAdminOverview } from '@/lib/api/admin';
 import {
   clearStoredTokens,
   getStoredTokens,
@@ -38,6 +39,7 @@ interface AuthContextValue {
   workspaces: BasicWorkspace[];
   isLoading: boolean;
   isAuthenticated: boolean;
+  isAdmin: boolean;
   login: (dto: LoginDto) => Promise<void>;
   signup: (dto: SignUpDto) => Promise<void>;
   logout: () => Promise<void>;
@@ -53,6 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [workspace, setWorkspace] = useState<FullWorkspace | null>(null);
   const [workspaces, setWorkspaces] = useState<BasicWorkspace[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   const isRestoringRef = useRef<boolean>(false);
 
@@ -63,6 +66,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(null);
       setWorkspace(null);
       setWorkspaces([]);
+      setIsAdmin(false);
       setIsLoading(false);
       return;
     }
@@ -73,7 +77,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         getCurrentWorkspace(),
       ]);
 
-      setUser(userData.user);
+      let resolvedAdmin = false;
+      try {
+        await getAdminOverview();
+        resolvedAdmin = true;
+      } catch {
+        resolvedAdmin = false;
+      }
+
+      setIsAdmin(resolvedAdmin);
+      setUser({
+        ...userData.user,
+        role: resolvedAdmin ? 'ADMIN' : 'USER',
+      });
       setWorkspaces(userData.workspaces);
       setWorkspace(workspaceData);
     } catch {
@@ -82,6 +98,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(null);
       setWorkspace(null);
       setWorkspaces([]);
+      setIsAdmin(false);
     } finally {
       setIsLoading(false);
     }
@@ -102,7 +119,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         refreshToken: authRes.refreshToken,
       });
 
-      setUser(authRes.user);
+      let resolvedAdmin = false;
+      try {
+        await getAdminOverview();
+        resolvedAdmin = true;
+      } catch {
+        resolvedAdmin = false;
+      }
+
+      setIsAdmin(resolvedAdmin);
+      setUser({
+        ...authRes.user,
+        role: resolvedAdmin ? 'ADMIN' : 'USER',
+      });
 
       // Load user's active workspace
       try {
@@ -133,7 +162,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         refreshToken: authRes.refreshToken,
       });
 
-      setUser(authRes.user);
+      setIsAdmin(false);
+      setUser({
+        ...authRes.user,
+        role: 'USER',
+      });
       if (authRes.workspace) {
         setWorkspace({
           ...authRes.workspace,
@@ -155,6 +188,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(null);
       setWorkspace(null);
       setWorkspaces([]);
+      setIsAdmin(false);
       setIsLoading(false);
     }
   }, []);
@@ -184,6 +218,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         workspaces,
         isLoading,
         isAuthenticated: !!user,
+        isAdmin,
         login,
         signup,
         logout,
