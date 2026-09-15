@@ -11,6 +11,8 @@ import {
   LogOutIcon,
   MessagesSquareIcon,
   SettingsIcon,
+  ShieldCheckIcon,
+  UserIcon,
 } from '@/components/ui/icons';
 
 import { useAuth } from '@/hooks/use-auth';
@@ -60,13 +62,36 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
+const ADMIN_NAV_ITEMS: NavItem[] = [
+  {
+    label: 'Admin Overview',
+    href: '/dashboard/admin',
+    icon: ShieldCheckIcon,
+  },
+  {
+    label: 'Users',
+    href: '/dashboard/admin/users',
+    icon: UserIcon,
+  },
+  {
+    label: 'Workspaces',
+    href: '/dashboard/admin/workspaces',
+    icon: BuildingIcon,
+  },
+  {
+    label: 'Subscriptions',
+    href: '/dashboard/admin/subscriptions',
+    icon: CreditCardIcon,
+  },
+];
+
 interface DashboardSidebarProps {
   onNavigate?: () => void;
 }
 
 export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
   const pathname = usePathname();
-  const { user, workspace, logout } = useAuth();
+  const { user, workspace, logout, isAdmin } = useAuth();
 
   const userInitials =
     user?.firstName && user?.lastName
@@ -166,6 +191,45 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
             </Link>
           );
         })}
+
+        {/* Administration Section - Only visible to ADMIN users */}
+        {isAdmin && (
+          <div className="pt-4 mt-2 border-t border-white/[0.06] space-y-1">
+            <div className="flex items-center justify-between px-3 pb-2">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
+                Administration
+              </span>
+              <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Admin
+              </span>
+            </div>
+            {ADMIN_NAV_ITEMS.map((item) => {
+              const isActive =
+                item.href === '/dashboard/admin'
+                  ? pathname === item.href
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              const Icon = item.icon;
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={onNavigate}
+                  className={`flex items-center justify-between rounded-xl px-3 py-2 text-xs font-medium transition-all duration-150 ${
+                    isActive
+                      ? 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 shadow-xs'
+                      : 'text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Icon className={`h-4 w-4 ${isActive ? 'text-emerald-400' : 'text-zinc-400'}`} />
+                    <span>{item.label}</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </nav>
 
       {/* User Card & Logout Footer */}
@@ -176,9 +240,16 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
               {userInitials}
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-xs font-semibold text-zinc-200 truncate">
-                {user ? `${user.firstName} ${user.lastName}` : 'User'}
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-semibold text-zinc-200 truncate">
+                  {user ? `${user.firstName} ${user.lastName}` : 'User'}
+                </span>
+                {isAdmin && (
+                  <span className="text-[9px] font-mono uppercase px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                    Admin
+                  </span>
+                )}
+              </div>
               <span className="text-[10px] text-zinc-500 font-mono truncate">
                 {user?.email}
               </span>
