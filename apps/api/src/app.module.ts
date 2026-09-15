@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { AgentChatModule } from './agent-chat/agent-chat.module.js';
+import { AdminModule } from './admin/admin.module.js';
 import { AgentsModule } from './agents/agents.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { BillingModule } from './billing/billing.module.js';
@@ -20,6 +21,7 @@ import { WorkspacesModule } from './workspaces/workspaces.module.js';
     PrismaModule,
     HealthModule,
     AuthModule,
+    AdminModule,
     BillingModule,
     UsersModule,
     WorkspacesModule,
