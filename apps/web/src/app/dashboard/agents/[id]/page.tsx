@@ -31,11 +31,16 @@ interface ChatMessage {
   content: string;
 }
 
+interface ChatError {
+  message: string;
+  isRateLimit: boolean;
+}
+
 function TestChatPanel({ agent }: { agent: Agent }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
-  const [chatError, setChatError] = useState<string | null>(null);
+  const [chatError, setChatError] = useState<ChatError | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,11 +61,23 @@ function TestChatPanel({ agent }: { agent: Agent }) {
       const { answer } = await testChat(agent.id, text);
       setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
     } catch (err) {
-      const msg =
-        err instanceof AuthApiError
-          ? err.message
-          : 'Failed to get a response. Please try again.';
-      setChatError(msg);
+      if (
+        err instanceof AuthApiError &&
+        err.code === 'AI_USAGE_LIMIT_REACHED'
+      ) {
+        setChatError({
+          message: err.message,
+          isRateLimit: true,
+        });
+      } else {
+        setChatError({
+          message:
+            err instanceof AuthApiError
+              ? err.message
+              : 'Failed to get a response. Please try again.',
+          isRateLimit: false,
+        });
+      }
     } finally {
       setIsSending(false);
     }
@@ -131,7 +148,17 @@ function TestChatPanel({ agent }: { agent: Agent }) {
         {chatError && (
           <div className="flex items-start gap-2 rounded-xl border border-red-500/20 bg-red-500/5 px-3 py-2.5">
             <AlertCircleIcon className="h-4 w-4 shrink-0 text-red-400 mt-0.5" />
-            <p className="text-xs text-red-400">{chatError}</p>
+            <div className="text-xs text-red-400">
+              <p>{chatError.message}</p>
+              {chatError.isRateLimit && (
+                <Link
+                  href="/dashboard/billing"
+                  className="mt-1 inline-block text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors"
+                >
+                  Upgrade to Pro for more messages →
+                </Link>
+              )}
+            </div>
           </div>
         )}
 
