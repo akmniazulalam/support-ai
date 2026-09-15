@@ -21,14 +21,23 @@ export class AuthApiError extends Error {
   readonly isUnauthorized: boolean;
   readonly isNotFound: boolean;
   readonly isConflict: boolean;
+  readonly isRateLimited: boolean;
   readonly isNetworkError: boolean;
   readonly validationErrors?: string[];
+  readonly code?: string;
+  readonly limit?: number;
+  readonly used?: number;
+  readonly plan?: string;
 
   constructor(
     message: string,
     status = 500,
     isNetworkError = false,
     validationErrors?: string[],
+    code?: string,
+    limit?: number,
+    used?: number,
+    plan?: string,
   ) {
     super(message);
     this.name = 'AuthApiError';
@@ -36,8 +45,13 @@ export class AuthApiError extends Error {
     this.isUnauthorized = status === 401;
     this.isNotFound = status === 404;
     this.isConflict = status === 409;
+    this.isRateLimited = status === 429;
     this.isNetworkError = isNetworkError;
     this.validationErrors = validationErrors;
+    this.code = code;
+    this.limit = limit;
+    this.used = used;
+    this.plan = plan;
   }
 }
 
@@ -47,24 +61,40 @@ interface NestErrorPayload {
   statusCode?: number;
   message?: string | string[];
   error?: string;
+  code?: string;
+  limit?: number;
+  used?: number;
+  plan?: string;
 }
 
 async function parseErrorResponse(response: Response): Promise<{
   message: string;
   validationErrors?: string[];
+  code?: string;
+  limit?: number;
+  used?: number;
+  plan?: string;
 }> {
   try {
     const data = (await response.json()) as NestErrorPayload;
+    let message = response.statusText || 'An unexpected error occurred';
+    let validationErrors: string[] | undefined;
+
     if (typeof data.message === 'string') {
-      return { message: data.message };
+      message = data.message;
+    } else if (Array.isArray(data.message) && data.message.length > 0) {
+      message = data.message[0];
+      validationErrors = data.message;
     }
-    if (Array.isArray(data.message) && data.message.length > 0) {
-      return {
-        message: data.message[0],
-        validationErrors: data.message,
-      };
-    }
-    return { message: response.statusText || 'An unexpected error occurred' };
+
+    return {
+      message,
+      validationErrors,
+      code: data.code,
+      limit: data.limit,
+      used: data.used,
+      plan: data.plan,
+    };
   } catch {
     return { message: response.statusText || 'An unexpected error occurred' };
   }
@@ -147,12 +177,17 @@ async function rawRequest<T>(
   }
 
   if (!response.ok) {
-    const { message, validationErrors } = await parseErrorResponse(response);
+    const { message, validationErrors, code, limit, used, plan } =
+      await parseErrorResponse(response);
     throw new AuthApiError(
       message,
       response.status,
       false,
       validationErrors,
+      code,
+      limit,
+      used,
+      plan,
     );
   }
 
