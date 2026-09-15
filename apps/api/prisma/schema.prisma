@@ -23,6 +23,27 @@ enum MessageRole {
   ASSISTANT
 }
 
+enum SubscriptionPlan {
+  FREE
+  PRO
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  TRIALING
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+  INCOMPLETE_EXPIRED
+  UNPAID
+}
+
+enum DevelopmentCheckoutStatus {
+  PENDING
+  COMPLETED
+  CANCELED
+}
+
 model User {
   id               String      @id @default(cuid())
   email            String      @unique
@@ -36,15 +57,18 @@ model User {
 }
 
 model Workspace {
-  id               String            @id @default(cuid())
-  name             String
-  slug             String            @unique
-  ownerId          String
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  owner            User              @relation("WorkspaceOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  agents           Agent[]
-  knowledgeSources KnowledgeSource[]
+  id                   String                @id @default(cuid())
+  name                 String
+  slug                 String                @unique
+  ownerId              String
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  owner                User                  @relation("WorkspaceOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  agents               Agent[]
+  knowledgeSources     KnowledgeSource[]
+  subscription         Subscription?
+  usageRecords         UsageRecord[]
+  developmentCheckouts DevelopmentCheckout[]
 
   @@index([ownerId])
 }
@@ -110,4 +134,49 @@ model Message {
 
   @@index([conversationId])
   @@index([createdAt])
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  workspaceId          String             @unique
+  plan                 SubscriptionPlan   @default(FREE)
+  status               SubscriptionStatus @default(ACTIVE)
+  stripeCustomerId     String?            @unique
+  stripeSubscriptionId String?            @unique
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  workspace            Workspace          @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+}
+
+model UsageRecord {
+  id             String    @id @default(cuid())
+  workspaceId    String
+  periodStart    DateTime
+  periodEnd      DateTime
+  aiMessageCount Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  workspace      Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, periodStart])
+  @@index([workspaceId, periodEnd])
+}
+
+model DevelopmentCheckout {
+  id                String                    @id @default(cuid())
+  checkoutId        String                    @unique
+  workspaceId       String
+  targetPlan        SubscriptionPlan
+  status            DevelopmentCheckoutStatus @default(PENDING)
+  activeWorkspaceId String?                   @unique
+  completedAt       DateTime?
+  createdAt         DateTime                  @default(now())
+  updatedAt         DateTime                  @updatedAt
+  workspace         Workspace                 @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId, status])
 }
