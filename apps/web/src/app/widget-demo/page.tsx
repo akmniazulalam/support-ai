@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function WidgetDemoPage() {
   const pathname = usePathname();
@@ -9,11 +9,18 @@ export default function WidgetDemoPage() {
   const [position, setPosition] = useState<"bottom-right" | "bottom-left">(
     "bottom-right",
   );
-  const [apiUrl, setApiUrl] = useState(
-    pathname === "/widget-demo"
-      ? "https://support-ai-sihl.onrender.com"
-      : "http://localhost:3001",
-  );
+  const [apiUrl, setApiUrl] = useState('https://support-ai-sihl.onrender.com');
+
+  useEffect(() => {
+    // This code only runs in the browser, where window is safely available
+    const currentUrl = window.location.href;
+
+    if (currentUrl.startsWith('http://localhost:3000/widget-demo')) {
+      setApiUrl('http://localhost:3001');
+    } else if (currentUrl.startsWith('https://support-ai-web-eosin.vercel.app/widget-demo')) {
+      setApiUrl('https://support-ai-sihl.onrender.com');
+    }
+  }, []);
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
   const [sessionStored, setSessionStored] = useState<string | null>(null);
 
