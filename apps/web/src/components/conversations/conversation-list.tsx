@@ -70,7 +70,7 @@ export function ConversationList({
               Conversations
             </h1>
             {!isLoading && (
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
+              <span className="text-[11px] font-lexend px-2 py-0.5 rounded-full bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
                 {conversations.length}
               </span>
             )}

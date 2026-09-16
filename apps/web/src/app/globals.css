@@ -12,9 +12,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-jost: var(--font-jost);
+  --font-poppins: var(--font-poppins);
+  --font-cal: var(--font-cal);
+  --font-anton: var(--font-anton);
+  --font-lexend: var(--font-lexend);
   --font-syne: var(--font-syne);
 }
 
@@ -22,8 +24,35 @@ html,
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-jost);
+  font-family: var(--font-lexend);
   height: 100%;
+}
+
+button {
+  font-family: var(--font-anton);
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  font-size: 13px;
+  font-weight: normal !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p,
+span,
+input,
+textarea,
+textarea::placeholder,
+input::placeholder,
+select::placeholder,
+option,
+select {
+  font-family: var(--font-lexend);
 }
 
 /* Custom sleek scrollbar for chat message lists */
@@ -67,7 +96,8 @@ body {
 
 /* Typing pulse animation */
 @keyframes typingPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.35;
     transform: scale(0.85);
   }
@@ -88,4 +118,3 @@ body {
 .animate-typing-dot-3 {
   animation: typingPulse 1.4s infinite ease-in-out 0.4s;
 }
-

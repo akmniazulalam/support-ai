@@ -281,7 +281,7 @@ function DevCheckoutModal({
           </div>
           <div className="flex justify-between">
             <span>Checkout ID</span>
-            <span className="font-mono text-xs text-zinc-500 truncate max-w-[180px]">
+            <span className="font-lexend text-xs text-zinc-500 truncate max-w-[180px]">
               {session.checkoutId}
             </span>
           </div>

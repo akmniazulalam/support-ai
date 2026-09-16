@@ -43,7 +43,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
 
           <h2 className="text-base font-semibold text-zinc-100 flex items-center gap-1.5 mb-1.5">
             <span>{agent?.name || 'Support Assistant'}</span>
-            <span className="text-[10px] uppercase font-mono tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <span className="text-[10px] uppercase font-lexend tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               Active
             </span>
           </h2>

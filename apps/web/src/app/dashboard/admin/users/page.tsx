@@ -204,7 +204,7 @@ export default function AdminUsersPage() {
                       </td>
 
                       {/* Email */}
-                      <td className="px-4 py-3 font-mono text-[11px] text-zinc-400 max-w-[200px] truncate">
+                      <td className="px-4 py-3 font-lexend text-[11px] text-zinc-400 max-w-[200px] truncate">
                         {user.email}
                       </td>
 

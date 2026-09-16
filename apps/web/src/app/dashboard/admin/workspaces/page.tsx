@@ -205,7 +205,7 @@ export default function AdminWorkspacesPage() {
                           <span className="font-medium text-zinc-100">
                             {ws.name}
                           </span>
-                          <div className="font-mono text-[10px] text-zinc-500 mt-0.5">
+                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5">
                             {ws.slug}
                           </div>
                         </div>
@@ -217,7 +217,7 @@ export default function AdminWorkspacesPage() {
                           <span className="text-zinc-200">
                             {ws.owner.firstName} {ws.owner.lastName}
                           </span>
-                          <div className="font-mono text-[10px] text-zinc-500 mt-0.5 truncate max-w-[180px]">
+                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5 truncate max-w-[180px]">
                             {ws.owner.email}
                           </div>
                         </div>

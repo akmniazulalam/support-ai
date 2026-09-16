@@ -57,7 +57,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
               <h3 className="text-sm font-semibold text-zinc-100 truncate">
                 {agent.name}
               </h3>
-              <p className="text-[11px] font-mono text-zinc-500 truncate">
+              <p className="text-[11px] font-lexend text-zinc-500 truncate">
                 /{agent.slug}
               </p>
             </div>
@@ -91,7 +91,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
 
         {/* Footer */}
         <div className="mt-auto pt-3 border-t border-white/[0.06] flex items-center justify-between">
-          <span className="text-[10px] text-zinc-600 font-mono">
+          <span className="text-[10px] text-zinc-600 font-lexend">
             Created {createdDate}
           </span>
 

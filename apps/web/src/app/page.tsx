@@ -50,7 +50,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 text-xs text-zinc-500 font-mono">
+        <div className="mt-12 text-xs text-zinc-500 font-lexend">
           SupportAI &bull; Commercial Customer Support Infrastructure
         </div>
       </main>

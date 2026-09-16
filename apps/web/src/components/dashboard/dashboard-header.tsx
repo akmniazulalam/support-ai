@@ -57,7 +57,7 @@ export function DashboardHeader({
           <h1 className="text-base sm:text-lg font-semibold text-zinc-100 tracking-tight truncate">
             {title}
           </h1>
-          <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-lexend px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             Live
           </span>
@@ -100,7 +100,7 @@ export function DashboardHeader({
                 <div className="text-xs font-semibold text-zinc-100 truncate">
                   {user?.firstName} {user?.lastName}
                 </div>
-                <div className="text-[10px] text-zinc-400 font-mono truncate">
+                <div className="text-[10px] text-zinc-400 font-lexend truncate">
                   {user?.email}
                 </div>
               </div>

@@ -32,7 +32,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
             {message.content}
           </div>
           {formattedTime && (
-            <span className="text-[10px] text-zinc-500 font-mono mt-1 select-none pr-1">
+            <span className="text-[10px] text-zinc-500 font-lexend mt-1 select-none pr-1">
               {formattedTime}
             </span>
           )}
@@ -61,7 +61,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
           <span className="text-xs font-medium text-zinc-300">
             {agentName || 'Support Assistant'}
           </span>
-          <span className="text-[10px] px-1.5 py-0.2 rounded-sm bg-white/[0.05] border border-white/[0.06] text-zinc-400 font-mono">
+          <span className="text-[10px] px-1.5 py-0.2 rounded-sm bg-white/[0.05] border border-white/[0.06] text-zinc-400 font-lexend">
             AI
           </span>
         </div>
@@ -71,7 +71,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
         </div>
 
         {formattedTime && (
-          <span className="text-[10px] text-zinc-500 font-mono mt-1 select-none pl-1">
+          <span className="text-[10px] text-zinc-500 font-lexend mt-1 select-none pl-1">
             {formattedTime}
           </span>
         )}

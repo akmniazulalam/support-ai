@@ -135,7 +135,7 @@ export default function NewAgentPage() {
               placeholder="You are a helpful customer support agent for Acme Corp. Be concise, professional, and always escalate billing issues to the human team..."
               maxLength={10000}
               rows={8}
-              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-mono leading-relaxed"
+              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-lexend leading-relaxed"
             />
             <p className="text-[11px] text-zinc-600">
               Guides the AI&apos;s tone, behavior, and limitations. Max 10,000 characters.

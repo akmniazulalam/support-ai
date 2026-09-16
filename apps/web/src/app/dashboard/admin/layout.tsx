@@ -29,7 +29,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       <div className="flex h-64 w-full items-center justify-center text-zinc-400 animate-message-entrance">
         <div className="flex flex-col items-center gap-3">
           <div className="h-6 w-6 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
-          <p className="text-xs font-mono text-zinc-500">
+          <p className="text-xs font-lexend text-zinc-500">
             Verifying admin authorization...
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <h1 className="text-lg font-bold tracking-tight text-white">
                 Admin Console
               </h1>
-              <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 Staff Only
               </span>
             </div>

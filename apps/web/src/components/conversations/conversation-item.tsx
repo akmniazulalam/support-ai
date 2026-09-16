@@ -44,7 +44,7 @@ export function ConversationItem({
             <MessageSquareIcon className="h-3.5 w-3.5" />
           </div>
           <span
-            className={`font-mono text-xs font-semibold truncate ${
+            className={`font-lexend text-xs font-semibold truncate ${
               isSelected ? 'text-zinc-100' : 'text-zinc-300 group-hover:text-zinc-100'
             }`}
           >
@@ -52,7 +52,7 @@ export function ConversationItem({
           </span>
         </div>
 
-        <span className="text-[10px] font-mono text-zinc-500 shrink-0 select-none">
+        <span className="text-[10px] font-lexend text-zinc-500 shrink-0 select-none">
           {relativeTime}
         </span>
       </div>
@@ -66,7 +66,7 @@ export function ConversationItem({
           </div>
         )}
 
-        <span className="text-[10px] text-zinc-600 font-mono shrink-0">
+        <span className="text-[10px] text-zinc-600 font-lexend shrink-0">
           ID: {conversation.id.slice(0, 8)}…
         </span>
       </div>

@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Jost, Syne } from "next/font/google";
+import { Anton_SC, Cal_Sans, Jost, Lexend, Poppins, Syne } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const jost = Jost({
   variable: "--font-jost",
@@ -20,6 +10,26 @@ const jost = Jost({
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
+});
+const anton = Anton_SC({
+  variable: "--font-anton",
+  subsets: ["latin"],
+  weight: "400"
+});
+const lexend = Lexend({
+  variable: "--font-lexend",
+  subsets: ["latin"],
+  weight: "400"
+});
+const cal = Cal_Sans({
+  variable: "--font-cal",
+  subsets: ["latin"],
+  weight: "400"
+});
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: "100"
 });
 
 export const metadata: Metadata = {
@@ -35,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${jost.variable} ${syne.variable} h-full antialiased dark`}
+      className={`${jost.variable} ${syne.variable} ${lexend.variable} ${poppins.variable} ${anton.variable} ${cal.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-[#09090b] text-zinc-100 antialiased selection:bg-zinc-800 selection:text-white" cz-shortcut-listen="true">
         <AppProviders>{children}</AppProviders>

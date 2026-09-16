@@ -261,7 +261,7 @@ export default function AdminSubscriptionsPage() {
                           <span className="font-medium text-zinc-100">
                             {sub.workspace.name}
                           </span>
-                          <div className="font-mono text-[10px] text-zinc-500 mt-0.5">
+                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5">
                             {sub.workspace.slug}
                           </div>
                         </div>
@@ -274,7 +274,7 @@ export default function AdminSubscriptionsPage() {
                             {sub.workspace.owner.firstName}{' '}
                             {sub.workspace.owner.lastName}
                           </span>
-                          <div className="font-mono text-[10px] text-zinc-500 mt-0.5 truncate max-w-[160px]">
+                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5 truncate max-w-[160px]">
                             {sub.workspace.owner.email}
                           </div>
                         </div>

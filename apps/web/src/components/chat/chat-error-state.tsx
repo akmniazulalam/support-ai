@@ -21,7 +21,7 @@ export function ChatNotFoundState({
         {message}
       </p>
 
-      <div className="text-[11px] text-zinc-400 font-mono">
+      <div className="text-[11px] text-zinc-400 font-lexend">
         Please verify the URL or contact the workspace administrator.
       </div>
     </div>
@@ -43,7 +43,7 @@ export function ChatRateLimitBanner({ secondsRemaining }: ChatRateLimitBannerPro
         <span>Rate limit reached. Please wait before sending another message.</span>
       </div>
 
-      <span className="shrink-0 font-mono text-[11px] font-semibold text-amber-400 px-2 py-0.5 rounded bg-amber-500/15">
+      <span className="shrink-0 font-lexend text-[11px] font-semibold text-amber-400 px-2 py-0.5 rounded bg-amber-500/15">
         {secondsRemaining}s
       </span>
     </div>
@@ -89,7 +89,7 @@ export function ChatLoadingState() {
       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 border border-white/[0.08] text-zinc-400 mb-3 shadow-sm">
         <span className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
       </div>
-      <p className="text-xs text-zinc-400 font-mono">
+      <p className="text-xs text-zinc-400 font-lexend">
         Connecting to support agent...
       </p>
     </div>

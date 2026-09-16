@@ -50,7 +50,7 @@ export function AdminStatCard({
         <div className="mt-4 flex items-center justify-between border-t border-white/[0.04] pt-3 text-xs text-zinc-500">
           {description && <span className="truncate">{description}</span>}
           {badge && (
-            <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06]">
+            <span className="font-lexend text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06]">
               {badge}
             </span>
           )}

@@ -35,7 +35,7 @@ export function ConversationBubble({
           {timeStr && (
             <span
               title={fullDateTime}
-              className="text-[10px] text-zinc-500 font-mono mt-1 select-none pr-1"
+              className="text-[10px] text-zinc-500 font-lexend mt-1 select-none pr-1"
             >
               {timeStr}
             </span>
@@ -69,7 +69,7 @@ export function ConversationBubble({
           <span className="text-xs font-semibold text-zinc-200">
             {agentName || 'AI Agent'}
           </span>
-          <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="text-[9px] font-lexend uppercase px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             AI
           </span>
         </div>
@@ -83,7 +83,7 @@ export function ConversationBubble({
         {timeStr && (
           <span
             title={fullDateTime}
-            className="text-[10px] text-zinc-500 font-mono mt-1 select-none pl-1"
+            className="text-[10px] text-zinc-500 font-lexend mt-1 select-none pl-1"
           >
             {timeStr}
           </span>

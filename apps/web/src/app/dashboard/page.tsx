@@ -66,7 +66,7 @@ export default function DashboardOverviewPage() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
+              <span className="text-xs font-lexend uppercase tracking-wider text-emerald-400">
                 Workspace Active
               </span>
             </div>
@@ -83,7 +83,7 @@ export default function DashboardOverviewPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="text-xs font-mono px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
+            <span className="text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
               {workspace?.slug}
             </span>
           </div>
@@ -101,7 +101,7 @@ export default function DashboardOverviewPage() {
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">Online</span>
-            <span className="text-xs text-emerald-400 font-mono">Ready</span>
+            <span className="text-xs text-emerald-400 font-lexend">Ready</span>
           </div>
           <p className="text-xs text-zinc-500 mt-1">
             Active in region: US East (Production)
@@ -141,7 +141,7 @@ export default function DashboardOverviewPage() {
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">Owner</span>
-            <span className="text-xs text-zinc-400 font-mono">Full Access</span>
+            <span className="text-xs text-zinc-400 font-lexend">Full Access</span>
           </div>
           <p className="text-xs text-zinc-500 mt-1 truncate">
             {user?.email}
@@ -158,13 +158,13 @@ export default function DashboardOverviewPage() {
               AI Support Agents
             </h2>
           </div>
-          <span className="text-xs text-zinc-500 font-mono">
+          <span className="text-xs text-zinc-500 font-lexend">
             {agents.length} total
           </span>
         </div>
 
         {isLoadingAgents ? (
-          <div className="flex items-center justify-center p-8 text-xs font-mono text-zinc-500 gap-2">
+          <div className="flex items-center justify-center p-8 text-xs font-lexend text-zinc-500 gap-2">
             <span className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
             <span>Loading agents...</span>
           </div>
@@ -202,7 +202,7 @@ export default function DashboardOverviewPage() {
                         {agent.name}
                       </span>
                       <span
-                        className={`text-[10px] font-mono px-2 py-0.2 rounded-full border ${
+                        className={`text-[10px] font-lexend px-2 py-0.2 rounded-full border ${
                           agent.isActive
                             ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
                             : 'bg-zinc-800 text-zinc-400 border-zinc-700'
@@ -214,7 +214,7 @@ export default function DashboardOverviewPage() {
                     <p className="text-xs text-zinc-400 truncate mt-0.5">
                       {agent.greeting || 'No custom greeting configured'}
                     </p>
-                    <span className="text-[10px] text-zinc-500 font-mono">
+                    <span className="text-[10px] text-zinc-500 font-lexend">
                       Public ID: {agent.publicId}
                     </span>
                   </div>
@@ -250,7 +250,7 @@ export default function DashboardOverviewPage() {
           <div className="rounded-xl bg-[#141520] border border-white/[0.07] p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-semibold text-emerald-400">
+                <span className="text-xs font-lexend font-semibold text-emerald-400">
                   Step 1
                 </span>
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
@@ -272,10 +272,10 @@ export default function DashboardOverviewPage() {
           <div className="rounded-xl bg-[#141520] border border-white/[0.07] p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-semibold text-zinc-400">
+                <span className="text-xs font-lexend font-semibold text-zinc-400">
                   Step 2
                 </span>
-                <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/[0.05] text-zinc-400">
+                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-white/[0.05] text-zinc-400">
                   Upcoming
                 </span>
               </div>
@@ -294,10 +294,10 @@ export default function DashboardOverviewPage() {
           <div className="rounded-xl bg-[#141520] border border-white/[0.07] p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-semibold text-emerald-400">
+                <span className="text-xs font-lexend font-semibold text-emerald-400">
                   Step 3
                 </span>
-                <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   Ready
                 </span>
               </div>
@@ -305,7 +305,7 @@ export default function DashboardOverviewPage() {
                 Public Customer Chat
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Deliver real-time customer support at <code className="font-mono text-zinc-300">/chat/[publicId]</code>.
+                Deliver real-time customer support at <code className="font-lexend text-zinc-300">/chat/[publicId]</code>.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-zinc-400 font-medium">
@@ -324,14 +324,14 @@ export default function DashboardOverviewPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div className="p-3 rounded-xl bg-[#141520] border border-white/[0.05]">
             <span className="text-zinc-500 block mb-1">Workspace ID</span>
-            <span className="font-mono text-zinc-200 truncate block">
+            <span className="font-lexend text-zinc-200 truncate block">
               {workspace?.id}
             </span>
           </div>
 
           <div className="p-3 rounded-xl bg-[#141520] border border-white/[0.05]">
             <span className="text-zinc-500 block mb-1">URL Slug</span>
-            <span className="font-mono text-zinc-200 truncate block">
+            <span className="font-lexend text-zinc-200 truncate block">
               {workspace?.slug}
             </span>
           </div>
@@ -351,7 +351,7 @@ export default function DashboardOverviewPage() {
 
           <div className="p-3 rounded-xl bg-[#141520] border border-white/[0.05]">
             <span className="text-zinc-500 block mb-1">Owner Email</span>
-            <span className="text-zinc-200 truncate block font-mono">
+            <span className="text-zinc-200 truncate block font-lexend">
               {user?.email}
             </span>
           </div>

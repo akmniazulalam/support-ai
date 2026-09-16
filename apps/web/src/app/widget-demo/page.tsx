@@ -80,7 +80,7 @@ export default function WidgetDemoPage() {
             7B
           </div>
           <div>
-            <h1 className="text-base font-semibold text-zinc-100">
+            <h1 className="text-base font-semibold text-zinc-100 font-lexend">
               SupportAI Widget Test Harness & Demo
             </h1>
             <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
@@ -106,7 +106,7 @@ export default function WidgetDemoPage() {
                 value={agentId}
                 onChange={(e) => handleAgentIdChange(e.target.value)}
                 placeholder="e.g. 8f6b1424-..."
-                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
               />
               <p className="text-[11px] text-zinc-500 mt-1">
                 Found under agent settings in the dashboard.
@@ -141,7 +141,7 @@ export default function WidgetDemoPage() {
                 value={apiUrl}
                 onChange={(e) => setApiUrl(e.target.value)}
                 placeholder="http://localhost:3001"
-                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
               />
               <p className="text-[11px] text-zinc-500 mt-1">
                 Only for local development testing via <code>data-api-url</code>. In production, customers omit this attribute.
@@ -196,7 +196,7 @@ export default function WidgetDemoPage() {
 
             <div className="p-3 rounded-xl border border-white/[0.04] bg-[#0c0d14]">
               <span className="text-zinc-500 block mb-1">Active Target ID</span>
-              <span className="font-mono text-zinc-300 truncate block">
+              <span className="font-lexend text-zinc-300 truncate block">
                 {agentId.trim() || '(none)'}
               </span>
             </div>
@@ -218,7 +218,7 @@ export default function WidgetDemoPage() {
           <p className="text-xs text-zinc-500">
             This is the exact code snippet an external website owner places on their HTML page:
           </p>
-          <pre className="p-4 rounded-xl bg-[#0a0b10] border border-white/[0.06] text-xs font-mono text-emerald-400 overflow-x-auto">
+          <pre className="p-4 rounded-xl bg-[#0a0b10] border border-white/[0.06] text-xs font-lexend text-emerald-400 overflow-x-auto">
             {embedSnippet}
           </pre>
         </div>

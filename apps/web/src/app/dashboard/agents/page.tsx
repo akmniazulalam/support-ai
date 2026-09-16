@@ -69,7 +69,7 @@ export default function AgentsPage() {
         <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#111218] p-16">
           <div className="flex flex-col items-center gap-3 text-zinc-400">
             <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
-            <p className="text-xs font-mono text-zinc-500">Loading agents…</p>
+            <p className="text-xs font-lexend text-zinc-500">Loading agents…</p>
           </div>
         </div>
       )}

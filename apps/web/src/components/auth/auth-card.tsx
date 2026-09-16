@@ -37,7 +37,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
               <span className="text-lg font-bold tracking-tight text-white">
                 Support<span className="text-zinc-400">AI</span>
               </span>
-              <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-zinc-400">
+              <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-zinc-400">
                 SaaS
               </span>
             </div>

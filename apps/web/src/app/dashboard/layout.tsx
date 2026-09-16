@@ -20,7 +20,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <div className="flex h-dvh w-full items-center justify-center bg-[#09090b] text-zinc-400">
         <div className="flex flex-col items-center gap-3">
           <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
-          <p className="text-xs font-mono text-zinc-500">
+          <p className="text-xs font-lexend text-zinc-500">
             Verifying authentication...
           </p>
         </div>

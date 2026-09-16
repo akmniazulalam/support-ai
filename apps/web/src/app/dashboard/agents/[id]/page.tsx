@@ -93,7 +93,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
         </div>
         <div className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-          <span className="text-[10px] font-mono text-zinc-500">
+          <span className="text-[10px] font-lexend text-zinc-500">
             Non-persistent · messages not saved
           </span>
         </div>
@@ -291,7 +291,7 @@ export default function AgentDetailPage() {
       <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#111218] p-20 animate-message-entrance">
         <div className="flex flex-col items-center gap-3">
           <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
-          <p className="text-xs font-mono text-zinc-500">Loading agent…</p>
+          <p className="text-xs font-lexend text-zinc-500">Loading agent…</p>
         </div>
       </div>
     );
@@ -382,7 +382,7 @@ export default function AgentDetailPage() {
             <h1 className="text-xl font-bold tracking-tight text-zinc-100">
               {agent.name}
             </h1>
-            <p className="text-xs font-mono text-zinc-500">/{agent.slug}</p>
+            <p className="text-xs font-lexend text-zinc-500">/{agent.slug}</p>
           </div>
           <span
             className={`ml-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
@@ -456,7 +456,7 @@ export default function AgentDetailPage() {
                   maxLength={10000}
                   rows={10}
                   placeholder="You are a helpful customer support agent…"
-                  className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-mono leading-relaxed"
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-lexend leading-relaxed"
                 />
                 <p className="text-[11px] text-zinc-600">
                   {instructions.length.toLocaleString()} / 10,000 characters

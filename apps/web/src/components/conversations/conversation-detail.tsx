@@ -147,11 +147,11 @@ export function ConversationDetail({
 
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h2 className="text-sm font-bold text-zinc-100 font-mono truncate">
+              <h2 className="text-sm font-bold text-zinc-100 font-lexend truncate">
                 Conversation {shortId}
               </h2>
               {conversation?.updatedAt && (
-                <span className="text-[10px] text-zinc-500 font-mono hidden sm:inline">
+                <span className="text-[10px] text-zinc-500 font-lexend hidden sm:inline">
                   Active {formatRelativeTime(conversation.updatedAt)}
                 </span>
               )}
@@ -162,7 +162,7 @@ export function ConversationDetail({
               <div className="flex items-center gap-1.5 text-xs text-zinc-400 mt-0.5 truncate">
                 <BotIcon className="h-3 w-3 text-emerald-400 shrink-0" />
                 <span className="truncate">{agent.name}</span>
-                <span className="text-zinc-600 font-mono text-[10px]">/{agent.slug}</span>
+                <span className="text-zinc-600 font-lexend text-[10px]">/{agent.slug}</span>
               </div>
             )}
           </div>
@@ -202,7 +202,7 @@ export function ConversationDetail({
         {isLoading && (
           <div className="flex h-full flex-col items-center justify-center gap-3 py-16 text-zinc-500">
             <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
-            <span className="text-xs font-mono">Loading messages...</span>
+            <span className="text-xs font-lexend">Loading messages...</span>
           </div>
         )}
 
@@ -241,7 +241,7 @@ export function ConversationDetail({
         {!isLoading && !error && allMessages.length > 0 && (
           <>
             <div className="flex items-center justify-center my-2">
-              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider bg-white/[0.03] px-2.5 py-0.5 rounded-full border border-white/[0.04]">
+              <span className="text-[10px] font-lexend text-zinc-600 uppercase tracking-wider bg-white/[0.03] px-2.5 py-0.5 rounded-full border border-white/[0.04]">
                 Conversation started {conversation?.createdAt ? formatRelativeTime(conversation.createdAt) : ''}
               </span>
             </div>
@@ -265,7 +265,7 @@ export function ConversationDetail({
                     <span className="text-xs font-semibold text-zinc-200">
                       {agent?.name || 'AI Agent'}
                     </span>
-                    <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="text-[9px] font-lexend uppercase px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                       Thinking
                     </span>
                   </div>

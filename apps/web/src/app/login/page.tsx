@@ -52,7 +52,7 @@ export default function LoginPage() {
   if (isLoading || isAuthenticated) {
     return (
       <div className="flex min-h-dvh w-full items-center justify-center bg-[#09090b]">
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+        <div className="flex items-center gap-2 text-xs font-lexend text-zinc-400">
           <span className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
           <span>Loading SupportAI...</span>
         </div>

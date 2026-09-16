@@ -117,7 +117,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
             <span className="text-base font-bold tracking-tight text-white">
               Support<span className="text-zinc-400">AI</span>
             </span>
-            <span className="text-[9px] font-mono uppercase px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
+            <span className="text-[9px] font-lexend uppercase px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
               v1.0
             </span>
           </div>
@@ -133,7 +133,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
               <div className="font-semibold text-zinc-200 truncate">
                 {workspace?.name || 'My Workspace'}
               </div>
-              <div className="text-[10px] text-zinc-500 font-mono truncate">
+              <div className="text-[10px] text-zinc-500 font-lexend truncate">
                 {workspace?.slug || 'workspace'}
               </div>
             </div>
@@ -165,7 +165,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
-                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-500 border border-white/[0.04]">
+                  <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-500 border border-white/[0.04]">
                     {item.badge}
                   </span>
                 )}
@@ -199,7 +199,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
               <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
                 Administration
               </span>
-              <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 Admin
               </span>
             </div>
@@ -245,12 +245,12 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
                   {user ? `${user.firstName} ${user.lastName}` : 'User'}
                 </span>
                 {isAdmin && (
-                  <span className="text-[9px] font-mono uppercase px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                  <span className="text-[9px] font-lexend uppercase px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                     Admin
                   </span>
                 )}
               </div>
-              <span className="text-[10px] text-zinc-500 font-mono truncate">
+              <span className="text-[10px] text-zinc-500 font-lexend truncate">
                 {user?.email}
               </span>
             </div>

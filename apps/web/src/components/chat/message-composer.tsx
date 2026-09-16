@@ -108,7 +108,7 @@ export function MessageComposer({
         {showCounter && (
           <div className="flex justify-end px-3 pb-1.5 pt-0.5">
             <span
-              className={`text-[10px] font-mono select-none ${
+              className={`text-[10px] font-lexend select-none ${
                 isNearLimit ? 'text-amber-400 font-semibold' : 'text-zinc-500'
               }`}
             >
@@ -119,7 +119,7 @@ export function MessageComposer({
       </div>
 
       <div className="flex items-center justify-between mt-2 px-1 text-[11px] text-zinc-500">
-        <span>Press <kbd className="font-mono text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Enter</kbd> to send, <kbd className="font-mono text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Shift+Enter</kbd> for new line</span>
+        <span>Press <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Enter</kbd> to send, <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Shift+Enter</kbd> for new line</span>
         <span className="font-medium text-zinc-500">Powered by SupportAI</span>
       </div>
     </form>

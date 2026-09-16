@@ -49,7 +49,7 @@ export function AdminTablePagination({
           <span>Previous</span>
         </button>
 
-        <span className="px-2 py-1 font-mono text-zinc-500 tabular-nums">
+        <span className="px-2 py-1 font-lexend text-zinc-500 tabular-nums">
           Page {page} of {Math.max(totalPages, 1)}
         </span>
 

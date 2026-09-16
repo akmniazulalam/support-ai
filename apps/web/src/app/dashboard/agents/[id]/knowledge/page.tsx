@@ -217,7 +217,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
               maxLength={50000}
               rows={6}
               required
-              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none font-mono leading-relaxed"
+              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none font-lexend leading-relaxed"
             />
             <p className="mt-1 text-[11px] text-zinc-600">
               {content.length.toLocaleString()} / 50,000 characters
@@ -307,7 +307,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
             <KnowledgeTypeBadge type={ks.type} />
           </div>
           <p className="text-sm font-medium text-zinc-200 truncate">{ks.title}</p>
-          <p className="text-[11px] text-zinc-600 font-mono mt-0.5">Added {createdDate}</p>
+          <p className="text-[11px] text-zinc-600 font-lexend mt-0.5">Added {createdDate}</p>
 
           {/* Preview */}
           {(ks.content || ks.sourceUrl) && (
@@ -323,7 +323,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
                 </a>
               ) : ks.content ? (
                 <>
-                  <p className={`text-xs text-zinc-400 font-mono leading-relaxed ${expanded ? '' : 'line-clamp-2'}`}>
+                  <p className={`text-xs text-zinc-400 font-lexend leading-relaxed ${expanded ? '' : 'line-clamp-2'}`}>
                     {ks.content}
                   </p>
                   {ks.content.length > 120 && (
@@ -454,7 +454,7 @@ export default function KnowledgePage() {
       <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#111218] p-20 animate-message-entrance">
         <div className="flex flex-col items-center gap-3">
           <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
-          <p className="text-xs font-mono text-zinc-500">Loading knowledge base…</p>
+          <p className="text-xs font-lexend text-zinc-500">Loading knowledge base…</p>
         </div>
       </div>
     );
