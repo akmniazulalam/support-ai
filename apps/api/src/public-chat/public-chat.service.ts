@@ -7,13 +7,10 @@ import {
 } from '../ai/providers/ai-provider.interface.js';
 import { UsageService } from '../billing/usage.service.js';
 import { ConversationHistoryBuilderService } from '../conversations/conversation-history-builder.service.js';
-import {
-  ConversationsService,
-  type PublicMessage,
-  publicMessageSelect,
-} from '../conversations/conversations.service.js';
+import { ConversationsService } from '../conversations/conversations.service.js';
 import {
   MessageRole,
+  Prisma,
   type Agent,
   type Conversation,
 } from '../generated/prisma/client.js';
@@ -25,6 +22,24 @@ const RECENT_HISTORY_MESSAGE_LIMIT = 12;
 interface PublicConversationAccess {
   conversation: Conversation;
   agent: Agent;
+}
+
+const publicWidgetMessageSelect = {
+  publicId: true,
+  role: true,
+  content: true,
+  createdAt: true,
+} satisfies Prisma.MessageSelect;
+
+type PublicWidgetMessageRecord = Prisma.MessageGetPayload<{
+  select: typeof publicWidgetMessageSelect;
+}>;
+
+export interface PublicWidgetMessage {
+  id: string;
+  role: MessageRole;
+  content: string;
+  createdAt: Date;
 }
 
 @Injectable()
@@ -56,10 +71,16 @@ export class PublicChatService {
     const customerSessionTokenHash = this.hashSessionToken(sessionToken);
     const conversation = await this.prisma.conversation.create({
       data: { agentId: agent.id, customerSessionTokenHash },
-      select: { id: true, createdAt: true },
+      select: { publicId: true, createdAt: true },
     });
 
-    return { conversation, sessionToken };
+    return {
+      conversation: {
+        id: conversation.publicId,
+        createdAt: conversation.createdAt,
+      },
+      sessionToken,
+    };
   }
 
   async getConversation(conversationId: string, sessionToken: string) {
@@ -70,13 +91,15 @@ export class PublicChatService {
     const messages = await this.prisma.message.findMany({
       where: { conversationId: conversation.id },
       orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
-      select: publicMessageSelect,
+      select: publicWidgetMessageSelect,
     });
 
     return {
       conversation: {
-        id: conversation.id,
-        messages,
+        id: conversation.publicId,
+        messages: messages.map((message) =>
+          this.toPublicWidgetMessage(message),
+        ),
       },
     };
   }
@@ -84,7 +107,7 @@ export class PublicChatService {
   async createMessage(
     conversationId: string,
     dto: CreatePublicMessageDto,
-  ): Promise<{ message: PublicMessage }> {
+  ): Promise<{ message: PublicWidgetMessage }> {
     const { conversation, agent } = await this.getConversationAccessOrThrow(
       conversationId,
       dto.sessionToken,
@@ -141,8 +164,13 @@ export class PublicChatService {
         MessageRole.ASSISTANT,
         answer,
       );
+      const publicAssistantMessage =
+        await this.prisma.message.findUniqueOrThrow({
+          where: { id: assistantMessage.id },
+          select: publicWidgetMessageSelect,
+        });
 
-      return { message: assistantMessage };
+      return { message: this.toPublicWidgetMessage(publicAssistantMessage) };
     } catch (error) {
       await this.usageService
         .releaseAiMessageReservation(usageReservation)
@@ -164,15 +192,20 @@ export class PublicChatService {
   }
 
   private async getConversationAccessOrThrow(
-    conversationId: string,
+    publicConversationId: string,
     sessionToken: string,
   ): Promise<PublicConversationAccess> {
     const customerSessionTokenHash = this.hashSessionToken(sessionToken);
     const conversation = await this.prisma.conversation.findFirst({
       where: {
-        id: conversationId,
         customerSessionTokenHash,
         agent: { isActive: true },
+        OR: [
+          { publicId: publicConversationId },
+          // Existing browser sessions may still hold the pre-widget CUID. It is
+          // accepted only with the opaque session token and is never returned.
+          { id: publicConversationId },
+        ],
       },
       include: { agent: true },
     });
@@ -190,5 +223,16 @@ export class PublicChatService {
 
   private hashSessionToken(sessionToken: string): string {
     return createHash('sha256').update(sessionToken).digest('hex');
+  }
+
+  private toPublicWidgetMessage(
+    message: PublicWidgetMessageRecord,
+  ): PublicWidgetMessage {
+    return {
+      id: message.publicId,
+      role: message.role,
+      content: message.content,
+      createdAt: message.createdAt,
+    };
   }
 }
