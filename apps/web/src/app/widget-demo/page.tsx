@@ -69,7 +69,7 @@ export default function WidgetDemoPage() {
     }
   };
 
-  const embedSnippet = `<script\n  src="${typeof window !== 'undefined' ? window.location.origin : 'https://YOUR_DOMAIN'}/widget.js"\n  data-agent-id="${agentId.trim() || 'PUBLIC_AGENT_ID'}"${position !== 'bottom-right' ? `\n  data-position="${position}"` : ''}>\n</script>`;
+  const embedSnippet = `<script\n  src="https://YOUR_SUPPORTAI_WEB_DOMAIN/widget.js"\n  data-agent-id="${agentId.trim() || 'PUBLIC_AGENT_ID'}"${position !== 'bottom-right' ? `\n  data-position="${position}"` : ''}>\n</script>`;
 
   return (
     <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans p-6 sm:p-10">
