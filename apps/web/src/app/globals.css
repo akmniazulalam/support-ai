@@ -14,6 +14,7 @@
   --color-foreground: var(--foreground);
   --font-jost: var(--font-jost);
   --font-poppins: var(--font-poppins);
+  --font-google: var(--font-google);
   --font-cal: var(--font-cal);
   --font-anton: var(--font-anton);
   --font-lexend: var(--font-lexend);
@@ -29,11 +30,11 @@ body {
 }
 
 button {
-  font-family: var(--font-anton);
-  text-transform: uppercase;
-  letter-spacing: 0.125em;
-  font-size: 13px;
-  font-weight: normal !important;
+    font-family: var(--font-google);
+    text-transform: uppercase;
+    letter-spacing: .125em;
+    font-size: 12px;
+    font-weight: 700 !important;
 }
 
 h1,

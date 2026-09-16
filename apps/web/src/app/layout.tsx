@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton_SC, Cal_Sans, Jost, Lexend, Poppins, Syne } from "next/font/google";
+import { Anton_SC, Cal_Sans, Google_Sans, Jost, Lexend, Poppins, Syne } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers";
 
@@ -31,6 +31,11 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: "100"
 });
+const google = Google_Sans({
+  variable: "--font-google",
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "SupportAI - Intelligent Customer Support",
@@ -45,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jost.variable} ${syne.variable} ${lexend.variable} ${poppins.variable} ${anton.variable} ${cal.variable} h-full antialiased dark`}
+      className={`${jost.variable} ${syne.variable} ${google.variable} ${lexend.variable} ${poppins.variable} ${anton.variable} ${cal.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-[#09090b] text-zinc-100 antialiased selection:bg-zinc-800 selection:text-white" cz-shortcut-listen="true">
         <AppProviders>{children}</AppProviders>
