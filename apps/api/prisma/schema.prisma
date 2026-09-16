@@ -120,6 +120,7 @@ model KnowledgeSource {
 
 model Conversation {
   id                       String    @id @default(cuid())
+  publicId                 String    @unique @default(uuid())
   agentId                  String
   customerSessionTokenHash String?   @unique
   createdAt                DateTime  @default(now())
@@ -132,6 +133,7 @@ model Conversation {
 
 model Message {
   id             String       @id @default(cuid())
+  publicId       String       @unique @default(uuid())
   conversationId String
   role           MessageRole
   content        String
