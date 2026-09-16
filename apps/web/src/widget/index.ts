@@ -47,13 +47,7 @@ function resolveApiBaseUrl(script: HTMLScriptElement | null): string {
     }
   }
 
-  // 2. Build-time environment variable if configured
-  const envUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (envUrl && envUrl.trim().length > 0) {
-    return envUrl.trim().replace(/\/+$/, '');
-  }
-
-  // 3. Extract origin from script.src
+  // 2. Extract origin from script.src
   if (script?.src) {
     try {
       const parsed = new URL(script.src);
@@ -68,7 +62,7 @@ function resolveApiBaseUrl(script: HTMLScriptElement | null): string {
     }
   }
 
-  // 4. Default fallback
+  // 3. Default fallback
   return 'http://localhost:3001';
 }
 
