@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:widget && next build",
+    "build:widget": "rolldown src/widget/index.ts -d public --entryFileNames widget.js -f iife -m",
     "start": "next start",
     "lint": "eslint"
   },
