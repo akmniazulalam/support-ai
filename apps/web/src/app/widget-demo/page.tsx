@@ -1,11 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export default function WidgetDemoPage() {
+  const pathname = usePathname();
   const [agentId, setAgentId] = useState('');
   const [position, setPosition] = useState<'bottom-right' | 'bottom-left'>('bottom-right');
-  const [apiUrl, setApiUrl] = useState('http://localhost:3001');
+  const [apiUrl, setApiUrl] = useState(`${pathname === "https://support-ai-web-eosin.vercel.app/widget-demo" ? "https://support-ai-sihl.onrender.com" : "http://localhost:3001"}`);
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
   const [sessionStored, setSessionStored] = useState<string | null>(null);
 
@@ -140,7 +142,7 @@ export default function WidgetDemoPage() {
                 type="text"
                 value={apiUrl}
                 onChange={(e) => setApiUrl(e.target.value)}
-                placeholder="http://localhost:3001"
+                placeholder={`${pathname === "https://support-ai-web-eosin.vercel.app/widget-demo" ? "https://support-ai-sihl.onrender.com" : "http://localhost:3001"}`}
                 className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
               />
               <p className="text-[11px] text-zinc-500 mt-1">
