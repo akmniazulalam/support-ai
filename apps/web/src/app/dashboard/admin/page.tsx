@@ -114,8 +114,8 @@ export default function AdminOverviewPage() {
       <AdminErrorState
         title="Admin Overview Unavailable"
         message={error || 'An unexpected error occurred while loading platform metrics.'}
-        onRetry={() => void loadOverview()}
-        isRetrying={isLoading}
+        onRetry={() => void loadOverview(true)}
+        isRetrying={isRefreshing}
       />
     );
   }

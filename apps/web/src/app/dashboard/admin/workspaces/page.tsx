@@ -133,7 +133,7 @@ export default function AdminWorkspacesPage() {
           title="Failed to Load Workspaces"
           message={error}
           onRetry={handleRefresh}
-          isRetrying={isLoading}
+          isRetrying={isLoading || isRefreshing}
         />
       )}
 
@@ -168,7 +168,7 @@ export default function AdminWorkspacesPage() {
       {(!isLoading || isRefreshing) && workspaces.length > 0 && (
         <div className="rounded-2xl border border-white/[0.08] bg-[#111218] overflow-hidden shadow-xs">
           <div className="overflow-x-auto chat-scrollbar">
-            <table className="w-full text-left border-collapse text-xs">
+            <table className="w-full text-left border-collapse text-xs min-w-[640px]">
               <thead>
                 <tr className="border-b border-white/[0.06] bg-[#0c0d14]/60 text-zinc-400 uppercase tracking-wider font-semibold text-[10px]">
                   <th scope="col" className="px-4 py-3">Workspace</th>

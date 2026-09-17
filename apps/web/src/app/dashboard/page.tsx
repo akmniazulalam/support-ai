@@ -86,8 +86,9 @@ export default function DashboardOverviewPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
-              {workspace?.slug}
+            <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
+              <BuildingIcon className="h-3.5 w-3.5 text-zinc-400" />
+              <span>Workspace: {workspace?.slug || 'default'}</span>
             </span>
           </div>
         </div>
@@ -222,7 +223,7 @@ export default function DashboardOverviewPage() {
                         {agent.name}
                       </span>
                       <span
-                        className={`text-[10px] font-lexend px-2 py-0.2 rounded-full border ${
+                        className={`text-[10px] font-lexend px-2 py-0.5 rounded-full border ${
                           agent.isActive
                             ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
                             : 'bg-zinc-800 text-zinc-400 border-zinc-700'
@@ -333,7 +334,7 @@ export default function DashboardOverviewPage() {
                 Deliver real-time customer support at <code className="font-lexend text-zinc-300">/chat/[publicId]</code>.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-zinc-400 font-medium">
+            <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
               Live & Accessible
             </div>
           </div>

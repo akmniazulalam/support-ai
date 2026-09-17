@@ -135,7 +135,7 @@ export default function AgentsPage() {
                 {agents.filter((a) => a.isActive).length}
               </span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4 col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 text-xs text-zinc-500 mb-1">
                 <ExternalLinkIcon className="h-3.5 w-3.5" />
                 Inactive
