@@ -303,6 +303,7 @@ export function getWidgetStyles(position: 'bottom-right' | 'bottom-left' = 'bott
 }
 
 .supportai-message-row.is-user .supportai-bubble {
+  font-family: 'Lexend';
   background: #059669;
   color: #ffffff;
   border-radius: 14px 14px 4px 14px;
@@ -310,6 +311,7 @@ export function getWidgetStyles(position: 'bottom-right' | 'bottom-left' = 'bott
 }
 
 .supportai-message-row.is-assistant .supportai-bubble {
+  font-family: 'Lexend';
   background: #171822;
   color: #e4e4e7;
   border: 1px solid rgba(255, 255, 255, 0.06);
