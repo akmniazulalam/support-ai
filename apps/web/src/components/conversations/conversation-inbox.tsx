@@ -9,8 +9,10 @@ import {
   ExternalLinkIcon,
   MessagesSquareIcon,
   PlusIcon,
+  RefreshCwIcon,
 } from '@/components/ui/icons';
 import { getAgents } from '@/lib/api/agents';
+import { AuthApiError } from '@/lib/api/auth';
 import {
   createConversation,
   getAgentConversations,
@@ -44,6 +46,7 @@ export function ConversationInbox({
 
   const [isCreatingThread, setIsCreatingThread] = useState(false);
   const [conversationsReloadKey, setConversationsReloadKey] = useState(0);
+  const [agentsReloadKey, setAgentsReloadKey] = useState(0);
 
   // Load user's agents
   useEffect(() => {
@@ -91,7 +94,7 @@ export function ConversationInbox({
     return () => {
       isMounted = false;
     };
-  }, [initialConversationId]);
+  }, [initialConversationId, agentsReloadKey]);
 
   // Load conversations for the selected agent
   useEffect(() => {
@@ -145,12 +148,17 @@ export function ConversationInbox({
   const handleCreateConversation = async () => {
     if (!selectedAgentId || isCreatingThread) return;
     setIsCreatingThread(true);
+    setConversationsError(null);
     try {
       const newConv = await createConversation(selectedAgentId);
       setConversations((prev) => [newConv, ...prev]);
       handleSelectConversation(newConv.id);
-    } catch {
-      // Handled gracefully
+    } catch (err) {
+      const msg =
+        err instanceof AuthApiError
+          ? err.message
+          : 'Failed to create a new conversation thread. Please try again.';
+      setConversationsError(msg);
     } finally {
       setIsCreatingThread(false);
     }
@@ -165,9 +173,19 @@ export function ConversationInbox({
     <div className="flex flex-col h-[calc(100dvh-6.5rem)] min-h-[580px] rounded-2xl border border-white/[0.08] bg-[#0c0d14] shadow-2xl shadow-black/60 overflow-hidden animate-message-entrance">
       {/* Global agent error banner if agents failed to load */}
       {agentsError && (
-        <div className="flex items-center gap-2 border-b border-red-500/20 bg-red-500/10 px-4 py-2.5 text-xs text-red-400">
-          <AlertCircleIcon className="h-4 w-4 shrink-0" />
-          <span>{agentsError}</span>
+        <div className="flex items-center justify-between gap-3 border-b border-red-500/20 bg-red-500/10 px-4 py-2 text-xs text-red-400">
+          <div className="flex items-center gap-2">
+            <AlertCircleIcon className="h-4 w-4 shrink-0" />
+            <span>{agentsError}</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setAgentsReloadKey((k) => k + 1)}
+            className="flex items-center gap-1.5 rounded-md border border-red-500/30 px-2 py-0.5 text-xs font-medium text-red-300 hover:bg-red-500/10 transition-colors cursor-pointer"
+          >
+            <RefreshCwIcon className="h-3 w-3" />
+            <span>Retry</span>
+          </button>
         </div>
       )}
 

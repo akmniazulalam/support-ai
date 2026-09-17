@@ -28,6 +28,7 @@ export function ChatShell({ publicId }: ChatShellProps) {
     sendMessage,
     retryLastMessage,
     resetConversation,
+    reloadAgent,
   } = usePublicChat(publicId);
 
   // Initial loading state while connecting to agent
@@ -96,7 +97,7 @@ export function ChatShell({ publicId }: ChatShellProps) {
         {status === 'error' && errorMessage && (
           <ChatInlineErrorBanner
             message={errorMessage}
-            onRetry={lastFailedMessage ? retryLastMessage : undefined}
+            onRetry={lastFailedMessage ? retryLastMessage : () => void reloadAgent()}
           />
         )}
 
