@@ -17,10 +17,14 @@ import {
 import {
   deleteAgent,
   getAgent,
-  testChat,
   updateAgent,
 } from '@/lib/api/agents';
 import { AuthApiError } from '@/lib/api/auth';
+import {
+  createConversation,
+  getConversation,
+  sendMessage as sendConversationMessage,
+} from '@/lib/api/conversations';
 import type { Agent } from '@/types/agents';
 import { DeleteConfirmDialog } from '../delete-confirm-dialog';
 
@@ -36,17 +40,67 @@ interface ChatError {
   isRateLimit: boolean;
 }
 
+/** sessionStorage key for storing the test-chat conversationId per agent. */
+function sessionKey(agentId: string) {
+  return `supportai_test_conv_${agentId}`;
+}
+
 function TestChatPanel({ agent }: { agent: Agent }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(true);
   const [chatError, setChatError] = useState<ChatError | null>(null);
   const [lastFailedMessage, setLastFailedMessage] = useState<string | null>(null);
+  const conversationIdRef = useRef<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // On mount: try to restore an existing conversation from sessionStorage
+  useEffect(() => {
+    let isMounted = true;
+
+    async function restoreOrInit() {
+      setIsLoadingHistory(true);
+      const stored = sessionStorage.getItem(sessionKey(agent.id));
+
+      if (stored) {
+        try {
+          const detail = await getConversation(stored);
+          if (!isMounted) return;
+          conversationIdRef.current = detail.id;
+          setMessages(
+            detail.messages.map((m) => ({
+              role: m.role === 'USER' ? 'user' : 'assistant',
+              content: m.content,
+            })),
+          );
+        } catch {
+          // Conversation no longer accessible — clear stale key and start fresh
+          sessionStorage.removeItem(sessionKey(agent.id));
+          conversationIdRef.current = null;
+        }
+      }
+
+      if (isMounted) setIsLoadingHistory(false);
+    }
+
+    void restoreOrInit();
+    return () => {
+      isMounted = false;
+    };
+  }, [agent.id]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  async function getOrCreateConversationId(): Promise<string> {
+    if (conversationIdRef.current) return conversationIdRef.current;
+    const conv = await createConversation(agent.id);
+    conversationIdRef.current = conv.id;
+    sessionStorage.setItem(sessionKey(agent.id), conv.id);
+    return conv.id;
+  }
 
   async function handleSend(e: FormEvent) {
     e.preventDefault();
@@ -60,8 +114,9 @@ function TestChatPanel({ agent }: { agent: Agent }) {
     setIsSending(true);
 
     try {
-      const { answer } = await testChat(agent.id, text);
-      setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
+      const conversationId = await getOrCreateConversationId();
+      const { message } = await sendConversationMessage(conversationId, text);
+      setMessages((prev) => [...prev, { role: 'assistant', content: message.content }]);
     } catch (err) {
       setLastFailedMessage(text);
       if (
@@ -94,8 +149,9 @@ function TestChatPanel({ agent }: { agent: Agent }) {
     setIsSending(true);
 
     try {
-      const { answer } = await testChat(agent.id, textToRetry);
-      setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
+      const conversationId = await getOrCreateConversationId();
+      const { message } = await sendConversationMessage(conversationId, textToRetry);
+      setMessages((prev) => [...prev, { role: 'assistant', content: message.content }]);
     } catch (err) {
       setLastFailedMessage(textToRetry);
       if (
@@ -129,25 +185,30 @@ function TestChatPanel({ agent }: { agent: Agent }) {
           <span className="text-sm font-semibold text-zinc-200">Test Chat</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           <span className="text-[10px] font-lexend text-zinc-500">
-            Non-persistent · messages not saved
+            Session persists · reloads restore history
           </span>
         </div>
       </div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 chat-scrollbar">
-        {messages.length === 0 && (
+        {isLoadingHistory ? (
+          <div className="flex items-center justify-center h-full gap-2 text-zinc-500">
+            <span className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
+            <span className="text-xs font-lexend">Loading history…</span>
+          </div>
+        ) : messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center gap-2 py-6">
             <BotIcon className="h-8 w-8 text-zinc-600" />
             <p className="text-xs text-zinc-500 max-w-xs">
               Send a message to test how your agent responds using its current instructions and knowledge base.
             </p>
           </div>
-        )}
+        ) : null}
 
-        {messages.map((msg, i) => (
+        {!isLoadingHistory && messages.map((msg, i) => (
           <div
             key={i}
             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
@@ -221,12 +282,12 @@ function TestChatPanel({ agent }: { agent: Agent }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a test message…"
-          disabled={isSending}
+          disabled={isSending || isLoadingHistory}
           className="flex-1 min-w-0 rounded-xl border border-white/[0.1] bg-[#0c0d14] px-3.5 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors disabled:opacity-50"
         />
         <button
           type="submit"
-          disabled={!input.trim() || isSending}
+          disabled={!input.trim() || isSending || isLoadingHistory}
           aria-label="Send"
           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-900 hover:bg-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
         >
