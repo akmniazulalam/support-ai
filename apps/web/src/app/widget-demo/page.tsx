@@ -10,6 +10,9 @@ export default function WidgetDemoPage() {
     "bottom-right",
   );
   const [apiUrl, setApiUrl] = useState('https://support-ai-sihl.onrender.com');
+  const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
+  const [sessionStored, setSessionStored] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
 
   useEffect(() => {
     // This code only runs in the browser, where window is safely available
@@ -20,13 +23,21 @@ export default function WidgetDemoPage() {
       } else if (currentUrl.startsWith('https://support-ai-web-eosin.vercel.app/widget-demo')) {
         setApiUrl('https://support-ai-sihl.onrender.com');
       }
+      try {
+        const parsed = new URL(currentUrl);
+        const pId = parsed.searchParams.get('agentId');
+        if (pId && pId.trim()) {
+          setAgentId(pId.trim());
+          const val = window.localStorage.getItem(`supportai_chat_${pId.trim()}`);
+          setSessionStored(val);
+        }
+      } catch {
+        // ignore
+      }
     }, 0);
 
     return () => window.clearTimeout(timeoutId);
   }, []);
-  const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
-  const [sessionStored, setSessionStored] = useState<string | null>(null);
-  const [formError, setFormError] = useState<string | null>(null);
 
   // Check stored session in localStorage
   const checkStoredSession = (id: string) => {
