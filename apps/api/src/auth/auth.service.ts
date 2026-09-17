@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
   UnauthorizedException,
@@ -32,6 +33,7 @@ export class AuthService {
   ) {}
 
   async signUp(dto: SignUpDto) {
+    this.assertPasswordCanBeHashed(dto.password);
     const passwordHash = await bcrypt.hash(dto.password, PASSWORD_SALT_ROUNDS);
 
     try {
@@ -139,6 +141,7 @@ export class AuthService {
       throw new UnauthorizedException('Current password is incorrect');
     }
 
+    this.assertPasswordCanBeHashed(dto.newPassword);
     const passwordHash = await bcrypt.hash(dto.newPassword, PASSWORD_SALT_ROUNDS);
     await this.usersService.updatePasswordAndClearRefreshToken(user.id, passwordHash);
 
@@ -189,6 +192,12 @@ export class AuthService {
 
   private getExpiry(key: 'JWT_ACCESS_EXPIRES_IN' | 'JWT_REFRESH_EXPIRES_IN') {
     return this.configService.getOrThrow<string>(key) as JwtSignOptions['expiresIn'];
+  }
+
+  private assertPasswordCanBeHashed(password: string): void {
+    if (bcrypt.truncates(password)) {
+      throw new BadRequestException('Password must be at most 72 bytes');
+    }
   }
 
   private isUniqueConstraintError(error: unknown): boolean {
