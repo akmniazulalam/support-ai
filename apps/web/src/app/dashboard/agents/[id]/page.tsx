@@ -9,7 +9,10 @@ import {
   BookOpenIcon,
   BotIcon,
   CheckIcon,
+  CopyIcon,
   ExternalLinkIcon,
+  GlobeIcon,
+  MessagesSquareIcon,
   SendIcon,
   TrashIcon,
   ZapIcon,
@@ -323,6 +326,30 @@ export default function AgentDetailPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
 
+  // Public Chat Link State
+  const [isCopied, setIsCopied] = useState(false);
+  const chatUrl =
+    typeof window !== 'undefined' && agent?.publicId
+      ? `${window.location.origin}/chat/${agent.publicId}`
+      : agent?.publicId
+        ? `/chat/${agent.publicId}`
+        : '';
+
+  async function handleCopyLink() {
+    if (!agent?.publicId) return;
+    const url =
+      typeof window !== 'undefined'
+        ? `${window.location.origin}/chat/${agent.publicId}`
+        : `/chat/${agent.publicId}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch {
+      // Fallback if clipboard API is not available
+    }
+  }
+
   useEffect(() => {
     let isMounted = true;
 
@@ -465,6 +492,15 @@ export default function AgentDetailPage() {
               Public Chat
             </Link>
 
+            {/* Widget Demo */}
+            <Link
+              href={`/widget-demo?agentId=${agent.publicId}`}
+              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+            >
+              <ZapIcon className="h-3.5 w-3.5" />
+              Widget Demo
+            </Link>
+
             {/* Knowledge Base */}
             <Link
               href={`/dashboard/agents/${agent.id}/knowledge`}
@@ -511,6 +547,96 @@ export default function AgentDetailPage() {
             )}
             {agent.isActive ? 'Active' : 'Inactive'}
           </span>
+        </div>
+
+        {/* Customer Access & Integrations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Public Customer Chat */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 flex flex-col justify-between space-y-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <MessagesSquareIcon className="h-4 w-4 text-emerald-400" />
+                  <h2 className="text-sm font-semibold text-zinc-200">Public Customer Chat</h2>
+                </div>
+                <p className="text-xs text-zinc-400 mt-1">
+                  Share this link with your customers to chat directly with this agent.
+                </p>
+              </div>
+              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                Live
+              </span>
+            </div>
+
+            <div className="pt-3 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2 rounded-xl border border-white/[0.08] bg-[#0c0d14] px-3 py-1.5 min-w-0 flex-1">
+                <GlobeIcon className="h-3.5 w-3.5 text-zinc-500 shrink-0" />
+                <span className="text-xs font-lexend text-zinc-300 truncate">
+                  {chatUrl || `/chat/${agent.publicId}`}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={handleCopyLink}
+                  aria-label="Copy public chat link"
+                  className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                >
+                  {isCopied ? (
+                    <>
+                      <CheckIcon className="h-3.5 w-3.5 text-emerald-400" />
+                      <span className="text-emerald-400 font-semibold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <CopyIcon className="h-3.5 w-3.5 text-zinc-400" />
+                      <span>Copy Link</span>
+                    </>
+                  )}
+                </button>
+                <Link
+                  href={`/chat/${agent.publicId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-xl bg-zinc-100 px-3.5 py-1.5 text-xs font-semibold text-zinc-950 hover:bg-white transition-colors shrink-0"
+                >
+                  <span>Open Chat</span>
+                  <ExternalLinkIcon className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Embed Widget */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 flex flex-col justify-between space-y-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <ZapIcon className="h-4 w-4 text-emerald-400" />
+                  <h2 className="text-sm font-semibold text-zinc-200">Embed Widget</h2>
+                </div>
+                <p className="text-xs text-zinc-400 mt-1">
+                  Add SupportAI chat to your website with a single script tag.
+                </p>
+              </div>
+              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-white/[0.06] text-zinc-400 border border-white/[0.08] shrink-0">
+                Embeddable
+              </span>
+            </div>
+
+            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-3">
+              <span className="text-xs text-zinc-500 font-lexend truncate">
+                Test launcher, popup, and responsive styles
+              </span>
+              <Link
+                href={`/widget-demo?agentId=${agent.publicId}`}
+                className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.08] px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:text-white transition-colors shrink-0"
+              >
+                <span>Open Widget Demo</span>
+                <ExternalLinkIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Two-column layout */}

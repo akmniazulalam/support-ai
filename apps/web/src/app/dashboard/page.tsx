@@ -331,7 +331,7 @@ export default function DashboardOverviewPage() {
                 Public Customer Chat
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Deliver real-time customer support at <code className="font-lexend text-zinc-300">/chat/[publicId]</code>.
+                Your customer-facing chat is ready. Open or share the public chat link from your agent.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
