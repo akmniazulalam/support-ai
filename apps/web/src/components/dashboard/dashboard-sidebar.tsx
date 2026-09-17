@@ -117,7 +117,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
             <span className="text-base font-bold tracking-tight text-white">
               Support<span className="text-zinc-400">AI</span>
             </span>
-            <span className="text-[9px] font-lexend uppercase px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
+            <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
               v1.0
             </span>
           </div>
@@ -245,7 +245,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
                   {user ? `${user.firstName} ${user.lastName}` : 'User'}
                 </span>
                 {isAdmin && (
-                  <span className="text-[9px] font-lexend uppercase px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                  <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                     Admin
                   </span>
                 )}

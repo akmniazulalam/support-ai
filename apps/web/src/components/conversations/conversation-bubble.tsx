@@ -69,7 +69,7 @@ export function ConversationBubble({
           <span className="text-xs font-semibold text-zinc-200">
             {agentName || 'AI Agent'}
           </span>
-          <span className="text-[9px] font-lexend uppercase px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span className="text-[9px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             AI
           </span>
         </div>

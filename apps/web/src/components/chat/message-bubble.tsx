@@ -61,7 +61,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
           <span className="text-xs font-medium text-zinc-300">
             {agentName || 'Support Assistant'}
           </span>
-          <span className="text-[10px] px-1.5 py-0.2 rounded-sm bg-white/[0.05] border border-white/[0.06] text-zinc-400 font-lexend">
+          <span className="text-[10px] px-1.5 py-0.5 rounded-sm bg-white/[0.05] border border-white/[0.06] text-zinc-400 font-lexend">
             AI
           </span>
         </div>

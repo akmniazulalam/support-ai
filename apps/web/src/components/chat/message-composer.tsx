@@ -118,9 +118,9 @@ export function MessageComposer({
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-2 px-1 text-[11px] text-zinc-500">
+      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 mt-2 px-1 text-[11px] text-zinc-500">
         <span>Press <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Enter</kbd> to send, <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Shift+Enter</kbd> for new line</span>
-        <span className="font-medium text-zinc-500">Powered by SupportAI</span>
+        <span className="hidden sm:inline font-medium text-zinc-500">Powered by SupportAI</span>
       </div>
     </form>
   );

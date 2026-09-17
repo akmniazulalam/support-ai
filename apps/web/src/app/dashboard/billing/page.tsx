@@ -220,8 +220,9 @@ function PlanCard({
         </button>
       )}
       {isCurrent && !isUpgrade && !isDowngrade && (
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 text-center text-sm text-zinc-600">
-          Your current plan
+        <div className="flex items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-center text-sm font-medium text-zinc-400">
+          <CheckIcon className="h-4 w-4 text-emerald-400" />
+          <span>Your current plan</span>
         </div>
       )}
     </div>
