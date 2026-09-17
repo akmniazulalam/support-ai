@@ -33,6 +33,7 @@ button {
     font-family: var(--font-google);
     font-size: 12px;
     font-weight: 700 !important;
+    cursor: pointer;
 }
 
 h1,
