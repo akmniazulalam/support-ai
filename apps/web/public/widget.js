@@ -302,6 +302,7 @@
   color: #ffffff;
   border-radius: 14px 14px 4px 14px;
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+  font-family: 'Lexend';
 }
 
 .supportai-message-row.is-assistant .supportai-bubble {
@@ -309,6 +310,7 @@
   color: #e4e4e7;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 14px 14px 14px 4px;
+  font-family: 'Lexend';
 }
 
 .supportai-message-time {
