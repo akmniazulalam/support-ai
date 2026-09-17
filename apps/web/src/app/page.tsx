@@ -38,7 +38,7 @@ export default function Home() {
             href="/dashboard"
             className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-zinc-100 via-white to-zinc-200 px-5 text-sm font-semibold text-zinc-950 shadow-md transition-all duration-150 hover:brightness-105 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
           >
-            <span>Go to Dashboard</span>
+            <span className="leading-[1.1]">Go to Dashboard</span>
             <ChevronRightIcon className="h-4 w-4" />
           </Link>
 
