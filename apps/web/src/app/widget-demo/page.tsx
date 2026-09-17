@@ -14,12 +14,15 @@ export default function WidgetDemoPage() {
   useEffect(() => {
     // This code only runs in the browser, where window is safely available
     const currentUrl = window.location.href;
+    const timeoutId = window.setTimeout(() => {
+      if (currentUrl.startsWith('http://localhost:3000/widget-demo')) {
+        setApiUrl('http://localhost:3001');
+      } else if (currentUrl.startsWith('https://support-ai-web-eosin.vercel.app/widget-demo')) {
+        setApiUrl('https://support-ai-sihl.onrender.com');
+      }
+    }, 0);
 
-    if (currentUrl.startsWith('http://localhost:3000/widget-demo')) {
-      setApiUrl('http://localhost:3001');
-    } else if (currentUrl.startsWith('https://support-ai-web-eosin.vercel.app/widget-demo')) {
-      setApiUrl('https://support-ai-sihl.onrender.com');
-    }
+    return () => window.clearTimeout(timeoutId);
   }, []);
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
   const [sessionStored, setSessionStored] = useState<string | null>(null);
