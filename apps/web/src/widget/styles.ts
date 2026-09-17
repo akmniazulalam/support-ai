@@ -4,11 +4,13 @@ export function getWidgetStyles(position: 'bottom-right' | 'bottom-left' = 'bott
   const panelPosAlign = isLeft ? 'left: 20px;' : 'right: 20px;';
 
   return `
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
 :host {
   all: initial;
   position: fixed;
   z-index: 2147483647;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color-scheme: dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -428,7 +430,7 @@ export function getWidgetStyles(position: 'bottom-right' | 'bottom-left' = 'bott
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   color: #f4f4f5;
-  font-family: inherit;
+  font-family: 'Lexend';
   font-size: 12.5px;
   line-height: 1.45;
   resize: none;

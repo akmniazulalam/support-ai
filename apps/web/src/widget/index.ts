@@ -66,6 +66,32 @@ function resolveApiBaseUrl(script: HTMLScriptElement | null): string {
   return 'http://localhost:3001';
 }
 
+const LEXEND_FONT_HREF = 'https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap';
+const LEXEND_FONT_ID = 'supportai-lexend-font';
+
+function ensureLexendFont(target?: ParentNode): void {
+  if (typeof document === 'undefined') return;
+
+  // 1. Ensure font is registered in host document for cross-browser font engine support
+  if (!document.getElementById(LEXEND_FONT_ID)) {
+    const link = document.createElement('link');
+    link.id = LEXEND_FONT_ID;
+    link.rel = 'stylesheet';
+    link.href = LEXEND_FONT_HREF;
+    document.head.appendChild(link);
+  }
+
+  // 2. Also inject directly into shadow root if provided for Shadow DOM self-containment
+  if (target && target !== document.head && target instanceof ShadowRoot) {
+    if (!target.querySelector(`link[href="${LEXEND_FONT_HREF}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = LEXEND_FONT_HREF;
+      target.appendChild(link);
+    }
+  }
+}
+
 class SupportAIWidget {
   private config: WidgetConfig;
   private shadow: ShadowRoot;
@@ -81,6 +107,9 @@ class SupportAIWidget {
   constructor(config: WidgetConfig, shadow: ShadowRoot) {
     this.config = config;
     this.shadow = shadow;
+
+    // Ensure Lexend font is loaded both in host document and shadow root
+    ensureLexendFont(this.shadow);
 
     // Inject encapsulated CSS
     const styleEl = document.createElement('style');
