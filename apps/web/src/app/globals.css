@@ -31,8 +31,6 @@ body {
 
 button {
     font-family: var(--font-google);
-    text-transform: uppercase;
-    letter-spacing: .125em;
     font-size: 12px;
     font-weight: 700 !important;
 }

@@ -100,6 +100,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
             <Link
               href={`/dashboard/agents/${agent.id}/knowledge`}
               title="Manage knowledge base"
+              aria-label={`Manage knowledge base for ${agent.name}`}
               className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.06] transition-colors"
             >
               <BookOpenIcon className="h-3.5 w-3.5" />
@@ -109,6 +110,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
             <button
               type="button"
               title="Delete agent"
+              aria-label={`Delete agent ${agent.name}`}
               onClick={() => setIsDeleteOpen(true)}
               className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
             >

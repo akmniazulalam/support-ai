@@ -328,7 +328,8 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
                   href={ks.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-cyan-400 hover:underline break-all"
+                  title={ks.sourceUrl}
+                  className="block max-w-full truncate text-xs text-cyan-400 hover:underline"
                 >
                   {ks.sourceUrl}
                 </a>
@@ -356,6 +357,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
           <button
             type="button"
             title="Edit"
+            aria-label={`Edit knowledge source ${ks.title}`}
             onClick={onEdit}
             className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.06] transition-colors"
           >
@@ -364,6 +366,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
           <button
             type="button"
             title="Delete"
+            aria-label={`Delete knowledge source ${ks.title}`}
             onClick={onDelete}
             className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
           >

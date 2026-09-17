@@ -383,22 +383,22 @@ export default function AgentDetailPage() {
     <>
       <div className="animate-message-entrance pb-10 space-y-6">
         {/* Back */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <Link
             href="/dashboard/agents"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-zinc-200 transition-colors shrink-0"
           >
             <ArrowLeftIcon className="h-4 w-4" />
             Back to Agents
           </Link>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {/* Public chat link */}
             <Link
               href={`/chat/${agent.publicId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
             >
               <ExternalLinkIcon className="h-3.5 w-3.5" />
               Public Chat
@@ -407,7 +407,7 @@ export default function AgentDetailPage() {
             {/* Knowledge Base */}
             <Link
               href={`/dashboard/agents/${agent.id}/knowledge`}
-              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
             >
               <BookOpenIcon className="h-3.5 w-3.5" />
               Knowledge Base
@@ -417,7 +417,7 @@ export default function AgentDetailPage() {
             <button
               type="button"
               onClick={() => setIsDeleteOpen(true)}
-              className="flex items-center gap-1.5 rounded-xl border border-red-500/20 px-3 py-1.5 text-xs font-medium text-red-400 hover:bg-red-500/10 transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-red-500/20 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-red-400 hover:bg-red-500/10 transition-colors"
             >
               <TrashIcon className="h-3.5 w-3.5" />
               Delete
@@ -426,18 +426,18 @@ export default function AgentDetailPage() {
         </div>
 
         {/* Page Title */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.1]">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.1]">
             <BotIcon className="h-6 w-6 text-zinc-300" />
           </div>
-          <div>
-            <h1 className="text-xl font-bold tracking-tight text-zinc-100">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-xl font-bold tracking-tight text-zinc-100 truncate">
               {agent.name}
             </h1>
-            <p className="text-xs font-lexend text-zinc-500">/{agent.slug}</p>
+            <p className="text-xs font-lexend text-zinc-500 truncate">/{agent.slug}</p>
           </div>
           <span
-            className={`ml-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
+            className={`shrink-0 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
               agent.isActive
                 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                 : 'bg-zinc-800 text-zinc-500 border border-white/[0.06]'
