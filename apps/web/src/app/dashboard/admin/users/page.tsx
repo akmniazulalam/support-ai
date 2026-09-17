@@ -29,7 +29,7 @@ export default function AdminUsersPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [meta, setMeta] = useState<AdminPaginationMeta>({
     page: 1,
-    limit: 20,
+    limit: 10,
     total: 0,
     totalPages: 1,
   });
@@ -61,7 +61,7 @@ export default function AdminUsersPage() {
       try {
         const response = await getAdminUsers({
           page,
-          limit: 20,
+          limit: 10,
           search: activeSearch.trim() || undefined,
         });
         if (!ignore) {
@@ -113,7 +113,6 @@ export default function AdminUsersPage() {
             value={searchInput}
             onChange={handleSearchChange}
             placeholder="Search by name or email..."
-            disabled={isLoading && !isRefreshing}
           />
           <button
             type="button"

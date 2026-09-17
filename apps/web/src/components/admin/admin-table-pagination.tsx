@@ -33,7 +33,8 @@ export function AdminTablePagination({
       <div className="tabular-nums">
         Showing <span className="font-medium text-zinc-200">{start}</span> to{' '}
         <span className="font-medium text-zinc-200">{end}</span> of{' '}
-        <span className="font-medium text-zinc-200">{totalItems.toLocaleString()}</span> entries
+        <span className="font-medium text-zinc-200">{totalItems.toLocaleString()}</span> entries{' '}
+        <span className="text-zinc-500">({limit} per page)</span>
       </div>
 
       <div className="flex items-center gap-2">

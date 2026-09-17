@@ -29,7 +29,7 @@ export default function AdminWorkspacesPage() {
   const [workspaces, setWorkspaces] = useState<AdminWorkspace[]>([]);
   const [meta, setMeta] = useState<AdminPaginationMeta>({
     page: 1,
-    limit: 20,
+    limit: 10,
     total: 0,
     totalPages: 1,
   });
@@ -61,7 +61,7 @@ export default function AdminWorkspacesPage() {
       try {
         const response = await getAdminWorkspaces({
           page,
-          limit: 20,
+          limit: 10,
           search: activeSearch.trim() || undefined,
         });
         if (!ignore) {
@@ -113,7 +113,6 @@ export default function AdminWorkspacesPage() {
             value={searchInput}
             onChange={handleSearchChange}
             placeholder="Search by name or owner email..."
-            disabled={isLoading && !isRefreshing}
           />
           <button
             type="button"
