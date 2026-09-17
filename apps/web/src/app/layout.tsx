@@ -3,6 +3,10 @@ import { Anton_SC, Cal_Sans, Google_Sans, Jost, Lexend, Poppins, Syne } from "ne
 import "./globals.css";
 import { AppProviders } from "@/components/providers";
 
+const siteUrl = "https://support-ai-web-eosin.vercel.app";
+const siteDescription =
+  "Build AI support agents from your business knowledge and deliver instant customer answers.";
+
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
@@ -38,8 +42,29 @@ const google = Google_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SupportAI - Intelligent Customer Support",
-  description: "Instant AI customer support powered by your business knowledge.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "SupportAI | AI-powered customer support",
+    template: "%s | SupportAI",
+  },
+  description: siteDescription,
+  applicationName: "SupportAI",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "SupportAI",
+    title: "SupportAI | AI-powered customer support",
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary",
+    title: "SupportAI | AI-powered customer support",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
@@ -58,5 +83,4 @@ export default function RootLayout({
     </html>
   );
 }
-
 
