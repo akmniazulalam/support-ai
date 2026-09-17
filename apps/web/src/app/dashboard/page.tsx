@@ -8,6 +8,8 @@ import {
   BuildingIcon,
   CheckIcon,
   ExternalLinkIcon,
+  PlusIcon,
+  RefreshCwIcon,
   ShieldCheckIcon,
   SparklesIcon,
 } from '@/components/ui/icons';
@@ -21,6 +23,7 @@ export default function DashboardOverviewPage() {
   const [agents, setAgents] = useState<PublicAgentInfo[]>([]);
   const [isLoadingAgents, setIsLoadingAgents] = useState(true);
   const [agentsError, setAgentsError] = useState<string | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -49,7 +52,7 @@ export default function DashboardOverviewPage() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [reloadKey]);
 
   const activeAgentsCount = agents.filter((a) => a.isActive).length;
 
@@ -169,9 +172,19 @@ export default function DashboardOverviewPage() {
             <span>Loading agents...</span>
           </div>
         ) : agentsError ? (
-          <div className="flex items-center gap-2 rounded-xl bg-amber-500/10 border border-amber-500/20 p-4 text-xs text-amber-300">
-            <AlertCircleIcon className="h-4 w-4 shrink-0" />
-            <span>{agentsError}</span>
+          <div className="flex items-center justify-between gap-3 rounded-xl bg-amber-500/10 border border-amber-500/20 p-4 text-xs text-amber-300">
+            <div className="flex items-center gap-2">
+              <AlertCircleIcon className="h-4 w-4 shrink-0" />
+              <span>{agentsError}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setReloadKey((k) => k + 1)}
+              className="flex items-center gap-1.5 rounded-lg border border-amber-500/30 px-2.5 py-1 text-xs font-medium text-amber-300 hover:bg-amber-500/10 transition-colors cursor-pointer"
+            >
+              <RefreshCwIcon className="h-3 w-3" />
+              <span>Retry</span>
+            </button>
           </div>
         ) : agents.length === 0 ? (
           <div className="rounded-xl border border-dashed border-white/[0.1] p-8 text-center bg-white/[0.01]">
@@ -182,8 +195,15 @@ export default function DashboardOverviewPage() {
               No AI agents created yet
             </h3>
             <p className="text-xs text-zinc-400 max-w-sm mx-auto mt-1 mb-4">
-              Agent creation and instruction management will be enabled in the upcoming Milestone 3. Once created, your agents will appear here with instant links to their public chat.
+              Get started by creating your first AI support agent to assist your customers.
             </p>
+            <Link
+              href="/dashboard/agents/new"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-zinc-100 px-3.5 py-2 text-xs font-semibold text-zinc-950 hover:bg-white transition-colors"
+            >
+              <PlusIcon className="h-3.5 w-3.5" />
+              <span>Create Agent</span>
+            </Link>
           </div>
         ) : (
           <div className="divide-y divide-white/[0.06]">
@@ -272,11 +292,11 @@ export default function DashboardOverviewPage() {
           <div className="rounded-xl bg-[#141520] border border-white/[0.07] p-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-lexend font-semibold text-zinc-400">
+                <span className="text-xs font-lexend font-semibold text-emerald-400">
                   Step 2
                 </span>
-                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-white/[0.05] text-zinc-400">
-                  Upcoming
+                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  Ready
                 </span>
               </div>
               <h3 className="text-sm font-semibold text-zinc-200">
@@ -286,8 +306,13 @@ export default function DashboardOverviewPage() {
                 Configure AI system instructions, connect documentation, FAQs, and website links.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-zinc-500 font-medium">
-              Milestone 3 Feature
+            <div className="mt-4 pt-3 border-t border-white/[0.05]">
+              <Link
+                href="/dashboard/agents"
+                className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+              >
+                Manage Agents →
+              </Link>
             </div>
           </div>
 

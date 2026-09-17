@@ -87,9 +87,25 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!title.trim()) return;
-    if ((type === 'TEXT' || type === 'FAQ') && !content.trim()) return;
-    if (type === 'WEBSITE' && !sourceUrl.trim()) return;
+    if (!title.trim()) {
+      setError('Title is required.');
+      return;
+    }
+    if ((type === 'TEXT' || type === 'FAQ') && !content.trim()) {
+      setError(type === 'FAQ' ? 'Answer content is required for FAQ sources.' : 'Content is required for text sources.');
+      return;
+    }
+    if (type === 'WEBSITE') {
+      const cleanUrl = sourceUrl.trim();
+      if (!cleanUrl) {
+        setError('Website URL is required.');
+        return;
+      }
+      if (!/^https?:\/\/.+/i.test(cleanUrl)) {
+        setError('Please enter a valid URL starting with http:// or https://.');
+        return;
+      }
+    }
 
     setIsSubmitting(true);
     setError(null);
@@ -250,12 +266,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
         <div className="flex items-center gap-3 pt-1">
           <button
             type="submit"
-            disabled={
-              isSubmitting ||
-              !title.trim() ||
-              (needsContent && !content.trim()) ||
-              (needsUrl && !sourceUrl.trim())
-            }
+            disabled={isSubmitting}
             className="flex items-center gap-2 rounded-xl bg-zinc-100 px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (

@@ -41,6 +41,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [chatError, setChatError] = useState<ChatError | null>(null);
+  const [lastFailedMessage, setLastFailedMessage] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
 
     setInput('');
     setChatError(null);
+    setLastFailedMessage(null);
     setMessages((prev) => [...prev, { role: 'user', content: text }]);
     setIsSending(true);
 
@@ -61,6 +63,41 @@ function TestChatPanel({ agent }: { agent: Agent }) {
       const { answer } = await testChat(agent.id, text);
       setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
     } catch (err) {
+      setLastFailedMessage(text);
+      if (
+        err instanceof AuthApiError &&
+        err.code === 'AI_USAGE_LIMIT_REACHED'
+      ) {
+        setChatError({
+          message: err.message,
+          isRateLimit: true,
+        });
+      } else {
+        setChatError({
+          message:
+            err instanceof AuthApiError
+              ? err.message
+              : 'Failed to get a response. Please try again.',
+          isRateLimit: false,
+        });
+      }
+    } finally {
+      setIsSending(false);
+    }
+  }
+
+  async function handleRetry() {
+    if (!lastFailedMessage || isSending) return;
+    const textToRetry = lastFailedMessage;
+    setLastFailedMessage(null);
+    setChatError(null);
+    setIsSending(true);
+
+    try {
+      const { answer } = await testChat(agent.id, textToRetry);
+      setMessages((prev) => [...prev, { role: 'assistant', content: answer }]);
+    } catch (err) {
+      setLastFailedMessage(textToRetry);
       if (
         err instanceof AuthApiError &&
         err.code === 'AI_USAGE_LIMIT_REACHED'
@@ -146,19 +183,31 @@ function TestChatPanel({ agent }: { agent: Agent }) {
         )}
 
         {chatError && (
-          <div className="flex items-start gap-2 rounded-xl border border-red-500/20 bg-red-500/5 px-3 py-2.5">
-            <AlertCircleIcon className="h-4 w-4 shrink-0 text-red-400 mt-0.5" />
-            <div className="text-xs text-red-400">
-              <p>{chatError.message}</p>
-              {chatError.isRateLimit && (
-                <Link
-                  href="/dashboard/billing"
-                  className="mt-1 inline-block text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors"
-                >
-                  Upgrade to Pro for more messages →
-                </Link>
-              )}
+          <div className="flex items-start justify-between gap-2 rounded-xl border border-red-500/20 bg-red-500/5 px-3 py-2.5">
+            <div className="flex items-start gap-2">
+              <AlertCircleIcon className="h-4 w-4 shrink-0 text-red-400 mt-0.5" />
+              <div className="text-xs text-red-400">
+                <p>{chatError.message}</p>
+                {chatError.isRateLimit && (
+                  <Link
+                    href="/dashboard/billing"
+                    className="mt-1 inline-block text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors"
+                  >
+                    Upgrade to Pro for more messages →
+                  </Link>
+                )}
+              </div>
             </div>
+            {!chatError.isRateLimit && lastFailedMessage && (
+              <button
+                type="button"
+                onClick={() => void handleRetry()}
+                disabled={isSending}
+                className="shrink-0 text-xs text-red-400 hover:text-red-300 font-medium underline underline-offset-2 transition-colors cursor-pointer disabled:opacity-50"
+              >
+                Retry
+              </button>
+            )}
           </div>
         )}
 
@@ -243,7 +292,10 @@ export default function AgentDetailPage() {
 
   async function handleSave(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      setSaveError('Agent name is required.');
+      return;
+    }
 
     setIsSaving(true);
     setSaveError(null);
