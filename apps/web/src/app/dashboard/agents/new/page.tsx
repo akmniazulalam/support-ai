@@ -23,7 +23,10 @@ export default function NewAgentPage() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      setError('Agent name is required.');
+      return;
+    }
 
     setIsSubmitting(true);
     setError(null);

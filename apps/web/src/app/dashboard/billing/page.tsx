@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import {
   AlertCircleIcon,
   CheckIcon,
   CreditCardIcon,
+  RefreshCwIcon,
   ZapIcon,
 } from '@/components/ui/icons';
 import {
@@ -376,6 +377,7 @@ export default function BillingPage() {
   const [usage, setUsage] = useState<BillingUsage | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   // Upgrade flow
   const [isUpgrading, setIsUpgrading] = useState(false);
@@ -392,6 +394,8 @@ export default function BillingPage() {
 
   useEffect(() => {
     async function load() {
+      setIsLoading(true);
+      setLoadError(null);
       try {
         const [subData, usageData] = await Promise.all([
           getSubscription(),
@@ -410,7 +414,7 @@ export default function BillingPage() {
       }
     }
     void load();
-  }, []);
+  }, [reloadKey]);
 
   async function handleUpgrade() {
     if (isUpgrading) return;
@@ -498,16 +502,26 @@ export default function BillingPage() {
   if (loadError || !sub || !usage) {
     return (
       <div className="animate-message-entrance pb-10">
-        <div className="flex items-start gap-3 rounded-2xl border border-red-500/20 bg-red-500/5 p-5">
-          <AlertCircleIcon className="h-5 w-5 shrink-0 text-red-400 mt-0.5" />
-          <div>
-            <p className="font-medium text-red-400">
-              Failed to load billing info
-            </p>
-            <p className="mt-1 text-sm text-red-400/70">
-              {loadError ?? 'Unknown error'}
-            </p>
+        <div className="flex items-start justify-between gap-3 rounded-2xl border border-red-500/20 bg-red-500/5 p-5">
+          <div className="flex items-start gap-3">
+            <AlertCircleIcon className="h-5 w-5 shrink-0 text-red-400 mt-0.5" />
+            <div>
+              <p className="font-medium text-red-400">
+                Failed to load billing info
+              </p>
+              <p className="mt-1 text-sm text-red-400/70">
+                {loadError ?? 'Unknown error'}
+              </p>
+            </div>
           </div>
+          <button
+            type="button"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className="flex items-center gap-1.5 rounded-lg border border-red-500/30 px-3 py-1.5 text-xs font-medium text-red-400 hover:bg-red-500/10 transition-colors cursor-pointer"
+          >
+            <RefreshCwIcon className="h-3.5 w-3.5" />
+            <span>Retry</span>
+          </button>
         </div>
       </div>
     );

@@ -26,6 +26,7 @@ export default function WidgetDemoPage() {
   }, []);
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
   const [sessionStored, setSessionStored] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
 
   // Check stored session in localStorage
   const checkStoredSession = (id: string) => {
@@ -39,6 +40,9 @@ export default function WidgetDemoPage() {
 
   const handleAgentIdChange = (newId: string) => {
     setAgentId(newId);
+    if (formError && newId.trim()) {
+      setFormError(null);
+    }
     checkStoredSession(newId);
   };
 
@@ -49,9 +53,10 @@ export default function WidgetDemoPage() {
     unloadWidget();
 
     if (!agentId.trim()) {
-      alert("Please enter a Public Agent ID to load the widget.");
+      setFormError("Please enter a Public Agent ID to load the widget.");
       return;
     }
+    setFormError(null);
 
     const script = document.createElement("script");
     script.src = "/widget.js";
@@ -115,6 +120,15 @@ export default function WidgetDemoPage() {
           <h2 className="text-sm font-semibold text-zinc-200">
             Widget Parameters
           </h2>
+
+          {formError && (
+            <div
+              role="alert"
+              className="flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-300 animate-message-entrance"
+            >
+              <span>{formError}</span>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
