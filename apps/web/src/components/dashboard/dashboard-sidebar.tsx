@@ -50,8 +50,6 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Knowledge Base',
     href: '/dashboard/knowledge',
     icon: BookOpenIcon,
-    badge: 'Soon',
-    disabled: true,
   },
   {
     label: 'Settings',
@@ -151,7 +149,11 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
           const isActive =
             item.href === '/dashboard'
               ? pathname === item.href
-              : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              : item.href === '/dashboard/knowledge'
+                ? pathname === '/dashboard/knowledge' || pathname.includes('/knowledge')
+                : item.href === '/dashboard/agents'
+                  ? (pathname === '/dashboard/agents' || pathname.startsWith('/dashboard/agents/')) && !pathname.includes('/knowledge')
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
           const Icon = item.icon;
 
           if (item.disabled) {
