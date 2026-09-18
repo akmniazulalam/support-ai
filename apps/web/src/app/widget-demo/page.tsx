@@ -9,7 +9,7 @@ export default function WidgetDemoPage() {
   const [position, setPosition] = useState<"bottom-right" | "bottom-left">(
     "bottom-right",
   );
-  const [apiUrl, setApiUrl] = useState('https://support-ai-sihl.onrender.com');
+  const [apiUrl, setApiUrl] = useState("https://support-ai-sihl.onrender.com");
   const [isWidgetLoaded, setIsWidgetLoaded] = useState(false);
   const [sessionStored, setSessionStored] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
@@ -18,17 +18,27 @@ export default function WidgetDemoPage() {
     // This code only runs in the browser, where window is safely available
     const currentUrl = window.location.href;
     const timeoutId = window.setTimeout(() => {
-      if (currentUrl.startsWith('http://localhost:3000/widget-demo')) {
-        setApiUrl('http://localhost:3001');
-      } else if (currentUrl.startsWith('https://support-ai-web-eosin.vercel.app/widget-demo')) {
-        setApiUrl('https://support-ai-sihl.onrender.com');
+      if (
+        currentUrl.startsWith("http://localhost:3000/widget-demo") ||
+        currentUrl.startsWith("http://localhost:3002/widget-demo") ||
+        currentUrl.startsWith("http://localhost:3003/widget-demo")
+      ) {
+        setApiUrl("http://localhost:3001");
+      } else if (
+        currentUrl.startsWith(
+          "https://support-ai-web-eosin.vercel.app/widget-demo",
+        )
+      ) {
+        setApiUrl("https://support-ai-sihl.onrender.com");
       }
       try {
         const parsed = new URL(currentUrl);
-        const pId = parsed.searchParams.get('agentId');
+        const pId = parsed.searchParams.get("agentId");
         if (pId && pId.trim()) {
           setAgentId(pId.trim());
-          const val = window.localStorage.getItem(`supportai_chat_${pId.trim()}`);
+          const val = window.localStorage.getItem(
+            `supportai_chat_${pId.trim()}`,
+          );
           setSessionStored(val);
         }
       } catch {
@@ -135,8 +145,7 @@ export default function WidgetDemoPage() {
           {formError && (
             <div
               role="alert"
-              className="flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-300 animate-message-entrance"
-            >
+              className="flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-300 animate-message-entrance">
               <span>{formError}</span>
             </div>
           )}
