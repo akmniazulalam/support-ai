@@ -198,13 +198,15 @@ export class WidgetUI {
     });
 
     // Escape key closes the panel
-    window.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && this.isOpen) {
-        this.callbacks.onToggle();
-        this.launcherBtn.focus();
-      }
-    });
+    window.addEventListener('keydown', this.handleWindowKeyDown);
   }
+
+  private handleWindowKeyDown = (e: KeyboardEvent): void => {
+    if (e.key === 'Escape' && this.isOpen) {
+      this.callbacks.onToggle();
+      this.launcherBtn.focus();
+    }
+  };
 
   private autoResizeTextarea(): void {
     this.textarea.style.height = 'auto';
@@ -363,5 +365,9 @@ export class WidgetUI {
     requestAnimationFrame(() => {
       this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
     });
+  }
+
+  public destroy(): void {
+    window.removeEventListener('keydown', this.handleWindowKeyDown);
   }
 }

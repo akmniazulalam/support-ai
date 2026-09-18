@@ -49,6 +49,30 @@ export default function WidgetDemoPage() {
     return () => window.clearTimeout(timeoutId);
   }, []);
 
+  // Cleanup widget resources when navigating away from the Widget Demo route
+  useEffect(() => {
+    return () => {
+      // Call destroy() to clear intervals and remove window event listeners
+      const instance = (
+        window as Window & { __supportAIWidgetInstance?: { destroy(): void } }
+      ).__supportAIWidgetInstance;
+      if (instance) {
+        instance.destroy();
+        (
+          window as Window & {
+            __supportAIWidgetInstance?: { destroy(): void };
+          }
+        ).__supportAIWidgetInstance = undefined;
+      }
+      // Remove injected widget DOM (script tag + shadow root host)
+      // NOTE: localStorage sessions are intentionally preserved
+      const existingScript = document.getElementById("supportai-test-script");
+      if (existingScript) existingScript.remove();
+      const root = document.getElementById("supportai-widget-root");
+      if (root) root.remove();
+    };
+  }, []);
+
   // Check stored session in localStorage
   const checkStoredSession = (id: string) => {
     if (!id || typeof window === "undefined") {
