@@ -207,7 +207,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const updateProfile = useCallback(async (dto: UpdateProfileDto) => {
     const updated = await updateCurrentUserApi(dto);
-    setUser(updated);
+    setUser((prev) => (prev ? { ...updated, role: prev.role } : updated));
   }, []);
 
   return (
