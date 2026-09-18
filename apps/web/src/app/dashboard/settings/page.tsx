@@ -595,4 +595,61 @@ function WorkspaceSettingsCard({
   );
 }
 
+// ─── Main Settings Page ──────────────────────────────────────────────────────
 
+export default function SettingsPage() {
+  const { user, workspace, isLoading, updateProfile, updateWorkspace, isAdmin } =
+    useAuth();
+
+  if (isLoading || !user) {
+    return (
+      <div className="animate-message-entrance pb-10 space-y-6">
+        {/* Header Skeleton */}
+        <div>
+          <div className="h-7 w-32 rounded-lg bg-zinc-800 animate-pulse mb-2" />
+          <div className="h-4 w-72 rounded bg-zinc-800/60 animate-pulse" />
+        </div>
+
+        {/* Cards Skeletons */}
+        <div className="space-y-6 max-w-3xl">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="h-64 rounded-2xl border border-white/[0.06] bg-[#111218]/50 animate-pulse"
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="animate-message-entrance pb-10 space-y-6">
+      {/* Header */}
+      <div>
+        <h1 className="text-xl font-bold tracking-tight text-white font-lexend">
+          Settings
+        </h1>
+        <p className="mt-1 text-sm text-zinc-500">
+          Manage your account and workspace preferences.
+        </p>
+      </div>
+
+      {/* Settings Sections */}
+      <div className="space-y-6 max-w-3xl">
+        <AccountSettingsCard
+          user={user}
+          updateProfile={updateProfile}
+          isAdmin={isAdmin}
+        />
+
+        <SecuritySettingsCard />
+
+        <WorkspaceSettingsCard
+          workspace={workspace}
+          updateWorkspace={updateWorkspace}
+        />
+      </div>
+    </div>
+  );
+}
