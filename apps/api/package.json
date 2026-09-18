@@ -12,6 +12,7 @@
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prisma:generate": "prisma generate --config prisma7.config.ts",
+    "prisma:migrate:deploy": "prisma migrate deploy --config prisma7.config.ts",
     "prisma:validate": "prisma validate --config prisma7.config.ts",
     "prestart": "npm run prisma:generate",
     "start": "nest start",
