@@ -57,6 +57,11 @@ export interface UpdateWorkspaceDto {
   name: string;
 }
 
+export interface ChangePasswordDto {
+  currentPassword: string;
+  newPassword: string;
+}
+
 export interface PublicAgentInfo {
   id: string;
   publicId: string;
