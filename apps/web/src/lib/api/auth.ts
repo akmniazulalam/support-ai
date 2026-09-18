@@ -6,6 +6,7 @@ import {
 import type {
   AuthResponse,
   AuthTokens,
+  ChangePasswordDto,
   CurrentUserResponse,
   FullWorkspace,
   LoginDto,
@@ -279,6 +280,15 @@ export async function updateCurrentUser(
   dto: UpdateProfileDto,
 ): Promise<SafeUser> {
   return authenticatedRequest<SafeUser>('/users/me', {
+    method: 'PATCH',
+    body: JSON.stringify(dto),
+  });
+}
+
+export async function changePassword(
+  dto: ChangePasswordDto,
+): Promise<{ success: boolean }> {
+  return authenticatedRequest<{ success: boolean }>('/users/me/password', {
     method: 'PATCH',
     body: JSON.stringify(dto),
   });
