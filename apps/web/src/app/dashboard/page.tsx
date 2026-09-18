@@ -55,6 +55,7 @@ export default function DashboardOverviewPage() {
   }, [reloadKey]);
 
   const activeAgentsCount = agents.filter((a) => a.isActive).length;
+  const hasAgents = agents.length > 0;
 
   return (
     <div className="space-y-6 animate-message-entrance pb-10">
@@ -296,24 +297,39 @@ export default function DashboardOverviewPage() {
                 <span className="text-xs font-lexend font-semibold text-emerald-400">
                   Step 2
                 </span>
-                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  Ready
-                </span>
+                {hasAgents ? (
+                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Ready
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/[0.08]">
+                    Not ready
+                  </span>
+                )}
               </div>
               <h3 className="text-sm font-semibold text-zinc-200">
-                Agent & Knowledge Base
+                Agent &amp; Knowledge Base
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Configure AI system instructions, connect documentation, FAQs,
-                and website links.
+                {hasAgents
+                  ? 'Configure AI system instructions, connect documentation, FAQs, and website links.'
+                  : 'Create your first AI support agent to configure system instructions and knowledge.'}
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05]">
-              <Link
-                href="/dashboard/agents"
-                className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
-                Manage Agents →
-              </Link>
+              {hasAgents ? (
+                <Link
+                  href="/dashboard/agents"
+                  className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+                  Manage Agents →
+                </Link>
+              ) : (
+                <Link
+                  href="/dashboard/agents/new"
+                  className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+                  Create an Agent →
+                </Link>
+              )}
             </div>
           </div>
 
@@ -323,21 +339,38 @@ export default function DashboardOverviewPage() {
                 <span className="text-xs font-lexend font-semibold text-emerald-400">
                   Step 3
                 </span>
-                <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  Ready
-                </span>
+                {hasAgents ? (
+                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Ready
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/[0.08]">
+                    Not ready
+                  </span>
+                )}
               </div>
               <h3 className="text-sm font-semibold text-zinc-200">
                 Public Customer Chat
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Your customer-facing chat is ready. Open or share the public
-                chat link from your agent.
+                {hasAgents
+                  ? 'Your customer-facing chat is ready. Open or share the public chat link from your agent.'
+                  : 'Customer-facing chat will be available once you create and activate an agent.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
-              Live & Accessible
-            </div>
+            {hasAgents ? (
+              <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
+                Live &amp; Accessible
+              </div>
+            ) : (
+              <div className="mt-4 pt-3 border-t border-white/[0.05]">
+                <Link
+                  href="/dashboard/agents/new"
+                  className="text-[11px] text-zinc-400 hover:text-zinc-200 font-medium transition-colors">
+                  Create an Agent →
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

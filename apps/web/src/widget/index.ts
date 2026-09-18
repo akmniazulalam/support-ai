@@ -283,6 +283,14 @@ class SupportAIWidget {
       await this.sendMessage(msg);
     }
   }
+
+  public destroy(): void {
+    if (this.rateLimitTimer) {
+      clearInterval(this.rateLimitTimer);
+      this.rateLimitTimer = null;
+    }
+    this.ui.destroy();
+  }
 }
 
 // Self-initialization entry point
@@ -326,7 +334,9 @@ function initWidget(): void {
     const shadow = hostEl.attachShadow({ mode: 'open' });
     document.body.appendChild(hostEl);
 
-    new SupportAIWidget(config, shadow);
+    // Store instance globally so demo/test pages can call destroy() on cleanup
+    (window as Window & { __supportAIWidgetInstance?: SupportAIWidget }).__supportAIWidgetInstance =
+      new SupportAIWidget(config, shadow);
   }
 
   if (document.readyState === 'loading') {
