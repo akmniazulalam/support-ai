@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   AlertCircleIcon,
   BotIcon,
@@ -12,11 +12,11 @@ import {
   RefreshCwIcon,
   ShieldCheckIcon,
   SparklesIcon,
-} from '@/components/ui/icons';
+} from "@/components/ui/icons";
 
-import { useAuth } from '@/hooks/use-auth';
-import { getAgents } from '@/lib/api/auth';
-import type { PublicAgentInfo } from '@/types/auth';
+import { useAuth } from "@/hooks/use-auth";
+import { getAgents } from "@/lib/api/auth";
+import type { PublicAgentInfo } from "@/types/auth";
 
 export default function DashboardOverviewPage() {
   const { user, workspace } = useAuth();
@@ -38,7 +38,7 @@ export default function DashboardOverviewPage() {
         }
       } catch {
         if (isMounted) {
-          setAgentsError('Unable to load agents at this time.');
+          setAgentsError("Unable to load agents at this time.");
         }
       } finally {
         if (isMounted) {
@@ -74,21 +74,22 @@ export default function DashboardOverviewPage() {
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-              Welcome back, {user?.firstName || 'there'}!
+              Welcome back, {user?.firstName || "there"}!
             </h1>
             <p className="text-sm text-zinc-400 mt-1 max-w-xl">
-              Here is an overview of your SupportAI workspace{' '}
+              Here is an overview of your SupportAI workspace{" "}
               <span className="font-semibold text-zinc-200">
                 &ldquo;{workspace?.name}&rdquo;
               </span>
-              . Manage your customer support agents, knowledge base, and live customer conversations.
+              . Manage your customer support agents, knowledge base, and live
+              customer conversations.
             </p>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
             <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
               <BuildingIcon className="h-3.5 w-3.5 text-zinc-400" />
-              <span>Workspace: {workspace?.slug || 'default'}</span>
+              <span>Workspace: {workspace?.slug || "default"}</span>
             </span>
           </div>
         </div>
@@ -145,11 +146,11 @@ export default function DashboardOverviewPage() {
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">Owner</span>
-            <span className="text-xs text-zinc-400 font-lexend">Full Access</span>
+            <span className="text-xs text-zinc-400 font-lexend">
+              Full Access
+            </span>
           </div>
-          <p className="text-xs text-zinc-500 mt-1 truncate">
-            {user?.email}
-          </p>
+          <p className="text-xs text-zinc-500 mt-1 truncate">{user?.email}</p>
         </div>
       </div>
 
@@ -181,8 +182,7 @@ export default function DashboardOverviewPage() {
             <button
               type="button"
               onClick={() => setReloadKey((k) => k + 1)}
-              className="flex items-center gap-1.5 rounded-lg border border-amber-500/30 px-2.5 py-1 text-xs font-medium text-amber-300 hover:bg-amber-500/10 transition-colors cursor-pointer"
-            >
+              className="flex items-center gap-1.5 rounded-lg border border-amber-500/30 px-2.5 py-1 text-xs font-medium text-amber-300 hover:bg-amber-500/10 transition-colors cursor-pointer">
               <RefreshCwIcon className="h-3 w-3" />
               <span>Retry</span>
             </button>
@@ -196,12 +196,12 @@ export default function DashboardOverviewPage() {
               No AI agents created yet
             </h3>
             <p className="text-xs text-zinc-400 max-w-sm mx-auto mt-1 mb-4">
-              Get started by creating your first AI support agent to assist your customers.
+              Get started by creating your first AI support agent to assist your
+              customers.
             </p>
             <Link
               href="/dashboard/agents/new"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-zinc-100 px-3.5 py-2 text-xs font-semibold text-zinc-950 hover:bg-white transition-colors"
-            >
+              className="inline-flex items-center gap-1.5 rounded-xl bg-zinc-100 px-3.5 py-2 text-xs font-semibold text-zinc-950 hover:bg-white transition-colors">
               <PlusIcon className="h-3.5 w-3.5" />
               <span>Create Agent</span>
             </Link>
@@ -211,29 +211,29 @@ export default function DashboardOverviewPage() {
             {agents.map((agent) => (
               <div
                 key={agent.id}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-4 first:pt-0 last:pb-0"
-              >
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-4 first:pt-0 last:pb-0">
                 <div className="flex items-start gap-3 min-w-0">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#141520] border border-white/[0.08] text-zinc-300 mt-0.5">
                     <BotIcon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-sm text-zinc-100 truncate">
-                        {agent.name}
-                      </span>
+                      <Link href={`/dashboard/agents/${agent.id}`}>
+                        <span className="font-semibold text-sm text-zinc-100 truncate">
+                          {agent.name}
+                        </span>
+                      </Link>
                       <span
                         className={`text-[10px] font-lexend px-2 py-0.5 rounded-full border ${
                           agent.isActive
-                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                            : 'bg-zinc-800 text-zinc-400 border-zinc-700'
-                        }`}
-                      >
-                        {agent.isActive ? 'Active' : 'Inactive'}
+                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            : "bg-zinc-800 text-zinc-400 border-zinc-700"
+                        }`}>
+                        {agent.isActive ? "Active" : "Inactive"}
                       </span>
                     </div>
                     <p className="text-xs text-zinc-400 truncate mt-0.5">
-                      {agent.greeting || 'No custom greeting configured'}
+                      {agent.greeting || "No custom greeting configured"}
                     </p>
                     <span className="text-[10px] text-zinc-500 font-lexend">
                       Public ID: {agent.publicId}
@@ -246,8 +246,7 @@ export default function DashboardOverviewPage() {
                     href={`/chat/${agent.publicId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
-                  >
+                    className="flex items-center gap-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
                     <span>Open Public Chat</span>
                     <ExternalLinkIcon className="h-3 w-3" />
                   </Link>
@@ -282,7 +281,8 @@ export default function DashboardOverviewPage() {
                 Workspace Created
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Your workspace &ldquo;{workspace?.name}&rdquo; is ready and configured.
+                Your workspace &ldquo;{workspace?.name}&rdquo; is ready and
+                configured.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
@@ -304,14 +304,14 @@ export default function DashboardOverviewPage() {
                 Agent & Knowledge Base
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Configure AI system instructions, connect documentation, FAQs, and website links.
+                Configure AI system instructions, connect documentation, FAQs,
+                and website links.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05]">
               <Link
                 href="/dashboard/agents"
-                className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
-              >
+                className="text-[11px] text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
                 Manage Agents →
               </Link>
             </div>
@@ -331,7 +331,8 @@ export default function DashboardOverviewPage() {
                 Public Customer Chat
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Your customer-facing chat is ready. Open or share the public chat link from your agent.
+                Your customer-facing chat is ready. Open or share the public
+                chat link from your agent.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
@@ -367,11 +368,11 @@ export default function DashboardOverviewPage() {
             <span className="text-zinc-200 block">
               {workspace?.createdAt
                 ? new Date(workspace.createdAt).toLocaleDateString(undefined, {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
                   })
-                : '—'}
+                : "—"}
             </span>
           </div>
 

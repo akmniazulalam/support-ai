@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 import {
   BookOpenIcon,
   BotIcon,
@@ -9,10 +9,10 @@ import {
   PencilIcon,
   TrashIcon,
   ZapIcon,
-} from '@/components/ui/icons';
-import { deleteAgent } from '@/lib/api/agents';
-import type { Agent } from '@/types/agents';
-import { DeleteConfirmDialog } from './delete-confirm-dialog';
+} from "@/components/ui/icons";
+import { deleteAgent } from "@/lib/api/agents";
+import type { Agent } from "@/types/agents";
+import { DeleteConfirmDialog } from "./delete-confirm-dialog";
 
 interface AgentCardProps {
   agent: Agent;
@@ -32,16 +32,16 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
       setIsDeleteOpen(false);
       onDeleted(agent.id);
     } catch {
-      setDeleteError('Failed to delete agent. Please try again.');
+      setDeleteError("Failed to delete agent. Please try again.");
     } finally {
       setIsDeleting(false);
     }
   }
 
-  const createdDate = new Date(agent.createdAt).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
+  const createdDate = new Date(agent.createdAt).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
   });
 
   return (
@@ -54,9 +54,11 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
               <BotIcon className="h-5 w-5 text-zinc-300" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-sm font-semibold text-zinc-100 truncate">
-                {agent.name}
-              </h3>
+              <Link href={`/dashboard/agents/${agent.id}`}>
+                <h3 className="text-sm font-semibold text-zinc-100 truncate">
+                  {agent.name}
+                </h3>
+              </Link>
               <p className="text-[11px] font-lexend text-zinc-500 truncate">
                 /{agent.slug}
               </p>
@@ -67,16 +69,15 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
           <span
             className={`shrink-0 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
               agent.isActive
-                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                : 'bg-zinc-800 text-zinc-500 border border-white/[0.06]'
-            }`}
-          >
+                ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                : "bg-zinc-800 text-zinc-500 border border-white/[0.06]"
+            }`}>
             {agent.isActive ? (
               <ZapIcon className="h-3 w-3" />
             ) : (
               <span className="h-1.5 w-1.5 rounded-full bg-zinc-500" />
             )}
-            {agent.isActive ? 'Active' : 'Inactive'}
+            {agent.isActive ? "Active" : "Inactive"}
           </span>
         </div>
 
@@ -86,7 +87,9 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
             &ldquo;{agent.greeting}&rdquo;
           </p>
         ) : (
-          <p className="text-xs text-zinc-600 italic mb-4">No greeting configured</p>
+          <p className="text-xs text-zinc-600 italic mb-4">
+            No greeting configured
+          </p>
         )}
 
         {/* Footer */}
@@ -101,8 +104,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
               href={`/dashboard/agents/${agent.id}/knowledge`}
               title="Manage knowledge base"
               aria-label={`Manage knowledge base for ${agent.name}`}
-              className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.06] transition-colors"
-            >
+              className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.06] transition-colors">
               <BookOpenIcon className="h-3.5 w-3.5" />
             </Link>
 
@@ -112,8 +114,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
               title="Delete agent"
               aria-label={`Delete agent ${agent.name}`}
               onClick={() => setIsDeleteOpen(true)}
-              className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-            >
+              className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors">
               <TrashIcon className="h-3.5 w-3.5" />
             </button>
 
@@ -121,8 +122,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
             <Link
               href={`/dashboard/agents/${agent.id}`}
               title="Edit agent"
-              className="flex items-center gap-1 rounded-lg px-2.5 h-7 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors"
-            >
+              className="flex items-center gap-1 rounded-lg px-2.5 h-7 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors">
               <PencilIcon className="h-3.5 w-3.5" />
               Edit
               <ChevronRightIcon className="h-3 w-3" />
