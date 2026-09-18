@@ -55,8 +55,6 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Settings',
     href: '/dashboard/settings',
     icon: SettingsIcon,
-    badge: 'Soon',
-    disabled: true,
   },
 ];
 
