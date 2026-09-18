@@ -458,4 +458,141 @@ function SecuritySettingsCard() {
   );
 }
 
+// ─── Workspace Settings Card ─────────────────────────────────────────────────
+
+interface WorkspaceSettingsCardProps {
+  workspace: FullWorkspace | null;
+  updateWorkspace: (name: string) => Promise<void>;
+}
+
+function WorkspaceSettingsCard({
+  workspace,
+  updateWorkspace,
+}: WorkspaceSettingsCardProps) {
+  const [workspaceName, setWorkspaceName] = useState(workspace?.name ?? '');
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const isDirty = workspace && workspaceName.trim() !== workspace.name;
+  const canSave = isDirty && workspaceName.trim().length > 0 && !isSaving;
+
+  async function handleWorkspaceSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!canSave) return;
+
+    setIsSaving(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      await updateWorkspace(workspaceName.trim());
+      setSuccess('Workspace updated successfully.');
+    } catch (err) {
+      setError(
+        err instanceof AuthApiError
+          ? err.message
+          : 'Failed to update workspace. Please try again.',
+      );
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  return (
+    <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6 space-y-6">
+      {/* Header */}
+      <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.04] border border-white/[0.08] text-zinc-300">
+          <BuildingIcon className="h-4 w-4" />
+        </div>
+        <div>
+          <h2 className="text-base font-semibold text-white">Workspace Preferences</h2>
+          <p className="text-xs text-zinc-400 mt-0.5">
+            Configure your workspace organization identity and identifier.
+          </p>
+        </div>
+      </div>
+
+      {/* Feedback Messages */}
+      {error && (
+        <div className="flex items-start gap-2.5 rounded-xl border border-red-500/20 bg-red-500/5 p-3.5 text-xs text-red-400">
+          <AlertCircleIcon className="h-4 w-4 shrink-0 mt-0.5" />
+          <span className="leading-relaxed">{error}</span>
+        </div>
+      )}
+      {success && (
+        <div className="flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3.5 text-xs text-emerald-400">
+          <CheckIcon className="h-4 w-4 shrink-0 mt-0.5" />
+          <span className="leading-relaxed">{success}</span>
+        </div>
+      )}
+
+      {/* Form */}
+      <form onSubmit={handleWorkspaceSubmit} className="space-y-4">
+        <div>
+          <label
+            htmlFor="workspaceName"
+            className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2"
+          >
+            Workspace Name <span className="text-red-400">*</span>
+          </label>
+          <input
+            id="workspaceName"
+            type="text"
+            value={workspaceName}
+            onChange={(e) => {
+              setWorkspaceName(e.target.value);
+              setSuccess(null);
+            }}
+            placeholder="e.g. Acme Support"
+            maxLength={100}
+            required
+            className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+          />
+        </div>
+
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label
+              htmlFor="workspaceSlug"
+              className="block text-xs font-semibold uppercase tracking-wider text-zinc-400"
+            >
+              Workspace Slug
+            </label>
+            <span className="text-[10px] text-zinc-500 font-lexend">Read-only</span>
+          </div>
+          <input
+            id="workspaceSlug"
+            type="text"
+            value={workspace?.slug ?? ''}
+            disabled
+            className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 text-sm text-zinc-400 cursor-not-allowed select-none font-lexend"
+          />
+          <p className="mt-1.5 text-[11px] text-zinc-500">
+            The workspace slug is auto-generated and serves as your organization&apos;s unique URL identifier.
+          </p>
+        </div>
+
+        <div className="pt-2 flex items-center justify-end">
+          <button
+            type="submit"
+            disabled={!canSave}
+            className="flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+          >
+            {isSaving ? (
+              <>
+                <div className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
+                <span>Saving…</span>
+              </>
+            ) : (
+              <span>Save Workspace</span>
+            )}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 
