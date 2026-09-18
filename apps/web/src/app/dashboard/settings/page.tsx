@@ -197,4 +197,265 @@ function AccountSettingsCard({ user, updateProfile, isAdmin }: AccountSettingsCa
   );
 }
 
+// ─── Security Settings Card ──────────────────────────────────────────────────
+
+function SecuritySettingsCard() {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [showCurrent, setShowCurrent] = useState(false);
+  const [showNew, setShowNew] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  // Requirements checks matching backend DTO
+  const hasMinLength = newPassword.length >= 12;
+  const hasMaxLength = newPassword.length <= 128;
+  const hasLowercase = /[a-z]/.test(newPassword);
+  const hasUppercase = /[A-Z]/.test(newPassword);
+  const hasNumber = /\d/.test(newPassword);
+  const passwordsMatch = newPassword.length > 0 && newPassword === confirmPassword;
+
+  const isNewPasswordValid =
+    hasMinLength && hasMaxLength && hasLowercase && hasUppercase && hasNumber;
+  const canSubmit =
+    currentPassword.length > 0 &&
+    isNewPasswordValid &&
+    passwordsMatch &&
+    !isSaving;
+
+  async function handlePasswordSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!canSubmit) return;
+
+    if (currentPassword === newPassword) {
+      setError('New password must be different from your current password.');
+      return;
+    }
+
+    setIsSaving(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      await changePassword({
+        currentPassword,
+        newPassword,
+      });
+
+      // Clear password fields immediately upon successful change
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setSuccess('Password changed successfully.');
+    } catch (err) {
+      setError(
+        err instanceof AuthApiError
+          ? err.message
+          : 'Failed to update password. Please check your current password.',
+      );
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  return (
+    <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6 space-y-6">
+      {/* Header */}
+      <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.04] border border-white/[0.08] text-zinc-300">
+          <LockIcon className="h-4 w-4" />
+        </div>
+        <div>
+          <h2 className="text-base font-semibold text-white">Security & Password</h2>
+          <p className="text-xs text-zinc-400 mt-0.5">
+            Update your account password to ensure your account remains secure.
+          </p>
+        </div>
+      </div>
+
+      {/* Feedback Messages */}
+      {error && (
+        <div className="flex items-start gap-2.5 rounded-xl border border-red-500/20 bg-red-500/5 p-3.5 text-xs text-red-400">
+          <AlertCircleIcon className="h-4 w-4 shrink-0 mt-0.5" />
+          <span className="leading-relaxed">{error}</span>
+        </div>
+      )}
+      {success && (
+        <div className="flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3.5 text-xs text-emerald-400">
+          <CheckIcon className="h-4 w-4 shrink-0 mt-0.5" />
+          <span className="leading-relaxed">{success}</span>
+        </div>
+      )}
+
+      {/* Form */}
+      <form onSubmit={handlePasswordSubmit} className="space-y-4">
+        {/* Current Password */}
+        <div>
+          <label
+            htmlFor="currentPassword"
+            className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2"
+          >
+            Current Password <span className="text-red-400">*</span>
+          </label>
+          <div className="relative">
+            <input
+              id="currentPassword"
+              type={showCurrent ? 'text' : 'password'}
+              value={currentPassword}
+              onChange={(e) => {
+                setCurrentPassword(e.target.value);
+                setSuccess(null);
+              }}
+              autoComplete="current-password"
+              placeholder="Enter your current password"
+              required
+              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+            />
+            <button
+              type="button"
+              onClick={() => setShowCurrent((v) => !v)}
+              tabIndex={-1}
+              aria-label={showCurrent ? 'Hide current password' : 'Show current password'}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 focus:outline-none cursor-pointer"
+            >
+              {showCurrent ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* New Password */}
+          <div>
+            <label
+              htmlFor="newPassword"
+              className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2"
+            >
+              New Password <span className="text-red-400">*</span>
+            </label>
+            <div className="relative">
+              <input
+                id="newPassword"
+                type={showNew ? 'text' : 'password'}
+                value={newPassword}
+                onChange={(e) => {
+                  setNewPassword(e.target.value);
+                  setSuccess(null);
+                }}
+                autoComplete="new-password"
+                placeholder="Minimum 12 characters"
+                required
+                className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+              />
+              <button
+                type="button"
+                onClick={() => setShowNew((v) => !v)}
+                tabIndex={-1}
+                aria-label={showNew ? 'Hide new password' : 'Show new password'}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 focus:outline-none cursor-pointer"
+              >
+                {showNew ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Confirm Password */}
+          <div>
+            <label
+              htmlFor="confirmPassword"
+              className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2"
+            >
+              Confirm New Password <span className="text-red-400">*</span>
+            </label>
+            <div className="relative">
+              <input
+                id="confirmPassword"
+                type={showConfirm ? 'text' : 'password'}
+                value={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  setSuccess(null);
+                }}
+                autoComplete="new-password"
+                placeholder="Repeat new password"
+                required
+                className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirm((v) => !v)}
+                tabIndex={-1}
+                aria-label={showConfirm ? 'Hide confirm password' : 'Show confirm password'}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 focus:outline-none cursor-pointer"
+              >
+                {showConfirm ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Requirements Checklist */}
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 space-y-2 text-xs">
+          <p className="text-zinc-400 font-medium">Password Requirements:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-zinc-500">
+            <div className={`flex items-center gap-2 ${hasMinLength ? 'text-emerald-400' : ''}`}>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center">
+                {hasMinLength ? <CheckIcon className="h-3.5 w-3.5" /> : '•'}
+              </span>
+              <span>Minimum 12 characters</span>
+            </div>
+            <div className={`flex items-center gap-2 ${hasLowercase ? 'text-emerald-400' : ''}`}>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center">
+                {hasLowercase ? <CheckIcon className="h-3.5 w-3.5" /> : '•'}
+              </span>
+              <span>At least one lowercase letter</span>
+            </div>
+            <div className={`flex items-center gap-2 ${hasUppercase ? 'text-emerald-400' : ''}`}>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center">
+                {hasUppercase ? <CheckIcon className="h-3.5 w-3.5" /> : '•'}
+              </span>
+              <span>At least one uppercase letter</span>
+            </div>
+            <div className={`flex items-center gap-2 ${hasNumber ? 'text-emerald-400' : ''}`}>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center">
+                {hasNumber ? <CheckIcon className="h-3.5 w-3.5" /> : '•'}
+              </span>
+              <span>At least one number (0-9)</span>
+            </div>
+            {confirmPassword.length > 0 && (
+              <div className={`flex items-center gap-2 ${passwordsMatch ? 'text-emerald-400' : 'text-red-400'}`}>
+                <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center">
+                  {passwordsMatch ? <CheckIcon className="h-3.5 w-3.5" /> : '•'}
+                </span>
+                <span>{passwordsMatch ? 'Passwords match' : 'Passwords do not match'}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="pt-2 flex items-center justify-end">
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="flex items-center gap-2 rounded-xl bg-zinc-100 px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+          >
+            {isSaving ? (
+              <>
+                <div className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
+                <span>Updating…</span>
+              </>
+            ) : (
+              <span>Update Password</span>
+            )}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 
