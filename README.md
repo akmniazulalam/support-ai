@@ -471,7 +471,7 @@ SupportAI is an operational SaaS MVP featuring:
 
 ## Author
 
-- **Author**: AKM Niazul Alam
+- **Author**: A.K.M. Niazul Alam
 - **GitHub**: [@akmniazulalam](https://github.com/akmniazulalam)
 - **Repository**: [support-ai](https://github.com/akmniazulalam/support-ai)
 - **Email**: niazulalam097@gmail.com
