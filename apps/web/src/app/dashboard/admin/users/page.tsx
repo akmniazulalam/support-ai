@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
             onClick={handleRefresh}
             disabled={isLoading || isRefreshing}
             aria-label="Refresh user list"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-[#141520] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-[#141520] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-50"
           >
             <RefreshCwIcon className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
           </button>
@@ -165,11 +165,11 @@ export default function AdminUsersPage() {
 
       {/* Table */}
       {(!isLoading || isRefreshing) && users.length > 0 && (
-        <div className="rounded-2xl border border-white/[0.08] bg-[#111218] overflow-hidden shadow-xs">
+        <div className="rounded-2xl border border-white/8 bg-[#111218] overflow-hidden shadow-xs">
           <div className="overflow-x-auto chat-scrollbar">
             <table className="w-full text-left border-collapse text-xs min-w-[640px]">
               <thead>
-                <tr className="border-b border-white/[0.06] bg-[#0c0d14]/60 text-zinc-400 uppercase tracking-wider font-semibold text-[10px]">
+                <tr className="border-b border-white/6 bg-[#0c0d14]/60 text-zinc-400 uppercase tracking-wider font-semibold text-[10px]">
                   <th scope="col" className="px-4 py-3">User</th>
                   <th scope="col" className="px-4 py-3">Email</th>
                   <th scope="col" className="px-4 py-3">Role</th>
@@ -213,7 +213,7 @@ export default function AdminUsersPage() {
                           className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase ${
                             isAdmin
                               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                              : 'bg-white/4 text-zinc-400 border border-white/[0.06]'
+                              : 'bg-white/4 text-zinc-400 border border-white/6'
                           }`}
                         >
                           {user.role}
