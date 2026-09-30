@@ -619,7 +619,7 @@ export default function AgentDetailPage() {
                   Add SupportAI chat to your website with a single script tag.
                 </p>
               </div>
-              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-white/[0.06] text-zinc-400 border border-white/[0.08] shrink-0">
+              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-white/6 text-zinc-400 border border-white/[0.08] shrink-0">
                 Embeddable
               </span>
             </div>
@@ -630,7 +630,7 @@ export default function AgentDetailPage() {
               </span>
               <Link
                 href={`/widget-demo?agentId=${agent.publicId}`}
-                className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.08] px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:text-white transition-colors shrink-0"
+                className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/3 hover:bg-white/[0.08] px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:text-white transition-colors shrink-0"
               >
                 <span>Open Widget Demo</span>
                 <ExternalLinkIcon className="h-3.5 w-3.5" />

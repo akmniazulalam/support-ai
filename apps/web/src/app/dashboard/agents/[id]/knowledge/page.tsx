@@ -60,7 +60,7 @@ function KnowledgeTypeBadge({ type }: { type: KnowledgeSourceType }) {
   const Icon = meta.icon;
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${meta.color}`}
+      className={`inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${meta.color}`}
     >
       <Icon className="h-3 w-3" />
       {meta.label}
