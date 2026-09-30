@@ -217,7 +217,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {msg.role === 'assistant' && (
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 border border-white/[0.1] mr-2 mt-0.5">
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 border border-white/10 mr-2 mt-0.5">
                 <BotIcon className="h-3 w-3 text-zinc-300" />
               </div>
             )}
@@ -238,7 +238,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 border border-white/10 mr-2 mt-0.5">
               <BotIcon className="h-3 w-3 text-zinc-300" />
             </div>
-            <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm bg-[#1a1b26] border border-white/[0.08] px-3.5 py-2.5">
+            <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm bg-[#1a1b26] border border-white/8 px-3.5 py-2.5">
               <span className="h-1.5 w-1.5 rounded-full bg-zinc-500 animate-typing-dot-1" />
               <span className="h-1.5 w-1.5 rounded-full bg-zinc-500 animate-typing-dot-2" />
               <span className="h-1.5 w-1.5 rounded-full bg-zinc-500 animate-typing-dot-3" />
@@ -279,14 +279,14 @@ function TestChatPanel({ agent }: { agent: Agent }) {
       </div>
 
       {/* Input */}
-      <form onSubmit={handleSend} className="flex gap-2 p-3 border-t border-white/[0.08] shrink-0">
+      <form onSubmit={handleSend} className="flex gap-2 p-3 border-t border-white/8 shrink-0">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a test message…"
           disabled={isSending || isLoadingHistory}
-          className="flex-1 min-w-0 rounded-xl border border-white/[0.1] bg-[#0c0d14] px-3.5 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors disabled:opacity-50"
+          className="flex-1 min-w-0 rounded-xl border border-white/10 bg-[#0c0d14] px-3.5 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors disabled:opacity-50"
         />
         <button
           type="submit"
