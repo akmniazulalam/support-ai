@@ -523,7 +523,7 @@ export default function KnowledgePage() {
           <span className="text-zinc-700">/</span>
           <Link
             href={`/dashboard/agents/${agent.id}`}
-            className="text-zinc-500 hover:text-zinc-300 transition-colors truncate max-w-[160px]"
+            className="text-zinc-500 hover:text-zinc-300 transition-colors truncate max-w-40"
           >
             {agent.name}
           </Link>
