@@ -568,8 +568,8 @@ export default function AgentDetailPage() {
               </span>
             </div>
 
-            <div className="pt-3 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
-              <div className="flex items-center gap-2 rounded-xl border border-white/[0.08] bg-[#0c0d14] px-3 py-1.5 min-w-0 flex-1">
+            <div className="pt-3 border-t border-white/6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2 rounded-xl border border-white/8 bg-[#0c0d14] px-3 py-1.5 min-w-0 flex-1">
                 <GlobeIcon className="h-3.5 w-3.5 text-zinc-500 shrink-0" />
                 <span className="text-xs font-lexend text-zinc-300 truncate">
                   {chatUrl || `/chat/${agent.publicId}`}
@@ -580,7 +580,7 @@ export default function AgentDetailPage() {
                   type="button"
                   onClick={handleCopyLink}
                   aria-label="Copy public chat link"
-                  className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
                 >
                   {isCopied ? (
                     <>
