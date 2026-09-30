@@ -311,7 +311,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
   });
 
   return (
-    <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4 transition-colors hover:border-white/[0.12]">
+    <div className="rounded-xl border border-white/8 bg-[#111218] p-4 transition-colors hover:border-white/12">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1.5">
@@ -359,7 +359,7 @@ function KsRow({ ks, onEdit, onDelete }: KsRowProps) {
             title="Edit"
             aria-label={`Edit knowledge source ${ks.title}`}
             onClick={onEdit}
-            className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.06] transition-colors"
+            className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-white/6 transition-colors"
           >
             <PencilIcon className="h-3.5 w-3.5" />
           </button>
@@ -534,7 +534,7 @@ export default function KnowledgePage() {
         {/* Page Header */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.1]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/10">
               <BookOpenIcon className="h-5 w-5 text-zinc-300" />
             </div>
             <div>
