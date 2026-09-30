@@ -72,7 +72,7 @@ function CurrentPlanCard({ sub }: { sub: BillingSubscription }) {
           </p>
         </div>
         <div
-          className={`flex items-center gap-1.5 rounded-full border border-white/6 bg-white/[0.03] px-3 py-1 text-xs font-medium ${colour}`}
+          className={`flex items-center gap-1.5 rounded-full border border-white/6 bg-white/3 px-3 py-1 text-xs font-medium ${colour}`}
         >
           <span className={`h-1.5 w-1.5 rounded-full bg-current`} />
           {sLabel}
@@ -214,13 +214,13 @@ function PlanCard({
         <button
           onClick={onCancel}
           disabled={isLoading}
-          className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-400 hover:border-red-500/30 hover:text-red-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-sm font-semibold text-zinc-400 hover:border-red-500/30 hover:text-red-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Processing…' : 'Cancel subscription'}
         </button>
       )}
       {isCurrent && !isUpgrade && !isDowngrade && (
-        <div className="flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-2.5 text-center text-sm font-medium text-zinc-400">
+        <div className="flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/3 px-4 py-2.5 text-center text-sm font-medium text-zinc-400">
           <CheckIcon className="h-4 w-4 text-emerald-400" />
           <span>Your current plan</span>
         </div>
@@ -261,7 +261,7 @@ function DevCheckoutModal({
           </div>
         </div>
 
-        <div className="rounded-xl border border-amber-500/10 bg-amber-500/[0.04] px-4 py-3 mb-5">
+        <div className="rounded-xl border border-amber-500/10 bg-amber-500/4 px-4 py-3 mb-5">
           <p className="text-xs text-amber-400/80 leading-relaxed">
             This is a simulated checkout for the project demo.{' '}
             <strong className="text-amber-400">
@@ -300,7 +300,7 @@ function DevCheckoutModal({
           <button
             onClick={onCancel}
             disabled={isCompleting}
-            className="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
+            className="flex-1 rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
@@ -354,7 +354,7 @@ function CancelDialog({
           <button
             onClick={onCancel}
             disabled={isLoading}
-            className="flex-1 rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
+            className="flex-1 rounded-xl border border-white/[0.1] bg-white/3 px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
           >
             Keep Pro
           </button>
