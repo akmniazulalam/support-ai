@@ -212,7 +212,7 @@ export default function AdminSubscriptionsPage() {
       {(!isLoading || isRefreshing) && subscriptions.length > 0 && (
         <div className="rounded-2xl border border-white/8 bg-[#111218] overflow-hidden shadow-xs">
           <div className="overflow-x-auto chat-scrollbar">
-            <table className="w-full text-left border-collapse text-xs min-w-[640px]">
+            <table className="w-full text-left border-collapse text-xs min-w-160">
               <thead>
                 <tr className="border-b border-white/6 bg-[#0c0d14]/60 text-zinc-400 uppercase tracking-wider font-semibold text-[10px]">
                   <th scope="col" className="px-4 py-3">Workspace</th>
@@ -274,7 +274,7 @@ export default function AdminSubscriptionsPage() {
                             {sub.workspace.owner.firstName}{' '}
                             {sub.workspace.owner.lastName}
                           </span>
-                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5 truncate max-w-[160px]">
+                          <div className="font-lexend text-[10px] text-zinc-500 mt-0.5 truncate max-w-40">
                             {sub.workspace.owner.email}
                           </div>
                         </div>
