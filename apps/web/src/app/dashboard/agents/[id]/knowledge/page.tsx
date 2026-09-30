@@ -233,7 +233,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
               maxLength={50000}
               rows={6}
               required
-              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none font-lexend leading-relaxed"
+              className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none font-lexend leading-relaxed"
             />
             <p className="mt-1 text-[11px] text-zinc-600">
               {content.length.toLocaleString()} / 50,000 characters
