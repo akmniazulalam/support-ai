@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
             onClick={handleRefresh}
             disabled={isLoading || isRefreshing}
             aria-label="Refresh user list"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-[#141520] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-[#141520] text-zinc-300 hover:bg-white/6 transition-colors disabled:opacity-50"
           >
             <RefreshCwIcon className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
           </button>
@@ -188,7 +188,7 @@ export default function AdminUsersPage() {
                   return (
                     <tr
                       key={user.id}
-                      className="hover:bg-white/[0.02] transition-colors"
+                      className="hover:bg-white/2 transition-colors"
                     >
                       {/* User name + initials */}
                       <td className="px-4 py-3">

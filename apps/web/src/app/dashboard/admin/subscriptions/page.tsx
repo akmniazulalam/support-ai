@@ -253,7 +253,7 @@ export default function AdminSubscriptionsPage() {
                   return (
                     <tr
                       key={idx}
-                      className="hover:bg-white/[0.02] transition-colors"
+                      className="hover:bg-white/2 transition-colors"
                     >
                       {/* Workspace */}
                       <td className="px-4 py-3">
