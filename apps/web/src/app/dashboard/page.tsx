@@ -60,7 +60,7 @@ export default function DashboardOverviewPage() {
   return (
     <div className="space-y-6 animate-message-entrance pb-10">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#11131c] via-[#0e1017] to-[#12141e] p-6 sm:p-8 shadow-xl shadow-black/50">
+      <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-[#11131c] via-[#0e1017] to-[#12141e] p-6 sm:p-8 shadow-xl shadow-black/50">
         <div
           className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-3xl pointer-events-none"
           aria-hidden="true"
@@ -88,7 +88,7 @@ export default function DashboardOverviewPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/[0.08] text-zinc-300">
+            <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/8 text-zinc-300">
               <BuildingIcon className="h-3.5 w-3.5 text-zinc-400" />
               <span>Workspace: {workspace?.slug || "default"}</span>
             </span>
@@ -98,7 +98,7 @@ export default function DashboardOverviewPage() {
 
       {/* Real Metrics Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-5 shadow-sm">
+        <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-5 shadow-sm">
           <div className="flex items-center justify-between text-zinc-400 mb-3">
             <span className="text-xs font-medium uppercase tracking-wider">
               Workspace Status
@@ -114,7 +114,7 @@ export default function DashboardOverviewPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-5 shadow-sm">
+        <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-5 shadow-sm">
           <div className="flex items-center justify-between text-zinc-400 mb-3">
             <span className="text-xs font-medium uppercase tracking-wider">
               Configured Agents
@@ -138,7 +138,7 @@ export default function DashboardOverviewPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-5 shadow-sm">
+        <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-5 shadow-sm">
           <div className="flex items-center justify-between text-zinc-400 mb-3">
             <span className="text-xs font-medium uppercase tracking-wider">
               Account Role
@@ -156,7 +156,7 @@ export default function DashboardOverviewPage() {
       </div>
 
       {/* Agents List & Public Chat Links */}
-      <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-6 shadow-sm">
+      <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <BotIcon className="h-5 w-5 text-zinc-300" />
@@ -189,8 +189,8 @@ export default function DashboardOverviewPage() {
             </button>
           </div>
         ) : agents.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-white/[0.1] p-8 text-center bg-white/[0.01]">
-            <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800/80 border border-white/[0.08] text-zinc-400 mb-3">
+          <div className="rounded-xl border border-dashed border-white/10 p-8 text-center bg-white/[0.01]">
+            <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800/80 border border-white/8 text-zinc-400 mb-3">
               <BotIcon className="h-5 w-5" />
             </div>
             <h3 className="text-sm font-semibold text-zinc-200">
@@ -214,7 +214,7 @@ export default function DashboardOverviewPage() {
                 key={agent.id}
                 className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-4 first:pt-0 last:pb-0">
                 <div className="flex items-start gap-3 min-w-0">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#141520] border border-white/[0.08] text-zinc-300 mt-0.5">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#141520] border border-white/8 text-zinc-300 mt-0.5">
                     <BotIcon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
