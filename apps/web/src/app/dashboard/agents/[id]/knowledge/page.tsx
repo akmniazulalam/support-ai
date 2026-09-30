@@ -569,19 +569,19 @@ export default function KnowledgePage() {
               <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 mb-1">Total</div>
               <span className="text-xl font-bold text-zinc-100">{sources.length}</span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-blue-400 mb-1">
                 <FileTextIcon className="h-3 w-3" /> Text
               </div>
               <span className="text-xl font-bold text-zinc-100">{textCount}</span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-violet-400 mb-1">
                 <HelpCircleIcon className="h-3 w-3" /> FAQ
               </div>
               <span className="text-xl font-bold text-zinc-100">{faqCount}</span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-400 mb-1">
                 <GlobeIcon className="h-3 w-3" /> URLs
               </div>
