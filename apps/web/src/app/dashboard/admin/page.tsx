@@ -93,7 +93,7 @@ export default function AdminOverviewPage() {
           {Array.from({ length: 9 }).map((_, i) => (
             <div
               key={i}
-              className="h-32 rounded-2xl border border-white/[0.06] bg-[#111218] p-5 animate-pulse"
+              className="h-32 rounded-2xl border border-white/6 bg-[#111218] p-5 animate-pulse"
             >
               <div className="flex justify-between items-start">
                 <div className="space-y-2">
