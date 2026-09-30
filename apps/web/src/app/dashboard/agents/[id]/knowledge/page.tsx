@@ -150,7 +150,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
         <button
           type="button"
           onClick={onCancel}
-          className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/6 transition-colors"
         >
           <XIcon className="h-4 w-4" />
         </button>
@@ -254,7 +254,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
               placeholder="https://docs.example.com"
               maxLength={2048}
               required
-              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
+              className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
             />
             <p className="mt-1 text-[11px] text-zinc-500">
               Add a website URL as a knowledge source. The URL will be stored and referenced by the agent.
@@ -284,7 +284,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-xl border border-white/[0.1] px-4 py-2 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/4 transition-colors"
           >
             Cancel
           </button>
