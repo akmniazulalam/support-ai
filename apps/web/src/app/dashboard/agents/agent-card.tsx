@@ -93,7 +93,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
         )}
 
         {/* Footer */}
-        <div className="mt-auto pt-3 border-t border-white/[0.06] flex items-center justify-between">
+        <div className="mt-auto pt-3 border-t border-white/6 flex items-center justify-between">
           <span className="text-[10px] text-zinc-600 font-lexend">
             Created {createdDate}
           </span>

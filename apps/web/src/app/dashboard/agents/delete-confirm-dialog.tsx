@@ -38,7 +38,7 @@ export function DeleteConfirmDialog({
       />
 
       {/* Panel */}
-      <div className="relative w-full max-w-md rounded-2xl border border-white/[0.1] bg-[#14151e] shadow-2xl shadow-black/60 p-6">
+      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#14151e] shadow-2xl shadow-black/60 p-6">
         {/* Close button */}
         <button
           type="button"
@@ -82,7 +82,7 @@ export function DeleteConfirmDialog({
             type="button"
             onClick={onClose}
             disabled={isLoading}
-            className="rounded-xl border border-white/[0.1] px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-white/[0.04] transition-colors disabled:opacity-50"
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-white/[0.04] transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
