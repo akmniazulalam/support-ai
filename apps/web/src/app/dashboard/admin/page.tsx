@@ -137,7 +137,7 @@ export default function AdminOverviewPage() {
           type="button"
           onClick={() => void loadOverview(true)}
           disabled={isRefreshing}
-          className="flex items-center gap-1.5 rounded-xl border border-white/[0.08] bg-[#141520] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+          className="flex items-center gap-1.5 rounded-xl border border-white/8 bg-[#141520] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/6 transition-colors disabled:opacity-50"
         >
           <RefreshCwIcon className={`h-3.5 w-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
           <span>{isRefreshing ? 'Refreshing...' : 'Refresh'}</span>
@@ -244,10 +244,10 @@ export default function AdminOverviewPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link
             href="/dashboard/admin/users"
-            className="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-[#111218] p-5 hover:border-white/[0.16] hover:bg-[#141520] transition-all"
+            className="group flex items-center justify-between rounded-2xl border border-white/8 bg-[#111218] p-5 hover:border-white/16 hover:bg-[#141520] transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.08] text-zinc-300">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/8 text-zinc-300">
                 <UserIcon className="h-5 w-5" />
               </div>
               <div>
