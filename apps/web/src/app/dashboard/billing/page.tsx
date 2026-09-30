@@ -172,7 +172,7 @@ function PlanCard({
     <div
       className={`relative flex flex-col rounded-2xl border bg-[#111218] p-6 transition-colors ${
         isCurrent
-          ? 'border-emerald-500/30 bg-emerald-500/[0.03]'
+          ? 'border-emerald-500/30 bg-emerald-500/3'
           : 'border-white/8'
       }`}
     >
@@ -283,7 +283,7 @@ function DevCheckoutModal({
           </div>
           <div className="flex justify-between">
             <span>Checkout ID</span>
-            <span className="font-lexend text-xs text-zinc-500 truncate max-w-[180px]">
+            <span className="font-lexend text-xs text-zinc-500 truncate max-w-45">
               {session.checkoutId}
             </span>
           </div>
@@ -334,7 +334,7 @@ function CancelDialog({
 }: CancelDialogProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-2xl border border-white/[0.1] bg-[#14151e] p-6 shadow-2xl">
+      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#14151e] p-6 shadow-2xl">
         <h3 className="text-base font-semibold text-white mb-2">
           Cancel subscription?
         </h3>
@@ -354,7 +354,7 @@ function CancelDialog({
           <button
             onClick={onCancel}
             disabled={isLoading}
-            className="flex-1 rounded-xl border border-white/[0.1] bg-white/3 px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
+            className="flex-1 rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
           >
             Keep Pro
           </button>
