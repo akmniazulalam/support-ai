@@ -645,7 +645,7 @@ export default function KnowledgePage() {
         )}
 
         {/* Agent nav footer */}
-        <div className="flex items-center gap-3 pt-2 border-t border-white/[0.06]">
+        <div className="flex items-center gap-3 pt-2 border-t border-white/6">
           <Link
             href={`/dashboard/agents/${agent.id}`}
             className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
