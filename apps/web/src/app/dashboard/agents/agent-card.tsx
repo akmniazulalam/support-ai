@@ -70,7 +70,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
             className={`shrink-0 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
               agent.isActive
                 ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                : "bg-zinc-800 text-zinc-500 border border-white/[0.06]"
+                : "bg-zinc-800 text-zinc-500 border border-white/6"
             }`}>
             {agent.isActive ? (
               <ZapIcon className="h-3 w-3" />

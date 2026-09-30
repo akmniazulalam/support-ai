@@ -679,7 +679,7 @@ export default function AgentDetailPage() {
                   maxLength={500}
                   rows={3}
                   placeholder="Hi! I'm your support assistant. How can I help you today?"
-                  className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none"
+                  className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none"
                 />
               </div>
 
@@ -695,7 +695,7 @@ export default function AgentDetailPage() {
                   maxLength={10000}
                   rows={10}
                   placeholder="You are a helpful customer support agent…"
-                  className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-lexend leading-relaxed"
+                  className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors resize-none font-lexend leading-relaxed"
                 />
                 <p className="text-[11px] text-zinc-600">
                   {instructions.length.toLocaleString()} / 10,000 characters
@@ -703,7 +703,7 @@ export default function AgentDetailPage() {
               </div>
 
               {/* Active Toggle */}
-              <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5">
+              <div className="rounded-2xl border border-white/8 bg-[#111218] p-5">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-zinc-200">Active</p>
