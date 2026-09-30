@@ -213,7 +213,7 @@ export default function AdminUsersPage() {
                           className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase ${
                             isAdmin
                               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                              : 'bg-white/[0.04] text-zinc-400 border border-white/[0.06]'
+                              : 'bg-white/4 text-zinc-400 border border-white/[0.06]'
                           }`}
                         >
                           {user.role}
