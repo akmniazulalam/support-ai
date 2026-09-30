@@ -96,8 +96,8 @@ export default function AgentsPage() {
 
       {/* Empty State */}
       {!isLoading && !error && agents.length === 0 && (
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/[0.1] bg-[#111218] p-16 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800 border border-white/[0.1] mb-4">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 bg-[#111218] p-16 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800 border border-white/10 mb-4">
             <BotIcon className="h-7 w-7 text-zinc-400" />
           </div>
           <h2 className="text-base font-semibold text-zinc-200">No agents yet</h2>
@@ -135,7 +135,7 @@ export default function AgentsPage() {
                 {agents.filter((a) => a.isActive).length}
               </span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4 col-span-2 sm:col-span-1">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4 col-span-2 sm:col-span-1">
               <div className="flex items-center gap-2 text-xs text-zinc-500 mb-1">
                 <ExternalLinkIcon className="h-3.5 w-3.5" />
                 Inactive
