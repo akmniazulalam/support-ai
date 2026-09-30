@@ -64,11 +64,11 @@ function AccountSettingsCard({ user, updateProfile, isAdmin }: AccountSettingsCa
   }
 
   return (
-    <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6 space-y-6">
+    <div className="rounded-2xl border border-white/8 bg-[#111218] p-6 space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/[0.06] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/6 pb-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.04] border border-white/[0.08] text-zinc-300">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.04] border border-white/8 text-zinc-300">
             <UserIcon className="h-4 w-4" />
           </div>
           <div>
@@ -87,7 +87,7 @@ function AccountSettingsCard({ user, updateProfile, isAdmin }: AccountSettingsCa
               Admin
             </span>
           ) : (
-            <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06]">
+            <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded bg-white/[0.06] text-zinc-400 border border-white/6">
               Member
             </span>
           )}
@@ -149,7 +149,7 @@ function AccountSettingsCard({ user, updateProfile, isAdmin }: AccountSettingsCa
               }}
               maxLength={100}
               required
-              className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+              className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
             />
           </div>
         </div>
@@ -169,7 +169,7 @@ function AccountSettingsCard({ user, updateProfile, isAdmin }: AccountSettingsCa
             type="email"
             value={user.email}
             disabled
-            className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 text-sm text-zinc-400 cursor-not-allowed select-none"
+            className="w-full rounded-xl border border-white/6 bg-white/[0.02] px-4 py-2.5 text-sm text-zinc-400 cursor-not-allowed select-none"
           />
           <p className="mt-1.5 text-[11px] text-zinc-500">
             Email address is tied to your account and cannot be modified directly.
