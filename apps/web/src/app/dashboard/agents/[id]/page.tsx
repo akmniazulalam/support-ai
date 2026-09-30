@@ -486,7 +486,7 @@ export default function AgentDetailPage() {
               href={`/chat/${agent.publicId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/4 transition-colors"
             >
               <ExternalLinkIcon className="h-3.5 w-3.5" />
               Public Chat
@@ -495,7 +495,7 @@ export default function AgentDetailPage() {
             {/* Widget Demo */}
             <Link
               href={`/widget-demo?agentId=${agent.publicId}`}
-              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/4 transition-colors"
             >
               <ZapIcon className="h-3.5 w-3.5" />
               Widget Demo
@@ -504,7 +504,7 @@ export default function AgentDetailPage() {
             {/* Knowledge Base */}
             <Link
               href={`/dashboard/agents/${agent.id}/knowledge`}
-              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/4 transition-colors"
             >
               <BookOpenIcon className="h-3.5 w-3.5" />
               Knowledge Base
@@ -754,7 +754,7 @@ export default function AgentDetailPage() {
                 </button>
                 <Link
                   href={`/dashboard/agents/${agent.id}/knowledge`}
-                  className="flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+                  className="flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/4 transition-colors"
                 >
                   <BookOpenIcon className="h-4 w-4" />
                   Knowledge Base
