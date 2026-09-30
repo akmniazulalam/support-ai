@@ -663,12 +663,12 @@ export default function AgentDetailPage() {
                   onChange={(e) => setName(e.target.value)}
                   maxLength={100}
                   required
-                  className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+                  className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
                 />
               </div>
 
               {/* Greeting */}
-              <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 space-y-3">
+              <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 space-y-3">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400">
                   Greeting Message{' '}
                   <span className="text-zinc-600 font-normal normal-case">(optional)</span>

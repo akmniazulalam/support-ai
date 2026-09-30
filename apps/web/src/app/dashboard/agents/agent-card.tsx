@@ -46,7 +46,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
 
   return (
     <>
-      <div className="group relative flex flex-col rounded-2xl border border-white/[0.08] bg-[#111218] p-5 transition-colors hover:border-white/[0.14] hover:bg-[#141520]">
+      <div className="group relative flex flex-col rounded-2xl border border-white/8 bg-[#111218] p-5 transition-colors hover:border-white/[0.14] hover:bg-[#141520]">
         {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-3 min-w-0">
