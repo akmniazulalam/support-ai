@@ -264,10 +264,10 @@ export default function AdminOverviewPage() {
 
           <Link
             href="/dashboard/admin/workspaces"
-            className="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-[#111218] p-5 hover:border-white/[0.16] hover:bg-[#141520] transition-all"
+            className="group flex items-center justify-between rounded-2xl border border-white/8 bg-[#111218] p-5 hover:border-white/16 hover:bg-[#141520] transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.08] text-zinc-300">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/8 text-zinc-300">
                 <BuildingIcon className="h-5 w-5" />
               </div>
               <div>
@@ -284,10 +284,10 @@ export default function AdminOverviewPage() {
 
           <Link
             href="/dashboard/admin/subscriptions"
-            className="group flex items-center justify-between rounded-2xl border border-white/8 bg-[#111218] p-5 hover:border-white/[0.16] hover:bg-[#141520] transition-all"
+            className="group flex items-center justify-between rounded-2xl border border-white/8 bg-[#111218] p-5 hover:border-white/16 hover:bg-[#141520] transition-all"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.08] text-zinc-300">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-white/8 text-zinc-300">
                 <CreditCardIcon className="h-5 w-5" />
               </div>
               <div>
