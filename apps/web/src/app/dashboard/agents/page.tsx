@@ -66,7 +66,7 @@ export default function AgentsPage() {
 
       {/* Loading */}
       {isLoading && (
-        <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#111218] p-16">
+        <div className="flex items-center justify-center rounded-2xl border border-white/8 bg-[#111218] p-16">
           <div className="flex flex-col items-center gap-3 text-zinc-400">
             <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
             <p className="text-xs font-lexend text-zinc-500">Loading agents…</p>
@@ -119,14 +119,14 @@ export default function AgentsPage() {
         <>
           {/* Stats strip */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="flex items-center gap-2 text-xs text-zinc-500 mb-1">
                 <BotIcon className="h-3.5 w-3.5" />
                 Total Agents
               </div>
               <span className="text-2xl font-bold text-zinc-100">{agents.length}</span>
             </div>
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="flex items-center gap-2 text-xs text-zinc-500 mb-1">
                 <ZapIcon className="h-3.5 w-3.5 text-emerald-400" />
                 Active

@@ -45,7 +45,7 @@ export function DeleteConfirmDialog({
           onClick={onClose}
           disabled={isLoading}
           aria-label="Close dialog"
-          className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors"
+          className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/6 transition-colors"
         >
           <XIcon className="h-4 w-4" />
         </button>
