@@ -180,9 +180,9 @@ function TestChatPanel({ agent }: { agent: Agent }) {
   }
 
   return (
-    <div className="flex flex-col rounded-2xl border border-white/8 bg-[#111218] overflow-hidden h-[520px]">
+    <div className="flex flex-col rounded-2xl border border-white/8 bg-[#111218] overflow-hidden h-130">
       {/* Panel header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] shrink-0">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-white/8 shrink-0">
         <div className="flex items-center gap-2">
           <ZapIcon className="h-4 w-4 text-emerald-400" />
           <span className="text-sm font-semibold text-zinc-200">Test Chat</span>
@@ -225,7 +225,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
               className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                 msg.role === 'user'
                   ? 'bg-zinc-200 text-zinc-900 rounded-br-sm'
-                  : 'bg-[#1a1b26] border border-white/[0.08] text-zinc-200 rounded-bl-sm'
+                  : 'bg-[#1a1b26] border border-white/8 text-zinc-200 rounded-bl-sm'
               }`}
             >
               {msg.content}
@@ -235,7 +235,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
 
         {isSending && (
           <div className="flex justify-start">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 border border-white/[0.1] mr-2 mt-0.5">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 border border-white/10 mr-2 mt-0.5">
               <BotIcon className="h-3 w-3 text-zinc-300" />
             </div>
             <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm bg-[#1a1b26] border border-white/[0.08] px-3.5 py-2.5">
