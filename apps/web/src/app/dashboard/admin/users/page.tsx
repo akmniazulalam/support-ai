@@ -178,7 +178,7 @@ export default function AdminUsersPage() {
                   <th scope="col" className="px-4 py-3">Joined</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.04] text-zinc-300">
+              <tbody className="divide-y divide-white/4 text-zinc-300">
                 {users.map((user) => {
                   const initials = `${user.firstName[0] ?? ''}${user.lastName[0] ?? ''}`.toUpperCase();
                   const isAdmin = user.role === 'ADMIN';

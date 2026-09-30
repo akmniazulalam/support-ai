@@ -224,7 +224,7 @@ export default function AdminSubscriptionsPage() {
                   <th scope="col" className="px-4 py-3">Created</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.04] text-zinc-300">
+              <tbody className="divide-y divide-white/4 text-zinc-300">
                 {subscriptions.map((sub, idx) => {
                   const isPro = sub.plan === 'PRO';
                   const usagePct =
