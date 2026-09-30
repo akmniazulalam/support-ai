@@ -50,7 +50,7 @@ export function AgentCard({ agent, onDeleted }: AgentCardProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.1]">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-800 border border-white/10">
               <BotIcon className="h-5 w-5 text-zinc-300" />
             </div>
             <div className="min-w-0">

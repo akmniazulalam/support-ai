@@ -754,7 +754,7 @@ export default function AgentDetailPage() {
                 </button>
                 <Link
                   href={`/dashboard/agents/${agent.id}/knowledge`}
-                  className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-4 py-2.5 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+                  className="flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
                 >
                   <BookOpenIcon className="h-4 w-4" />
                   Knowledge Base
