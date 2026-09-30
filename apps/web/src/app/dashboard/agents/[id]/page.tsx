@@ -580,7 +580,7 @@ export default function AgentDetailPage() {
                   type="button"
                   onClick={handleCopyLink}
                   aria-label="Copy public chat link"
-                  className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/3 hover:bg-white/8 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
                 >
                   {isCopied ? (
                     <>
