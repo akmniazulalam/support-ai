@@ -504,7 +504,7 @@ export default function AgentDetailPage() {
             {/* Knowledge Base */}
             <Link
               href={`/dashboard/agents/${agent.id}/knowledge`}
-              className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
+              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] transition-colors"
             >
               <BookOpenIcon className="h-3.5 w-3.5" />
               Knowledge Base
@@ -524,7 +524,7 @@ export default function AgentDetailPage() {
 
         {/* Page Title */}
         <div className="flex items-center gap-3 min-w-0">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-zinc-800 border border-white/[0.1]">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-zinc-800 border border-white/10">
             <BotIcon className="h-6 w-6 text-zinc-300" />
           </div>
           <div className="min-w-0 flex-1">
@@ -537,7 +537,7 @@ export default function AgentDetailPage() {
             className={`shrink-0 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
               agent.isActive
                 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                : 'bg-zinc-800 text-zinc-500 border border-white/[0.06]'
+                : 'bg-zinc-800 text-zinc-500 border border-white/6'
             }`}
           >
             {agent.isActive ? (
@@ -552,7 +552,7 @@ export default function AgentDetailPage() {
         {/* Customer Access & Integrations */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Public Customer Chat */}
-          <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 flex flex-col justify-between space-y-4">
+          <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 flex flex-col justify-between space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
