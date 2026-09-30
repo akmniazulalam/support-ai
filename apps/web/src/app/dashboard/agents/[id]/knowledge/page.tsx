@@ -565,7 +565,7 @@ export default function KnowledgePage() {
         {/* Stats */}
         {sources.length > 0 && (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-xl border border-white/[0.08] bg-[#111218] p-4">
+            <div className="rounded-xl border border-white/8 bg-[#111218] p-4">
               <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 mb-1">Total</div>
               <span className="text-xl font-bold text-zinc-100">{sources.length}</span>
             </div>
@@ -602,8 +602,8 @@ export default function KnowledgePage() {
 
         {/* Empty State */}
         {!showForm && sources.length === 0 && (
-          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/[0.1] bg-[#111218] p-14 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800 border border-white/[0.1] mb-4">
+          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 bg-[#111218] p-14 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800 border border-white/10 mb-4">
               <BookOpenIcon className="h-7 w-7 text-zinc-400" />
             </div>
             <h2 className="text-base font-semibold text-zinc-200">No knowledge sources yet</h2>
