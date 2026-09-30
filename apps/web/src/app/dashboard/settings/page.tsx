@@ -349,7 +349,7 @@ function SecuritySettingsCard() {
                 autoComplete="new-password"
                 placeholder="Minimum 12 characters"
                 required
-                className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+                className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
               />
               <button
                 type="button"
@@ -383,7 +383,7 @@ function SecuritySettingsCard() {
                 autoComplete="new-password"
                 placeholder="Repeat new password"
                 required
-                className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+                className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 pr-10 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
               />
               <button
                 type="button"
@@ -548,7 +548,7 @@ function WorkspaceSettingsCard({
             placeholder="e.g. Acme Support"
             maxLength={100}
             required
-            className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
+            className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500/50 transition-colors"
           />
         </div>
 
