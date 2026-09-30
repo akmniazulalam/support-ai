@@ -182,7 +182,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
                   className={`flex flex-col items-center gap-1.5 rounded-xl border p-3 text-xs font-medium transition-colors ${
                     selected
                       ? 'border-zinc-500 bg-zinc-800 text-zinc-100'
-                      : 'border-white/8 bg-[#0c0d14] text-zinc-500 hover:border-white/[0.15] hover:text-zinc-300'
+                      : 'border-white/8 bg-[#0c0d14] text-zinc-500 hover:border-white/15 hover:text-zinc-300'
                   }`}
                 >
                   <Icon className={`h-4 w-4 ${selected ? meta.color : ''}`} />
@@ -465,7 +465,7 @@ export default function KnowledgePage() {
   // ── Loading ──
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#111218] p-20 animate-message-entrance">
+      <div className="flex items-center justify-center rounded-2xl border border-white/8 bg-[#111218] p-20 animate-message-entrance">
         <div className="flex flex-col items-center gap-3">
           <div className="h-6 w-6 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
           <p className="text-xs font-lexend text-zinc-500">Loading knowledge base…</p>
