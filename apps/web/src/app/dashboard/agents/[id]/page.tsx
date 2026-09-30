@@ -608,7 +608,7 @@ export default function AgentDetailPage() {
           </div>
 
           {/* Embed Widget */}
-          <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 flex flex-col justify-between space-y-4">
+          <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 flex flex-col justify-between space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
@@ -619,18 +619,18 @@ export default function AgentDetailPage() {
                   Add SupportAI chat to your website with a single script tag.
                 </p>
               </div>
-              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-white/6 text-zinc-400 border border-white/[0.08] shrink-0">
+              <span className="text-[10px] font-lexend uppercase px-2 py-0.5 rounded-full bg-white/6 text-zinc-400 border border-white/8 shrink-0">
                 Embeddable
               </span>
             </div>
 
-            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-3">
+            <div className="pt-3 border-t border-white/6 flex items-center justify-between gap-3">
               <span className="text-xs text-zinc-500 font-lexend truncate">
                 Test launcher, popup, and responsive styles
               </span>
               <Link
                 href={`/widget-demo?agentId=${agent.publicId}`}
-                className="flex items-center gap-1.5 rounded-xl border border-white/[0.1] bg-white/3 hover:bg-white/[0.08] px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:text-white transition-colors shrink-0"
+                className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/3 hover:bg-white/8 px-3.5 py-1.5 text-xs font-medium text-zinc-200 hover:text-white transition-colors shrink-0"
               >
                 <span>Open Widget Demo</span>
                 <ExternalLinkIcon className="h-3.5 w-3.5" />
@@ -653,7 +653,7 @@ export default function AgentDetailPage() {
               )}
 
               {/* Name */}
-              <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 space-y-3">
+              <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 space-y-3">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400">
                   Agent Name <span className="text-red-400">*</span>
                 </label>
@@ -684,7 +684,7 @@ export default function AgentDetailPage() {
               </div>
 
               {/* Instructions */}
-              <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 space-y-3">
+              <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 space-y-3">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400">
                   System Instructions{' '}
                   <span className="text-zinc-600 font-normal normal-case">(optional)</span>
