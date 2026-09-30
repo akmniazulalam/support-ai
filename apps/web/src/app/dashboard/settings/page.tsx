@@ -567,7 +567,7 @@ function WorkspaceSettingsCard({
             type="text"
             value={workspace?.slug ?? ''}
             disabled
-            className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 text-sm text-zinc-400 cursor-not-allowed select-none font-lexend"
+            className="w-full rounded-xl border border-white/6 bg-white/2 px-4 py-2.5 text-sm text-zinc-400 cursor-not-allowed select-none font-lexend"
           />
           <p className="mt-1.5 text-[11px] text-zinc-500">
             The workspace slug is auto-generated and serves as your organization&apos;s unique URL identifier.
@@ -615,7 +615,7 @@ export default function SettingsPage() {
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="h-64 rounded-2xl border border-white/[0.06] bg-[#111218]/50 animate-pulse"
+              className="h-64 rounded-2xl border border-white/6 bg-[#111218]/50 animate-pulse"
             />
           ))}
         </div>
