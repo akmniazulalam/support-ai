@@ -173,7 +173,7 @@ function PlanCard({
       className={`relative flex flex-col rounded-2xl border bg-[#111218] p-6 transition-colors ${
         isCurrent
           ? 'border-emerald-500/30 bg-emerald-500/[0.03]'
-          : 'border-white/[0.08]'
+          : 'border-white/8'
       }`}
     >
       {isCurrent && (
@@ -214,13 +214,13 @@ function PlanCard({
         <button
           onClick={onCancel}
           disabled={isLoading}
-          className="w-full rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-400 hover:border-red-500/30 hover:text-red-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-400 hover:border-red-500/30 hover:text-red-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Processing…' : 'Cancel subscription'}
         </button>
       )}
       {isCurrent && !isUpgrade && !isDowngrade && (
-        <div className="flex items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-center text-sm font-medium text-zinc-400">
+        <div className="flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-2.5 text-center text-sm font-medium text-zinc-400">
           <CheckIcon className="h-4 w-4 text-emerald-400" />
           <span>Your current plan</span>
         </div>
@@ -248,7 +248,7 @@ function DevCheckoutModal({
 }: DevCheckoutModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-2xl border border-white/[0.1] bg-[#14151e] p-6 shadow-2xl">
+      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#14151e] p-6 shadow-2xl">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/20 bg-amber-500/5">
             <CreditCardIcon className="h-5 w-5 text-amber-400" />
@@ -300,7 +300,7 @@ function DevCheckoutModal({
           <button
             onClick={onCancel}
             disabled={isCompleting}
-            className="flex-1 rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
+            className="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
