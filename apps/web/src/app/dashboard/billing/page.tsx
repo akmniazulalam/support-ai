@@ -56,7 +56,7 @@ function CurrentPlanCard({ sub }: { sub: BillingSubscription }) {
   const plan = PLANS[sub.plan];
   const { label: sLabel, colour } = statusLabel(sub.status);
   return (
-    <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6">
+    <div className="rounded-2xl border border-white/8 bg-[#111218] p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1">
@@ -72,13 +72,13 @@ function CurrentPlanCard({ sub }: { sub: BillingSubscription }) {
           </p>
         </div>
         <div
-          className={`flex items-center gap-1.5 rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-xs font-medium ${colour}`}
+          className={`flex items-center gap-1.5 rounded-full border border-white/6 bg-white/[0.03] px-3 py-1 text-xs font-medium ${colour}`}
         >
           <span className={`h-1.5 w-1.5 rounded-full bg-current`} />
           {sLabel}
         </div>
       </div>
-      <div className="mt-5 flex gap-8 border-t border-white/[0.06] pt-5 text-xs text-zinc-500">
+      <div className="mt-5 flex gap-8 border-t border-white/6 pt-5 text-xs text-zinc-500">
         <div>
           <p className="mb-0.5 text-zinc-400">Period start</p>
           <p>{formatDate(sub.currentPeriod.start)}</p>
@@ -105,7 +105,7 @@ function UsageCard({ usage }: { usage: BillingUsage }) {
       : 'bg-emerald-500';
 
   return (
-    <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6">
+    <div className="rounded-2xl border border-white/8 bg-[#111218] p-6">
       <div className="flex items-center gap-2 mb-4">
         <ZapIcon className="h-4 w-4 text-zinc-400" />
         <p className="text-sm font-semibold text-zinc-200">AI Message Usage</p>
