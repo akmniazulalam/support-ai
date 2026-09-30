@@ -82,7 +82,7 @@ export function DeleteConfirmDialog({
             type="button"
             onClick={onClose}
             disabled={isLoading}
-            className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-white/[0.04] transition-colors disabled:opacity-50"
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-white/4 transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
