@@ -60,7 +60,7 @@ function KnowledgeTypeBadge({ type }: { type: KnowledgeSourceType }) {
   const Icon = meta.icon;
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${meta.color}`}
+      className={`inline-flex items-center gap-1.5 rounded-full border border-white/8 bg-white/4 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${meta.color}`}
     >
       <Icon className="h-3 w-3" />
       {meta.label}
@@ -142,7 +142,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
   const needsUrl = type === 'WEBSITE';
 
   return (
-    <div className="rounded-2xl border border-white/[0.12] bg-[#141520] p-5 space-y-4">
+    <div className="rounded-2xl border border-white/12 bg-[#141520] p-5 space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-zinc-200">
           {editing ? 'Edit Knowledge Source' : 'Add Knowledge Source'}
@@ -182,7 +182,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
                   className={`flex flex-col items-center gap-1.5 rounded-xl border p-3 text-xs font-medium transition-colors ${
                     selected
                       ? 'border-zinc-500 bg-zinc-800 text-zinc-100'
-                      : 'border-white/[0.08] bg-[#0c0d14] text-zinc-500 hover:border-white/[0.15] hover:text-zinc-300'
+                      : 'border-white/8 bg-[#0c0d14] text-zinc-500 hover:border-white/[0.15] hover:text-zinc-300'
                   }`}
                 >
                   <Icon className={`h-4 w-4 ${selected ? meta.color : ''}`} />
@@ -211,7 +211,7 @@ function KnowledgeForm({ agentId, editing, onSaved, onCancel }: KnowledgeFormPro
             }
             maxLength={200}
             required
-            className="w-full rounded-xl border border-white/[0.1] bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
+            className="w-full rounded-xl border border-white/10 bg-[#0c0d14] px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
           />
         </div>
 

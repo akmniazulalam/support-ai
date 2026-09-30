@@ -180,7 +180,7 @@ function TestChatPanel({ agent }: { agent: Agent }) {
   }
 
   return (
-    <div className="flex flex-col rounded-2xl border border-white/[0.08] bg-[#111218] overflow-hidden h-[520px]">
+    <div className="flex flex-col rounded-2xl border border-white/8 bg-[#111218] overflow-hidden h-[520px]">
       {/* Panel header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] shrink-0">
         <div className="flex items-center gap-2">
