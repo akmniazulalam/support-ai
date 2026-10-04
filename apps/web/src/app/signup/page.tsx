@@ -159,7 +159,7 @@ export default function SignUpPage() {
               onChange={(e) => setLastName(e.target.value)}
               disabled={isSubmitting}
               placeholder="Smith"
-              className="w-full rounded-xl bg-[#141520] border border-white/[0.09] py-2 px-3 text-sm text-zinc-100 placeholder-zinc-500 transition-all duration-150 focus:border-zinc-400/50 focus:outline-none focus:ring-1 focus:ring-zinc-400/30 disabled:opacity-40"
+              className="w-full rounded-xl bg-[#141520] border border-white/9 py-2 px-3 text-sm text-zinc-100 placeholder-zinc-500 transition-all duration-150 focus:border-zinc-400/50 focus:outline-none focus:ring-1 focus:ring-zinc-400/30 disabled:opacity-40"
             />
           </div>
         </div>
