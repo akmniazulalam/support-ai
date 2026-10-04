@@ -270,7 +270,7 @@ export default function SignUpPage() {
         <button
           type="submit"
           disabled={!isFormValid || isSubmitting}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-zinc-100 via-white to-zinc-200 py-2.5 px-4 text-sm font-semibold text-zinc-950 shadow-md transition-all duration-150 hover:brightness-105 active:scale-[0.99] disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-zinc-100 via-white to-zinc-200 py-2.5 px-4 text-sm font-semibold text-zinc-950 shadow-md transition-all duration-150 hover:brightness-105 active:scale-[0.99] disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
           {isSubmitting ? (
             <>
