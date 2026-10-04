@@ -271,7 +271,7 @@ export default function WidgetDemoPage() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-            <div className="p-3 rounded-xl border border-white/[0.04] bg-[#0c0d14]">
+            <div className="p-3 rounded-xl border border-white/4 bg-[#0c0d14]">
               <span className="text-zinc-500 block mb-1">Widget Injected</span>
               <span
                 className={`font-semibold ${isWidgetLoaded ? "text-emerald-400" : "text-zinc-500"}`}>
