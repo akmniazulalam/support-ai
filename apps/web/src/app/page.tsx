@@ -9,7 +9,7 @@ export default function Home() {
         className="pointer-events-none fixed inset-0 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-[500px] bg-zinc-800/10 blur-[140px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-zinc-800/10 blur-[140px] rounded-full" />
       </div>
 
       <main className="relative z-10 flex flex-col items-center text-center max-w-xl animate-message-entrance">
