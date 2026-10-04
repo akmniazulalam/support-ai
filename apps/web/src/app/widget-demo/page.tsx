@@ -206,7 +206,7 @@ export default function WidgetDemoPage() {
                 onChange={(e) =>
                   setPosition(e.target.value as "bottom-right" | "bottom-left")
                 }
-                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 cursor-pointer">
+                className="w-full rounded-xl border border-white/10 bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 cursor-pointer">
                 <option value="bottom-right">bottom-right (default)</option>
                 <option value="bottom-left">bottom-left</option>
               </select>
