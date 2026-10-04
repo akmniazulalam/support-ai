@@ -248,7 +248,7 @@ export default function WidgetDemoPage() {
               <button
                 type="button"
                 onClick={unloadWidget}
-                className="rounded-xl border border-white/10 bg-[#1c1d28] px-4 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors cursor-pointer">
+                className="rounded-xl border border-white/10 bg-[#1c1d28] px-4 py-2 text-xs font-medium text-zinc-300 hover:bg-white/8 transition-colors cursor-pointer">
                 Unload Widget
               </button>
             )}
