@@ -88,7 +88,7 @@ export default function DashboardOverviewPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/8 text-zinc-300">
+            <span className="inline-flex items-center gap-1.5 text-xs font-lexend px-3 py-1.5 rounded-xl bg-white/5 border border-white/8 text-zinc-300">
               <BuildingIcon className="h-3.5 w-3.5 text-zinc-400" />
               <span>Workspace: {workspace?.slug || "default"}</span>
             </span>
