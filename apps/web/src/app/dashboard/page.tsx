@@ -208,7 +208,7 @@ export default function DashboardOverviewPage() {
             </Link>
           </div>
         ) : (
-          <div className="divide-y divide-white/[0.06]">
+          <div className="divide-y divide-white/6">
             {agents.map((agent) => (
               <div
                 key={agent.id}
