@@ -302,7 +302,7 @@ export default function DashboardOverviewPage() {
                     Ready
                   </span>
                 ) : (
-                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/[0.08]">
+                  <span className="text-[10px] font-lexend uppercase px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/8">
                     Not ready
                   </span>
                 )}
