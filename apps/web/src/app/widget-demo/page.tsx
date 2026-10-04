@@ -265,7 +265,7 @@ export default function WidgetDemoPage() {
         </div>
 
         {/* Live Session & Status Inspection */}
-        <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-5 space-y-3">
+        <div className="rounded-2xl border border-white/8 bg-[#111218] p-5 space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
             Widget State & Session Inspector
           </h2>
