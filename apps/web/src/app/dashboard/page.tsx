@@ -359,7 +359,7 @@ export default function DashboardOverviewPage() {
               </p>
             </div>
             {hasAgents ? (
-              <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] text-emerald-400 font-medium">
+              <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-emerald-400 font-medium">
                 Live &amp; Accessible
               </div>
             ) : (
