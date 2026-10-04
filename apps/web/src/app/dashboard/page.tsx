@@ -259,7 +259,7 @@ export default function DashboardOverviewPage() {
       </div>
 
       {/* Getting Started & Onboarding Guidance */}
-      <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-6 shadow-sm">
+      <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-6 shadow-sm">
         <div className="flex items-center gap-2 mb-4">
           <SparklesIcon className="h-5 w-5 text-zinc-300" />
           <h2 className="text-base font-semibold text-zinc-100">
