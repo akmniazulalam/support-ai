@@ -363,7 +363,7 @@ export default function DashboardOverviewPage() {
                 Live &amp; Accessible
               </div>
             ) : (
-              <div className="mt-4 pt-3 border-t border-white/[0.05]">
+              <div className="mt-4 pt-3 border-t border-white/5">
                 <Link
                   href="/dashboard/agents/new"
                   className="text-[11px] text-zinc-400 hover:text-zinc-200 font-medium transition-colors">
