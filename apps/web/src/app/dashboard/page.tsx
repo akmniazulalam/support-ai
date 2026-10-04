@@ -382,7 +382,7 @@ export default function DashboardOverviewPage() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          <div className="p-3 rounded-xl bg-[#141520] border border-white/[0.05]">
+          <div className="p-3 rounded-xl bg-[#141520] border border-white/5">
             <span className="text-zinc-500 block mb-1">Workspace ID</span>
             <span className="font-lexend text-zinc-200 truncate block">
               {workspace?.id}
