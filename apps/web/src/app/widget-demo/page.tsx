@@ -286,7 +286,7 @@ export default function WidgetDemoPage() {
               </span>
             </div>
 
-            <div className="p-3 rounded-xl border border-white/[0.04] bg-[#0c0d14]">
+            <div className="p-3 rounded-xl border border-white/4 bg-[#0c0d14]">
               <span className="text-zinc-500 block mb-1">
                 LocalStorage Session
               </span>
