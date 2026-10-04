@@ -331,7 +331,7 @@ export default function WidgetDemoPage() {
             into the widget launcher or chat panel.
           </p>
 
-          <div className="p-4 rounded-xl border border-white/[0.06] bg-[#0c0d14] space-y-2">
+          <div className="p-4 rounded-xl border border-white/6 bg-[#0c0d14] space-y-2">
             <p className="text-xs text-zinc-400">
               Sample Host Page Buttons (affected by host styling):
             </p>
