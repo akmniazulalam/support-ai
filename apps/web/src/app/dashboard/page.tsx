@@ -316,7 +316,7 @@ export default function DashboardOverviewPage() {
                   : 'Create your first AI support agent to configure system instructions and knowledge.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/[0.05]">
+            <div className="mt-4 pt-3 border-t border-white/5">
               {hasAgents ? (
                 <Link
                   href="/dashboard/agents"
