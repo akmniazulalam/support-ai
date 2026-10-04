@@ -161,7 +161,7 @@ export default function WidgetDemoPage() {
         </div>
 
         {/* Configuration Controls */}
-        <div className="rounded-2xl border border-white/[0.08] bg-[#111218] p-6 space-y-5">
+        <div className="rounded-2xl border border-white/8 bg-[#111218] p-6 space-y-5">
           <h2 className="text-sm font-semibold text-zinc-200">
             Widget Parameters
           </h2>
