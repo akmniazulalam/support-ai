@@ -396,7 +396,7 @@ export default function DashboardOverviewPage() {
             </span>
           </div>
 
-          <div className="p-3 rounded-xl bg-[#141520] border border-white/[0.05]">
+          <div className="p-3 rounded-xl bg-[#141520] border border-white/5">
             <span className="text-zinc-500 block mb-1">Created At</span>
             <span className="text-zinc-200 block">
               {workspace?.createdAt
