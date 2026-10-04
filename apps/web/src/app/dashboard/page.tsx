@@ -123,7 +123,7 @@ export default function DashboardOverviewPage() {
           </div>
           <div className="flex items-baseline gap-2">
             {isLoadingAgents ? (
-              <span className="h-7 w-12 rounded bg-white/[0.06] animate-pulse" />
+              <span className="h-7 w-12 rounded bg-white/6 animate-pulse" />
             ) : (
               <span className="text-2xl font-bold text-white">
                 {agents.length}
