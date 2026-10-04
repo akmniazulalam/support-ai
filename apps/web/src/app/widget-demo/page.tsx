@@ -227,7 +227,7 @@ export default function WidgetDemoPage() {
                 value={apiUrl}
                 onChange={(e) => setApiUrl(e.target.value)}
                 placeholder={`${pathname === "https://support-ai-web-eosin.vercel.app/widget-demo" ? "https://support-ai-sihl.onrender.com" : "http://localhost:3001"}`}
-                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
+                className="w-full rounded-xl border border-white/10 bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
               />
               <p className="text-[11px] text-zinc-500 mt-1">
                 Only for local development testing via <code>data-api-url</code>
