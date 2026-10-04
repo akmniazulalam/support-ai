@@ -189,7 +189,7 @@ export default function DashboardOverviewPage() {
             </button>
           </div>
         ) : agents.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-white/10 p-8 text-center bg-white/[0.01]">
+          <div className="rounded-xl border border-dashed border-white/10 p-8 text-center bg-white/1">
             <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800/80 border border-white/8 text-zinc-400 mb-3">
               <BotIcon className="h-5 w-5" />
             </div>
