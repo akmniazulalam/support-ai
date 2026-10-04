@@ -247,7 +247,7 @@ export default function DashboardOverviewPage() {
                     href={`/chat/${agent.publicId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-xl bg-white/6 hover:bg-white/10 border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
+                    className="flex items-center gap-1.5 rounded-xl bg-white/6 hover:bg-white/10 border border-white/8 px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400">
                     <span>Open Public Chat</span>
                     <ExternalLinkIcon className="h-3 w-3" />
                   </Link>
