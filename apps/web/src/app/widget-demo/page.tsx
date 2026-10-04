@@ -307,7 +307,7 @@ export default function WidgetDemoPage() {
             This is the exact code snippet an external website owner places on
             their HTML page:
           </p>
-          <pre className="p-4 rounded-xl bg-[#0a0b10] border border-white/[0.06] text-xs font-lexend text-emerald-400 overflow-x-auto">
+          <pre className="p-4 rounded-xl bg-[#0a0b10] border border-white/6 text-xs font-lexend text-emerald-400 overflow-x-auto">
             {embedSnippet}
           </pre>
         </div>
