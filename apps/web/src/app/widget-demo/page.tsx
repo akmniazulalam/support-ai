@@ -187,7 +187,7 @@ export default function WidgetDemoPage() {
                 value={agentId}
                 onChange={(e) => handleAgentIdChange(e.target.value)}
                 placeholder="e.g. 8f6b1424-..."
-                className="w-full rounded-xl border border-white/[0.1] bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
+                className="w-full rounded-xl border border-white/10 bg-[#161722] px-3.5 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-lexend"
               />
               <p className="text-[11px] text-zinc-500 mt-1">
                 Found under agent settings in the dashboard.
