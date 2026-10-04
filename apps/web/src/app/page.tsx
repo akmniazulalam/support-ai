@@ -14,7 +14,7 @@ export default function Home() {
 
       <main className="relative z-10 flex flex-col items-center text-center max-w-xl animate-message-entrance">
         {/* SupportAI Brand Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.03] px-3.5 py-1.5 text-xs text-zinc-300 mb-8 backdrop-blur-xs">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/3 px-3.5 py-1.5 text-xs text-zinc-300 mb-8 backdrop-blur-xs">
           <SparklesIcon className="h-3.5 w-3.5 text-emerald-400" />
           <span>SupportAI Platform Milestone 2 Active</span>
         </div>
