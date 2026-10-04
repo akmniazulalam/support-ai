@@ -62,7 +62,7 @@ export default function DashboardOverviewPage() {
       {/* Welcome Banner */}
       <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-[#11131c] via-[#0e1017] to-[#12141e] p-6 sm:p-8 shadow-xl shadow-black/50">
         <div
-          className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-3xl pointer-events-none"
+          className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-emerald-500/3 blur-3xl pointer-events-none"
           aria-hidden="true"
         />
 
