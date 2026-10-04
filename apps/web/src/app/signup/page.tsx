@@ -239,7 +239,7 @@ export default function SignUpPage() {
           />
 
           {/* Real-time password requirement checklist */}
-          <div className="mt-2.5 p-2.5 rounded-xl bg-[#141520]/80 border border-white/[0.06] text-[11px] space-y-1">
+          <div className="mt-2.5 p-2.5 rounded-xl bg-[#141520]/80 border border-white/6 text-[11px] space-y-1">
             <div
               className={`flex items-center gap-1.5 transition-colors ${
                 hasMinLength ? 'text-emerald-400' : 'text-zinc-500'
