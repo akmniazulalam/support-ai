@@ -376,7 +376,7 @@ export default function DashboardOverviewPage() {
       </div>
 
       {/* Workspace Details Card */}
-      <div className="rounded-2xl border border-white/[0.08] bg-[#0f1017] p-6 shadow-sm">
+      <div className="rounded-2xl border border-white/8 bg-[#0f1017] p-6 shadow-sm">
         <h2 className="text-sm font-semibold text-zinc-300 mb-4 uppercase tracking-wider">
           Workspace Information
         </h2>
