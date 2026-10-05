@@ -26,7 +26,7 @@ export function AdminSearchInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         disabled={disabled}
-        className="w-full rounded-xl border border-white/[0.1] bg-[#111218] py-2 pl-9 pr-8 text-xs text-zinc-100 placeholder-zinc-500 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 disabled:opacity-50"
+        className="w-full rounded-xl border border-white/10 bg-[#111218] py-2 pl-9 pr-8 text-xs text-zinc-100 placeholder-zinc-500 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 disabled:opacity-50"
       />
       {value.length > 0 && (
         <button
