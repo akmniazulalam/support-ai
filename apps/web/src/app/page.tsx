@@ -44,7 +44,7 @@ export default function Home() {
 
           <Link
             href="/login"
-            className="flex h-11 w-full items-center justify-center rounded-xl border border-white/8 bg-white/[0.04] px-5 text-sm font-medium text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+            className="flex h-11 w-full items-center justify-center rounded-xl border border-white/8 bg-white/4 px-5 text-sm font-medium text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
           >
             Sign In
           </Link>
