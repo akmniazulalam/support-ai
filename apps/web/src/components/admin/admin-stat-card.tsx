@@ -28,7 +28,7 @@ export function AdminStatCard({
   }[accent];
 
   return (
-    <div className="relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#111218] p-5 shadow-xs transition-colors hover:border-white/[0.14]">
+    <div className="relative flex flex-col justify-between rounded-2xl border border-white/8 bg-[#111218] p-5 shadow-xs transition-colors hover:border-white/[0.14]">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
