@@ -20,7 +20,7 @@ export default function Home() {
         </div>
 
         {/* Logo */}
-        <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/[0.1] text-zinc-200 shadow-xl mb-6">
+        <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/10 text-zinc-200 shadow-xl mb-6">
           <BotIcon className="h-7 w-7 text-zinc-300" />
         </div>
 
