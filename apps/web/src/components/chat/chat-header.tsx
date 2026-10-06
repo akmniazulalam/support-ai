@@ -9,7 +9,7 @@ interface ChatHeaderProps {
 
 export function ChatHeader({ agent, onReset, disabled = false }: ChatHeaderProps) {
   return (
-    <header className="flex items-center justify-between px-4 py-3.5 sm:px-6 border-b border-white/[0.08] bg-[#0c0d14]/80 backdrop-blur-md shrink-0">
+    <header className="flex items-center justify-between px-4 py-3.5 sm:px-6 border-b border-white/8 bg-[#0c0d14]/80 backdrop-blur-md shrink-0">
       <div className="flex items-center gap-3 min-w-0">
         <div className="relative shrink-0">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-800/90 border border-white/[0.1] text-zinc-200 shadow-xs">
