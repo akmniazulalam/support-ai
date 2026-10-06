@@ -17,7 +17,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
         className="pointer-events-none fixed inset-0 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-zinc-800/10 blur-[130px] rounded-full" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-[400px] bg-zinc-800/10 blur-[130px] rounded-full" />
       </div>
 
       <div className="relative w-full max-w-md animate-message-entrance z-10">
