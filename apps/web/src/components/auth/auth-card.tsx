@@ -55,7 +55,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
         <div className="relative rounded-2xl border border-white/8 bg-[#0f1017]/90 p-6 sm:p-8 shadow-2xl shadow-black/80 backdrop-blur-md">
           {/* Subtle top edge gradient sheen */}
           <div
-            className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
+            className="absolute top-0 left-6 right-6 h-px bg-linear-to-r from-transparent via-white/20 to-transparent pointer-events-none"
             aria-hidden="true"
           />
 
