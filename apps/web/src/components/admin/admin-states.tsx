@@ -27,7 +27,7 @@ export function AdminEmptyState({
         <button
           type="button"
           onClick={action.onClick}
-          className="mt-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors"
+          className="mt-4 rounded-xl border border-white/[0.1] bg-white/4 px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.08] transition-colors"
         >
           {action.label}
         </button>
