@@ -78,7 +78,7 @@ export function AdminErrorState({
 export function AdminTableSkeleton({ rows = 5, cols = 5 }: { rows?: number; cols?: number }) {
   return (
     <div className="w-full rounded-2xl border border-white/8 bg-[#111218] overflow-hidden">
-      <div className="border-b border-white/[0.06] bg-[#0c0d14]/60 px-4 py-3">
+      <div className="border-b border-white/6 bg-[#0c0d14]/60 px-4 py-3">
         <div className="flex items-center gap-4 animate-pulse">
           {Array.from({ length: cols }).map((_, i) => (
             <div key={i} className="h-3.5 bg-zinc-800 rounded w-24" />
