@@ -40,7 +40,7 @@ export function AdminTabs() {
   const pathname = usePathname();
 
   return (
-    <div className="border-b border-white/[0.08] mb-6">
+    <div className="border-b border-white/8 mb-6">
       <nav className="flex space-x-1 overflow-x-auto chat-scrollbar -mb-px" aria-label="Admin Navigation Tabs">
         {TABS.map((tab) => {
           const isActive = tab.exact
