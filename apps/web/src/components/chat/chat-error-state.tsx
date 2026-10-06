@@ -86,7 +86,7 @@ export function ChatInlineErrorBanner({
 export function ChatLoadingState() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 border border-white/[0.08] text-zinc-400 mb-3 shadow-sm">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 border border-white/8 text-zinc-400 mb-3 shadow-sm">
         <span className="h-4 w-4 rounded-full border-2 border-zinc-500 border-t-transparent animate-spin" />
       </div>
       <p className="text-xs text-zinc-400 font-lexend">
