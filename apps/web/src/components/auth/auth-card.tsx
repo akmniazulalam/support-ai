@@ -27,7 +27,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
             href="/"
             className="group flex items-center gap-2.5 mb-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-lg p-1"
           >
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/[0.1] text-zinc-200 shadow-md group-hover:border-white/[0.18] transition-colors">
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/10 text-zinc-200 shadow-md group-hover:border-white/[0.18] transition-colors">
               <BotIcon className="h-5 w-5 text-zinc-300" />
               <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-[#09090b]">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
