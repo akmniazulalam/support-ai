@@ -58,7 +58,7 @@ export function AdminTablePagination({
           type="button"
           onClick={() => onPageChange(page + 1)}
           disabled={!hasNext || isLoading}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/8 bg-[#141520] hover:bg-white/[0.06] text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/8 bg-[#141520] hover:bg-white/6 text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
         >
           <span>Next</span>
           <ChevronRightIcon className="h-3 w-3" />
