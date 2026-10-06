@@ -85,7 +85,7 @@ export function AdminTableSkeleton({ rows = 5, cols = 5 }: { rows?: number; cols
           ))}
         </div>
       </div>
-      <div className="divide-y divide-white/[0.04]">
+      <div className="divide-y divide-white/4">
         {Array.from({ length: rows }).map((_, r) => (
           <div key={r} className="px-4 py-3.5 flex items-center gap-4 animate-pulse">
             {Array.from({ length: cols }).map((_, c) => (
