@@ -18,7 +18,7 @@ export function AdminEmptyState({
 }: AdminEmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-white/8 bg-[#111218] px-6 py-14 text-center">
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.04] border border-white/[0.06] text-zinc-500 mb-4">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/4 border border-white/[0.06] text-zinc-500 mb-4">
         <SearchIcon className="h-6 w-6" />
       </div>
       <h3 className="text-sm font-semibold text-zinc-200 mb-1">{title}</h3>
