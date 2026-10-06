@@ -29,7 +29,7 @@ export function AdminTablePagination({
   const hasNext = page < totalPages;
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-white/[0.08] bg-[#0c0d14]/40 text-xs text-zinc-400">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-white/8 bg-[#0c0d14]/40 text-xs text-zinc-400">
       <div className="tabular-nums">
         Showing <span className="font-medium text-zinc-200">{start}</span> to{' '}
         <span className="font-medium text-zinc-200">{end}</span> of{' '}
