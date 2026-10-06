@@ -9,7 +9,7 @@ export function ChatNotFoundState({
 }: ChatNotFoundStateProps) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-6 text-center animate-message-entrance">
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-850/80 border border-white/[0.08] text-zinc-400 mb-4 shadow-md">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-850/80 border border-white/8 text-zinc-400 mb-4 shadow-md">
         <AlertCircleIcon className="h-6 w-6 text-zinc-400" />
       </div>
 
