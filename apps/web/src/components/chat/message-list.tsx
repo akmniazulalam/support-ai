@@ -33,7 +33,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
       {!hasMessages && (
         <div className="flex flex-col items-center justify-center min-h-[260px] text-center my-auto py-8 px-4 animate-message-entrance">
           <div className="relative mb-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141620] border border-white/[0.1] text-zinc-300 shadow-lg shadow-black/40">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141620] border border-white/10 text-zinc-300 shadow-lg shadow-black/40">
               <BotIcon className="h-7 w-7 text-zinc-300" />
             </div>
             <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#090a0f] border border-white/[0.1]">
