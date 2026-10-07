@@ -67,7 +67,7 @@ export function ChatShell({ publicId }: ChatShellProps) {
       </div>
 
       {/* Main chat application container */}
-      <div className="relative flex h-full w-full sm:h-[85vh] sm:max-h-[820px] sm:max-w-2xl flex-col sm:rounded-2xl sm:border sm:border-white/[0.08] sm:bg-[#0f1017] sm:shadow-2xl sm:shadow-black/70 overflow-hidden z-10">
+      <div className="relative flex h-full w-full sm:h-[85vh] sm:max-h-[820px] sm:max-w-2xl flex-col sm:rounded-2xl sm:border sm:border-white/8 sm:bg-[#0f1017] sm:shadow-2xl sm:shadow-black/70 overflow-hidden z-10">
         {/* Subtle top edge gradient highlight */}
         <div
           className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent z-20 pointer-events-none"
