@@ -38,7 +38,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
           )}
         </div>
         <div
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800/90 border border-white/[0.1] text-zinc-300 shadow-xs"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800/90 border border-white/10 text-zinc-300 shadow-xs"
           aria-hidden="true"
         >
           <UserIcon className="h-3.5 w-3.5" />
