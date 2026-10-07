@@ -98,7 +98,7 @@ export function MessageComposer({
             disabled={!canSubmit}
             aria-label="Send message"
             title="Send message (Enter)"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-b from-zinc-100 to-zinc-300 text-zinc-950 font-semibold shadow-sm transition-all duration-150 hover:brightness-105 active:scale-95 disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-linear-to-b from-zinc-100 to-zinc-300 text-zinc-950 font-semibold shadow-sm transition-all duration-150 hover:brightness-105 active:scale-95 disabled:opacity-20 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300"
           >
             <SendIcon className="h-4 w-4" />
           </button>
