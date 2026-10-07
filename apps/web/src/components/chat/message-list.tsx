@@ -31,7 +31,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
     <div className="flex-1 overflow-y-auto px-4 py-5 sm:px-6 space-y-4 chat-scrollbar">
       {/* Welcome state when no conversation messages exist */}
       {!hasMessages && (
-        <div className="flex flex-col items-center justify-center min-h-[260px] text-center my-auto py-8 px-4 animate-message-entrance">
+        <div className="flex flex-col items-center justify-center min-h-65 text-center my-auto py-8 px-4 animate-message-entrance">
           <div className="relative mb-4">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141620] border border-white/10 text-zinc-300 shadow-lg shadow-black/40">
               <BotIcon className="h-7 w-7 text-zinc-300" />
