@@ -76,7 +76,7 @@ export function MessageComposer({
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-3 sm:p-4 border-t border-white/[0.08] bg-[#0c0d14]/90 backdrop-blur-md shrink-0"
+      className="p-3 sm:p-4 border-t border-white/8 bg-[#0c0d14]/90 backdrop-blur-md shrink-0"
     >
       <div className="relative flex flex-col rounded-2xl bg-[#141520] border border-white/9 shadow-inner focus-within:border-zinc-500/50 focus-within:ring-1 focus-within:ring-zinc-500/30 transition-all duration-150">
         <div className="flex items-end gap-2 p-2">
