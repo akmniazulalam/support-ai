@@ -17,7 +17,7 @@ export function TypingIndicator({ agentName }: TypingIndicatorProps) {
       </div>
 
       <div className="flex flex-col gap-1">
-        <div className="flex items-center gap-1.5 h-9 rounded-2xl rounded-tl-sm px-4 bg-[#14151e] border border-white/[0.08] shadow-sm">
+        <div className="flex items-center gap-1.5 h-9 rounded-2xl rounded-tl-sm px-4 bg-[#14151e] border border-white/8 shadow-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-1" />
           <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-2" />
           <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-3" />
