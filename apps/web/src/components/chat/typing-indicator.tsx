@@ -12,7 +12,7 @@ export function TypingIndicator({ agentName }: TypingIndicatorProps) {
       aria-live="polite"
       aria-label={`${agentName || 'Assistant'} is typing`}
     >
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80 border border-white/[0.08] text-zinc-400">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80 border border-white/8 text-zinc-400">
         <BotIcon className="h-4 w-4" />
       </div>
 
