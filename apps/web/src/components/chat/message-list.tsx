@@ -58,7 +58,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
                 <SparklesIcon className="h-3.5 w-3.5 text-zinc-400" />
                 <span>Greeting from {agent?.name || 'Agent'}</span>
               </div>
-              <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-wrap break-words">
+              <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-wrap wrap-break-word">
                 {greeting}
               </p>
             </div>
