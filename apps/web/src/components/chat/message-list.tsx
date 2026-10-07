@@ -36,7 +36,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141620] border border-white/10 text-zinc-300 shadow-lg shadow-black/40">
               <BotIcon className="h-7 w-7 text-zinc-300" />
             </div>
-            <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#090a0f] border border-white/[0.1]">
+            <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#090a0f] border border-white/10">
               <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
             </div>
           </div>
