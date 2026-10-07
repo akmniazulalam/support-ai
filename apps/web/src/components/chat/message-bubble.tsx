@@ -50,7 +50,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
   return (
     <div className="flex items-start gap-2.5 animate-message-entrance group">
       <div
-        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#14151e] border border-white/[0.08] text-zinc-300 shadow-xs mt-0.5"
+        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#14151e] border border-white/8 text-zinc-300 shadow-xs mt-0.5"
         aria-hidden="true"
       >
         <BotIcon className="h-3.5 w-3.5" />
