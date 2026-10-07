@@ -53,7 +53,7 @@ export function MessageList({ messages, agent, isSending }: MessageListProps) {
           </p>
 
           {greeting && (
-            <div className="w-full max-w-md rounded-2xl p-4 bg-[#141520]/80 border border-white/[0.08] text-left shadow-sm backdrop-blur-xs">
+            <div className="w-full max-w-md rounded-2xl p-4 bg-[#141520]/80 border border-white/8 text-left shadow-sm backdrop-blur-xs">
               <div className="flex items-center gap-2 mb-2 text-xs font-medium text-zinc-300">
                 <SparklesIcon className="h-3.5 w-3.5 text-zinc-400" />
                 <span>Greeting from {agent?.name || 'Agent'}</span>
