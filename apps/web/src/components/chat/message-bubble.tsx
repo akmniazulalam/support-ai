@@ -28,7 +28,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
     return (
       <div className="flex justify-end gap-2.5 animate-message-entrance group">
         <div className="flex flex-col items-end max-w-[85%] sm:max-w-[78%]">
-          <div className="rounded-2xl rounded-tr-xs px-4 py-2.5 bg-linear-to-br from-zinc-800 to-zinc-900 border border-zinc-700/60 text-zinc-100 shadow-md text-sm leading-relaxed whitespace-pre-wrap break-words">
+          <div className="rounded-2xl rounded-tr-xs px-4 py-2.5 bg-linear-to-br from-zinc-800 to-zinc-900 border border-zinc-700/60 text-zinc-100 shadow-md text-sm leading-relaxed whitespace-pre-wrap wrap-break-word">
             {message.content}
           </div>
           {formattedTime && (
