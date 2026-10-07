@@ -63,7 +63,7 @@ export function ChatShell({ publicId }: ChatShellProps) {
         className="pointer-events-none fixed inset-0 hidden sm:block overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-zinc-800/10 blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-[500px] bg-zinc-800/10 blur-[120px] rounded-full" />
       </div>
 
       {/* Main chat application container */}
