@@ -66,7 +66,7 @@ export function MessageBubble({ message, agentName }: MessageBubbleProps) {
           </span>
         </div>
 
-        <div className="rounded-2xl rounded-tl-xs px-4 py-2.5 bg-[#14151f] border border-white/[0.08] text-zinc-200 shadow-sm text-sm leading-relaxed whitespace-pre-wrap break-words">
+        <div className="rounded-2xl rounded-tl-xs px-4 py-2.5 bg-[#14151f] border border-white/8 text-zinc-200 shadow-sm text-sm leading-relaxed whitespace-pre-wrap break-words">
           {message.content}
         </div>
 
