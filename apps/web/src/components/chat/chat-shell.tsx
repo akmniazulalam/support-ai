@@ -46,7 +46,7 @@ export function ChatShell({ publicId }: ChatShellProps) {
   if (status === 'not_found') {
     return (
       <div className="flex h-dvh w-full items-center justify-center p-0 sm:p-6 bg-[#09090b]">
-        <div className="relative flex h-full w-full sm:h-[85vh] sm:max-h-[820px] sm:max-w-2xl flex-col sm:rounded-2xl sm:border sm:border-white/8 sm:bg-[#0f1017] sm:shadow-2xl sm:shadow-black/70 overflow-hidden">
+        <div className="relative flex h-full w-full sm:h-[85vh] sm:max-h-205 sm:max-w-2xl flex-col sm:rounded-2xl sm:border sm:border-white/8 sm:bg-[#0f1017] sm:shadow-2xl sm:shadow-black/70 overflow-hidden">
           <ChatNotFoundState message={errorMessage || undefined} />
         </div>
       </div>
