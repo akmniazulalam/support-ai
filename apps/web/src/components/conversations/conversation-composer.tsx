@@ -146,7 +146,7 @@ export function ConversationComposer({
             </span>
             <span className="text-zinc-600">·</span>
             <span>
-              <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Shift+Enter</kbd> newline
+              <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/6 text-zinc-400">Shift+Enter</kbd> newline
             </span>
           </div>
 
