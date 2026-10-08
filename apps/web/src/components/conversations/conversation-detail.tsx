@@ -176,7 +176,7 @@ export function ConversationDetail({
               target="_blank"
               rel="noopener noreferrer"
               title="Open public customer chat in new tab"
-              className="hidden sm:flex items-center gap-1.5 rounded-lg border border-white/8 bg-white/[0.03] px-2.5 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors"
+              className="hidden sm:flex items-center gap-1.5 rounded-lg border border-white/8 bg-white/3 px-2.5 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors"
             >
               <ExternalLinkIcon className="h-3.5 w-3.5" />
               <span>Public Chat</span>
