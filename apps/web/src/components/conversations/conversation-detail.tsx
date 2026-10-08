@@ -139,7 +139,7 @@ export function ConversationDetail({
               type="button"
               onClick={onBack}
               aria-label="Back to conversations list"
-              className="lg:hidden flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.06] transition-colors"
+              className="lg:hidden flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-white/6 transition-colors"
             >
               <ArrowLeftIcon className="h-4 w-4" />
             </button>
