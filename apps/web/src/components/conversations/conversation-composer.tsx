@@ -120,7 +120,7 @@ export function ConversationComposer({
             maxLength={MAX_CHARACTERS}
             placeholder={isSending ? 'Sending message...' : placeholder}
             aria-label="Message text"
-            className="flex-1 max-h-[140px] min-h-[38px] resize-none bg-transparent px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed leading-relaxed chat-scrollbar"
+            className="flex-1 max-h-35 min-h-9.5 resize-none bg-transparent px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed leading-relaxed chat-scrollbar"
           />
 
           <button
