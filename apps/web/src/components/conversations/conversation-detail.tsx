@@ -257,7 +257,7 @@ export function ConversationDetail({
             {/* AI Formulating Reply Indicator */}
             {isSending && (
               <div className="flex items-start gap-2.5 animate-message-entrance">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#141520] border border-white/[0.1] text-emerald-400 mt-0.5">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#141520] border border-white/10 text-emerald-400 mt-0.5">
                   <BotIcon className="h-3.5 w-3.5" />
                 </div>
                 <div className="flex flex-col items-start">
