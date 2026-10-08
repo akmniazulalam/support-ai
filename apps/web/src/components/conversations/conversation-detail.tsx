@@ -227,7 +227,7 @@ export function ConversationDetail({
         {/* Empty Messages State */}
         {!isLoading && !error && allMessages.length === 0 && (
           <div className="flex h-full flex-col items-center justify-center py-16 text-center text-zinc-500">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-white/[0.08] mb-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-white/8 mb-3">
               <BotIcon className="h-6 w-6 text-zinc-500" />
             </div>
             <p className="text-sm font-semibold text-zinc-300">No messages yet</p>
