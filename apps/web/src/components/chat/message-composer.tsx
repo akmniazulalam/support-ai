@@ -90,7 +90,7 @@ export function MessageComposer({
             maxLength={MAX_CHARACTERS}
             placeholder={disabled ? 'Please wait...' : placeholder}
             aria-label="Message input"
-            className="flex-1 max-h-40 min-h-[40px] resize-none bg-transparent px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed leading-relaxed chat-scrollbar"
+            className="flex-1 max-h-40 min-h-10 resize-none bg-transparent px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed leading-relaxed chat-scrollbar"
           />
 
           <button
