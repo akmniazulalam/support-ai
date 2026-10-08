@@ -131,7 +131,7 @@ export function ConversationDetail({
   return (
     <div className="flex h-full flex-col bg-[#0c0d14] overflow-hidden">
       {/* Detail Header */}
-      <div className="flex items-center justify-between gap-3 border-b border-white/[0.08] px-4 py-3 bg-[#111218]/90 backdrop-blur-xs shrink-0">
+      <div className="flex items-center justify-between gap-3 border-b border-white/8 px-4 py-3 bg-[#111218]/90 backdrop-blur-xs shrink-0">
         <div className="flex items-center gap-2.5 min-w-0">
           {/* Back button (mobile) */}
           {onBack && (
