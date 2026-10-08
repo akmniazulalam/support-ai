@@ -75,7 +75,7 @@ export function ConversationBubble({
         </div>
 
         {/* Bubble */}
-        <div className="rounded-2xl rounded-tl-xs px-4 py-2.5 bg-[#141520] border border-white/[0.08] text-zinc-200 shadow-xs text-sm leading-relaxed whitespace-pre-wrap break-words">
+        <div className="rounded-2xl rounded-tl-xs px-4 py-2.5 bg-[#141520] border border-white/8 text-zinc-200 shadow-xs text-sm leading-relaxed whitespace-pre-wrap break-words">
           {message.content}
         </div>
 
