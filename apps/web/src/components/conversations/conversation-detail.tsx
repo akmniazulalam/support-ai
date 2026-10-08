@@ -216,7 +216,7 @@ export function ConversationDetail({
             <button
               type="button"
               onClick={() => setReloadKey((k) => k + 1)}
-              className="flex items-center gap-1.5 rounded-lg border border-white/[0.1] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.05] transition-colors"
+              className="flex items-center gap-1.5 rounded-lg border border-white/[0.1] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/5 transition-colors"
             >
               <RefreshCwIcon className="h-3 w-3" />
               Try again
