@@ -109,7 +109,7 @@ export function ConversationComposer({
       )}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-        <div className="relative flex items-end gap-2 rounded-xl bg-[#141520] border border-white/[0.08] p-2 focus-within:border-zinc-500/60 focus-within:ring-1 focus-within:ring-zinc-500/30 transition-all duration-150">
+        <div className="relative flex items-end gap-2 rounded-xl bg-[#141520] border border-white/8 p-2 focus-within:border-zinc-500/60 focus-within:ring-1 focus-within:ring-zinc-500/30 transition-all duration-150">
           <textarea
             ref={textareaRef}
             value={content}
