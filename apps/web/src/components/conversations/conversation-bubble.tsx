@@ -57,7 +57,7 @@ export function ConversationBubble({
     <div className="flex items-start gap-2.5 animate-message-entrance group">
       {/* Agent Avatar */}
       <div
-        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#141520] border border-white/[0.1] text-zinc-300 shadow-xs mt-0.5"
+        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#141520] border border-white/10 text-zinc-300 shadow-xs mt-0.5"
         aria-label="Agent AI message"
       >
         <BotIcon className="h-3.5 w-3.5 text-emerald-400" />
