@@ -142,7 +142,7 @@ export function ConversationComposer({
         <div className="flex items-center justify-between px-1 text-[11px] text-zinc-500 select-none">
           <div className="flex items-center gap-2">
             <span>
-              <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">Enter</kbd> to send
+              <kbd className="font-lexend text-[10px] px-1 py-0.5 rounded bg-white/6 text-zinc-400">Enter</kbd> to send
             </span>
             <span className="text-zinc-600">·</span>
             <span>
