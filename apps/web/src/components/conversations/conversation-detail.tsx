@@ -269,7 +269,7 @@ export function ConversationDetail({
                       Thinking
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-xs px-4 py-3 bg-[#141520] border border-white/[0.08]">
+                  <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-xs px-4 py-3 bg-[#141520] border border-white/8">
                     <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-1" />
                     <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-2" />
                     <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 animate-typing-dot-3" />
