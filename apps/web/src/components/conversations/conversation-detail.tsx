@@ -241,7 +241,7 @@ export function ConversationDetail({
         {!isLoading && !error && allMessages.length > 0 && (
           <>
             <div className="flex items-center justify-center my-2">
-              <span className="text-[10px] font-lexend text-zinc-600 uppercase tracking-wider bg-white/3 px-2.5 py-0.5 rounded-full border border-white/[0.04]">
+              <span className="text-[10px] font-lexend text-zinc-600 uppercase tracking-wider bg-white/3 px-2.5 py-0.5 rounded-full border border-white/4">
                 Conversation started {conversation?.createdAt ? formatRelativeTime(conversation.createdAt) : ''}
               </span>
             </div>
