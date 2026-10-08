@@ -44,7 +44,7 @@ export function ConversationBubble({
 
         {/* Customer Avatar */}
         <div
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800 border border-white/[0.1] text-zinc-300 shadow-xs mt-0.5"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800 border border-white/10 text-zinc-300 shadow-xs mt-0.5"
           aria-label="Customer message"
         >
           <UserIcon className="h-3.5 w-3.5 text-zinc-400" />
