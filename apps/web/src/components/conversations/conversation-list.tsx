@@ -147,7 +147,7 @@ export function ConversationList({
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search conversations..."
               aria-label="Search conversations by ID"
-              className="w-full rounded-lg border border-white/[0.08] bg-[#141520] py-1.5 pl-8 pr-7 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors"
+              className="w-full rounded-lg border border-white/8 bg-[#141520] py-1.5 pl-8 pr-7 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors"
             />
             {searchQuery && (
               <button
