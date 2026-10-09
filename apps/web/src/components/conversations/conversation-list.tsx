@@ -63,7 +63,7 @@ export function ConversationList({
   return (
     <div className="flex h-full flex-col bg-[#0c0d14] overflow-hidden">
       {/* Header */}
-      <div className="p-3 sm:p-4 border-b border-white/[0.08] bg-[#111218]/80 shrink-0 space-y-3">
+      <div className="p-3 sm:p-4 border-b border-white/8 bg-[#111218]/80 shrink-0 space-y-3">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <h1 className="text-base font-bold tracking-tight text-zinc-100">
