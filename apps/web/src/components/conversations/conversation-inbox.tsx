@@ -278,7 +278,7 @@ export function ConversationInbox({
                 {selectedAgent && (
                   <Link
                     href={`/dashboard/agents/${selectedAgent.id}`}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/4 px-4 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] transition-colors"
+                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/4 px-4 py-2 text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-white/8 transition-colors"
                   >
                     <BotIcon className="h-4 w-4" />
                     <span>Agent Settings</span>
