@@ -177,7 +177,7 @@ export function ConversationList({
                   <div className="h-4 w-28 rounded bg-white/6" />
                   <div className="h-3 w-12 rounded bg-white/4" />
                 </div>
-                <div className="h-3 w-36 rounded bg-white/[0.04]" />
+                <div className="h-3 w-36 rounded bg-white/4" />
               </div>
             ))}
           </div>
