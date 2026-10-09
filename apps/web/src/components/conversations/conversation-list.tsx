@@ -122,7 +122,7 @@ export function ConversationList({
                 value={selectedAgentId}
                 onChange={(e) => onSelectAgentId(e.target.value)}
                 aria-label="Select an agent to view conversations"
-                className="w-full appearance-none rounded-xl border border-white/[0.1] bg-[#141520] py-2 pl-3 pr-8 text-xs font-medium text-zinc-200 focus:outline-none focus:border-zinc-500 transition-colors cursor-pointer truncate"
+                className="w-full appearance-none rounded-xl border border-white/10 bg-[#141520] py-2 pl-3 pr-8 text-xs font-medium text-zinc-200 focus:outline-none focus:border-zinc-500 transition-colors cursor-pointer truncate"
               >
                 {agents.map((agent) => (
                   <option key={agent.id} value={agent.id} className="bg-[#141520] text-zinc-200">
