@@ -38,7 +38,7 @@ export function ConversationItem({
             className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border transition-colors ${
               isSelected
                 ? 'bg-zinc-800 border-white/20 text-zinc-200'
-                : 'bg-zinc-900 border-white/[0.06] text-zinc-500 group-hover:text-zinc-300'
+                : 'bg-zinc-900 border-white/6 text-zinc-500 group-hover:text-zinc-300'
             }`}
           >
             <MessageSquareIcon className="h-3.5 w-3.5" />
