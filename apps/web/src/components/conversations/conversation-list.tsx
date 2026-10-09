@@ -171,7 +171,7 @@ export function ConversationList({
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="rounded-xl border border-white/[0.05] bg-[#111218]/50 p-3.5 space-y-2.5 animate-pulse"
+                className="rounded-xl border border-white/5 bg-[#111218]/50 p-3.5 space-y-2.5 animate-pulse"
               >
                 <div className="flex items-center justify-between">
                   <div className="h-4 w-28 rounded bg-white/[0.06]" />
