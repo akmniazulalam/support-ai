@@ -268,7 +268,7 @@ export function ConversationInbox({
                     href={`/chat/${selectedAgent.publicId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-zinc-300 hover:text-zinc-100 hover:bg-white/[0.08] transition-colors"
+                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/4 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-zinc-100 hover:bg-white/[0.08] transition-colors"
                   >
                     <ExternalLinkIcon className="h-4 w-4" />
                     <span>Open Public Chat</span>
