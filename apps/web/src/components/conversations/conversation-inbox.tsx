@@ -193,7 +193,7 @@ export function ConversationInbox({
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Left Column: Conversations List */}
         <div
-          className={`w-full lg:w-80 xl:w-96 shrink-0 border-r border-white/[0.08] flex-col h-full ${
+          className={`w-full lg:w-80 xl:w-96 shrink-0 border-r border-white/8 flex-col h-full ${
             selectedConversationId ? 'hidden lg:flex' : 'flex'
           }`}
         >
