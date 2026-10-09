@@ -202,7 +202,7 @@ export function ConversationList({
         {/* Empty State: No Agents */}
         {!isLoading && !error && agents.length === 0 && (
           <div className="flex flex-col items-center justify-center p-8 text-center space-y-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-white/[0.08]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-white/8">
               <BotIcon className="h-6 w-6 text-zinc-500" />
             </div>
             <p className="text-sm font-semibold text-zinc-200">No agents yet</p>
