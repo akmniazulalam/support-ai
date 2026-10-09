@@ -37,7 +37,7 @@ export function ConversationItem({
           <div
             className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border transition-colors ${
               isSelected
-                ? 'bg-zinc-800 border-white/[0.2] text-zinc-200'
+                ? 'bg-zinc-800 border-white/20 text-zinc-200'
                 : 'bg-zinc-900 border-white/[0.06] text-zinc-500 group-hover:text-zinc-300'
             }`}
           >
