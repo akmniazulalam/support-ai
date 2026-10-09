@@ -170,7 +170,7 @@ export function ConversationInbox({
   );
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-6.5rem)] min-h-[580px] rounded-2xl border border-white/[0.08] bg-[#0c0d14] shadow-2xl shadow-black/60 overflow-hidden animate-message-entrance">
+    <div className="flex flex-col h-[calc(100dvh-6.5rem)] min-h-[580px] rounded-2xl border border-white/8 bg-[#0c0d14] shadow-2xl shadow-black/60 overflow-hidden animate-message-entrance">
       {/* Global agent error banner if agents failed to load */}
       {agentsError && (
         <div className="flex items-center justify-between gap-3 border-b border-red-500/20 bg-red-500/10 px-4 py-2 text-xs text-red-400">
