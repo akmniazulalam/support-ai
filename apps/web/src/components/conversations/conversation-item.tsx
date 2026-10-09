@@ -28,7 +28,7 @@ export function ConversationItem({
       className={`group relative flex w-full flex-col gap-2 rounded-xl p-3.5 text-left transition-all duration-150 border focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 ${
         isSelected
           ? 'bg-white/8 border-white/[0.14] text-zinc-100 shadow-xs'
-          : 'bg-[#111218]/60 hover:bg-[#141520] border-white/[0.05] hover:border-white/[0.1] text-zinc-400'
+          : 'bg-[#111218]/60 hover:bg-[#141520] border-white/5 hover:border-white/[0.1] text-zinc-400'
       }`}
     >
       {/* Top row: ID + Relative time */}
