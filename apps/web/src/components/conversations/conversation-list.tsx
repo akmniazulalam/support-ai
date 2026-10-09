@@ -191,7 +191,7 @@ export function ConversationList({
             <button
               type="button"
               onClick={onRefresh}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.1] px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.06] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/[0.06] transition-colors"
             >
               <RefreshCwIcon className="h-3 w-3" />
               Try again
