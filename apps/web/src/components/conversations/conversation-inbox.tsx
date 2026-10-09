@@ -235,7 +235,7 @@ export function ConversationInbox({
           ) : (
             /* Empty selection placeholder (desktop) */
             <div className="flex h-full flex-col items-center justify-center p-8 text-center bg-[#0c0d14]">
-              <div className="relative flex h-16 w-16 items-center justify-center rounded-3xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/[0.1] text-zinc-400 shadow-xl mb-4">
+              <div className="relative flex h-16 w-16 items-center justify-center rounded-3xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/10 text-zinc-400 shadow-xl mb-4">
                 <MessagesSquareIcon className="h-8 w-8 text-zinc-300" />
                 <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#0c0d14]">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
