@@ -83,7 +83,7 @@ export function ConversationList({
               disabled={isLoading}
               title="Refresh conversation list"
               aria-label="Refresh conversations"
-              className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/8 bg-white/3 text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] transition-colors disabled:opacity-40"
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/8 bg-white/3 text-zinc-400 hover:text-zinc-200 hover:bg-white/6 transition-colors disabled:opacity-40"
             >
               <RefreshCwIcon className={`h-3.5 w-3.5 ${isLoading ? 'animate-spin' : ''}`} />
             </button>
