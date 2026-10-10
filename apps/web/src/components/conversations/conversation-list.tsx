@@ -249,7 +249,7 @@ export function ConversationList({
                   href={`/chat/${selectedAgent.publicId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 rounded-xl border border-white/[0.1] px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.04] transition-colors"
+                  className="flex items-center justify-center gap-1.5 rounded-xl border border-white/10 px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-white/[0.04] transition-colors"
                 >
                   <ExternalLinkIcon className="h-3.5 w-3.5" />
                   <span>Open Public Chat</span>
