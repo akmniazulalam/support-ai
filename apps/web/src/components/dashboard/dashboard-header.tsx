@@ -41,7 +41,7 @@ export function DashboardHeader({
       : 'U';
 
   return (
-    <header className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 border-b border-white/[0.08] bg-[#0c0d14]/80 backdrop-blur-md shrink-0 z-10">
+    <header className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 border-b border-white/8 bg-[#0c0d14]/80 backdrop-blur-md shrink-0 z-10">
       {/* Left: Mobile menu button & page title */}
       <div className="flex items-center gap-3 min-w-0">
         <button
