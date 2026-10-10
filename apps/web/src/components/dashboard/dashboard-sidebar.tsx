@@ -103,7 +103,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
           onClick={onNavigate}
           className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-lg p-1"
         >
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/[0.1] text-zinc-200 shadow-sm group-hover:border-white/[0.2] transition-colors">
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-linear-to-br from-zinc-800 to-zinc-900 border border-white/[0.1] text-zinc-200 shadow-sm group-hover:border-white/[0.2] transition-colors">
             <BotIcon className="h-4 w-4 text-zinc-300" />
             <span className="absolute -bottom-0.5 -right-0.5 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-[#0c0d14]">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
