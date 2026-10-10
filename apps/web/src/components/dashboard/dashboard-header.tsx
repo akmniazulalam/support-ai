@@ -94,7 +94,7 @@ export function DashboardHeader({
           {isUserMenuOpen && (
             <div
               role="menu"
-              className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#141520] border border-white/[0.1] p-1.5 shadow-2xl shadow-black/80 backdrop-blur-md z-30 animate-message-entrance"
+              className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#141520] border border-white/10 p-1.5 shadow-2xl shadow-black/80 backdrop-blur-md z-30 animate-message-entrance"
             >
               <div className="px-3 py-2 border-b border-white/6 mb-1">
                 <div className="text-xs font-semibold text-zinc-100 truncate">
