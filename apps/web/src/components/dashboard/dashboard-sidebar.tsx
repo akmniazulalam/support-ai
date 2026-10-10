@@ -95,7 +95,7 @@ export function DashboardSidebar({ onNavigate }: DashboardSidebarProps) {
       : 'U';
 
   return (
-    <aside className="flex h-full w-64 flex-col bg-[#0c0d14] border-r border-white/[0.08] select-none">
+    <aside className="flex h-full w-64 flex-col bg-[#0c0d14] border-r border-white/8 select-none">
       {/* Brand Header */}
       <div className="flex h-16 items-center px-6 border-b border-white/[0.08] shrink-0">
         <Link
