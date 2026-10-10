@@ -46,7 +46,7 @@ export function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
           type="button"
           onClick={onClose}
           aria-label="Close navigation"
-          className="absolute top-4 right-3 flex h-8 w-8 items-center justify-center rounded-lg text-zinc-400 hover:text-white bg-white/[0.05] border border-white/[0.08] focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
+          className="absolute top-4 right-3 flex h-8 w-8 items-center justify-center rounded-lg text-zinc-400 hover:text-white bg-white/[0.05] border border-white/8 focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
         >
           <XIcon className="h-4 w-4" />
         </button>
