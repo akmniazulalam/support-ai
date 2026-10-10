@@ -82,7 +82,7 @@ export function DashboardHeader({
             aria-label="User account menu"
             className="flex items-center gap-2 rounded-xl bg-[#141520] border border-white/8 p-1.5 pr-2.5 text-xs text-zinc-300 hover:border-white/[0.16] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-800 border border-white/[0.1] text-xs font-bold text-zinc-100">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-800 border border-white/10 text-xs font-bold text-zinc-100">
               {userInitials}
             </div>
             <span className="hidden md:inline font-medium text-zinc-200 max-w-[120px] truncate">
