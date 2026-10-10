@@ -85,7 +85,7 @@ export function DashboardHeader({
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-800 border border-white/10 text-xs font-bold text-zinc-100">
               {userInitials}
             </div>
-            <span className="hidden md:inline font-medium text-zinc-200 max-w-[120px] truncate">
+            <span className="hidden md:inline font-medium text-zinc-200 max-w-30 truncate">
               {user?.firstName || 'Account'}
             </span>
             <ChevronDownIcon className="h-3.5 w-3.5 text-zinc-500" />
