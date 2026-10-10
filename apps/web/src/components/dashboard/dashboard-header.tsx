@@ -48,7 +48,7 @@ export function DashboardHeader({
           type="button"
           onClick={onOpenMobileMenu}
           aria-label="Open navigation menu"
-          className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/4 border border-white/[0.08] text-zinc-300 hover:text-white lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/4 border border-white/8 text-zinc-300 hover:text-white lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
           <MenuIcon className="h-5 w-5" />
         </button>
